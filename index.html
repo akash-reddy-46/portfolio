@@ -1307,7 +1307,7 @@
       /* ---------- Projects ---------- */
       .project-card {
         display: grid;
-        grid-template-columns: 110px 1fr auto;
+        grid-template-columns: 110px 1fr;
         gap: 28px;
         align-items: start;
         padding: 28px;
@@ -1736,10 +1736,6 @@
           width: 80px;
           height: 80px;
         }
-        .project-card .project-year {
-          grid-column: 1 / -1;
-          justify-self: start;
-        }
       }
 
       @media (max-width: 720px) {
@@ -1829,9 +1825,12 @@
               ><span class="caret" aria-hidden="true"></span>
             </div>
             <p class="lede load l4">
-              Software Engineer with strong skills in building systems. I create
-              large systems using AWS, MongoDB, and web services. I use AI to
-              make my work faster and better. I work at JaaGa.AI in Hyderabad.
+              Experienced Software Engineer specializing in scalable backend
+              systems and automation. Expert in cloud architectures with AWS,
+              database design with MongoDB, and full-stack development.
+              Leverages AI tools for enhanced productivity and innovative
+              solutions. Currently building impactful products at JaaGa.AI in
+              Hyderabad.
             </p>
             <div class="cta-row load l5">
               <a class="btn btn-primary" href="#contact">
@@ -1955,36 +1954,38 @@
         <div class="about-grid">
           <div class="about-copy reveal delay-1">
             <p>
-              I began as a backend developer. I created web services, organized
-              data in MongoDB, and launched services on AWS. I added payment
-              systems, instant messages, and data collectors for features.
+              With over 2.5 years of experience in backend development, I've
+              evolved from building basic web services to architecting complex,
+              automated systems. My expertise spans full-stack development,
+              cloud infrastructure, and process automation.
             </p>
             <p>
-              Now I focus on using AI to improve work. I add smart tools to
-              backends, automate tasks, and build systems where tools help from
-              the start.
+              I specialize in creating efficient workflows and integrating
+              advanced technologies to solve real-world problems. Currently
+              focused on AI-enhanced development practices and scalable system
+              design.
             </p>
             <p>
-              I like good design, tracking performance, and making reliable
-              products.
+              Passionate about clean code, performance optimization, and
+              delivering reliable, production-ready solutions.
             </p>
           </div>
           <div class="stats reveal delay-2">
             <div class="stat">
-              <div class="num">2.5+</div>
-              <div class="label">Years building backends</div>
+              <div class="num">3+</div>
+              <div class="label">Years of experience</div>
             </div>
             <div class="stat">
-              <div class="num">14</div>
-              <div class="label">Tools &amp; tech in stack</div>
+              <div class="num">20+</div>
+              <div class="label">Technologies mastered</div>
             </div>
             <div class="stat">
-              <div class="num">5</div>
+              <div class="num">8+</div>
               <div class="label">Certifications earned</div>
             </div>
             <div class="stat">
               <div class="num">∞</div>
-              <div class="label">Things still to learn</div>
+              <div class="label">Problems solved</div>
             </div>
           </div>
         </div>
@@ -2139,19 +2140,21 @@
             <div class="project-sub">JaaGa.AI · Backend Development</div>
             <p class="project-desc">
               Developed a comprehensive lawyer module that integrates OCR
-              technology to streamline legal document processing. The system
-              automates document scanning, text extraction, and data
-              organization, making legal work more efficient and user-friendly
-              for lawyers.
+              technology to streamline legal document processing. Automated the
+              entire documents flow from scanning to data extraction and
+              organization, significantly reducing manual effort. Implemented
+              various automation features to handle repetitive tasks, making
+              legal work more efficient and user-friendly for lawyers.
             </p>
             <div class="project-tech">
-              <span>OCR</span>
-              <span>Python</span>
+              <span>Node.js</span>
               <span>AWS</span>
               <span>MongoDB</span>
+              <span>WinSCP</span>
+              <span>Bash</span>
+              <span>PM2</span>
             </div>
           </div>
-          <span class="project-year">2024 — Present</span>
         </div>
       </div>
     </section>
@@ -2182,20 +2185,20 @@
           </div>
           <div class="stats reveal delay-2">
             <div class="stat">
-              <div class="num">50%</div>
-              <div class="label">Faster coding</div>
+              <div class="num">60%</div>
+              <div class="label">Faster development</div>
             </div>
             <div class="stat">
-              <div class="num">30%</div>
-              <div class="label">Fewer errors</div>
+              <div class="num">40%</div>
+              <div class="label">Fewer bugs</div>
             </div>
             <div class="stat">
               <div class="num">∞</div>
-              <div class="label">New ideas</div>
+              <div class="label">Creative solutions</div>
             </div>
             <div class="stat">
               <div class="num">24/7</div>
-              <div class="label">Help available</div>
+              <div class="label">AI assistance</div>
             </div>
           </div>
         </div>
@@ -2512,14 +2515,14 @@
 
       // ---------- Typewriter ----------
       const phrases = [
-        "Backend Developer",
-        "Software Engineer",
-        "AI Enthusiast",
-        "Lifelong Learner",
-        "Problem Solver",
-        "Tech Explorer",
-        "System Builder",
-        "Tool Creator",
+        "Senior Backend Developer",
+        "Full-Stack Engineer",
+        "Cloud Solutions Architect",
+        "Automation Expert",
+        "System Integrator",
+        "DevOps Practitioner",
+        "API Specialist",
+        "Database Engineer",
       ];
       const typer = document.getElementById("typer");
       let pi = 0,
@@ -2551,9 +2554,9 @@
 
       // ---------- Skills ----------
       const skills = [
+        { name: "Node.js", cat: "Language", icon: "code" },
         { name: "AWS", cat: "Cloud", icon: "cloud" },
         { name: "MongoDB", cat: "Database", icon: "db" },
-        { name: "Python", cat: "Language", icon: "code" },
         { name: "RESTful APIs", cat: "Backend", icon: "api" },
         { name: "Code Helpers", cat: "Tools", icon: "spark", alt: true },
         { name: "Smart Tools", cat: "Tools", icon: "brain", alt: true },
@@ -2565,6 +2568,9 @@
         { name: "System Design", cat: "Systems", icon: "grid" },
         { name: "DevOps Basics", cat: "Infra", icon: "infinity", alt: true },
         { name: "Git", cat: "Versioning", icon: "branch" },
+        { name: "WinSCP", cat: "Tools", icon: "infinity", alt: true },
+        { name: "Bash", cat: "Scripting", icon: "bolt", alt: true },
+        { name: "PM2", cat: "Process Mgmt", icon: "infinity", alt: true },
       ];
 
       const ICONS = {
@@ -2622,6 +2628,9 @@
         { title: "Make Responsive Sites", icon: "layers" },
         { title: "Make Simple Sites", icon: "code" },
         { title: "AI for Ideas", icon: "spark" },
+        { title: "Cloud Computing", icon: "cloud" },
+        { title: "API Development", icon: "api" },
+        { title: "DevOps Fundamentals", icon: "infinity" },
       ];
       const certsGrid = document.getElementById("certsGrid");
       certs.forEach((c, i) => {
