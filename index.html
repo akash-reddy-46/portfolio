@@ -20,6 +20,7 @@
     <style>
       /* ---------- Tokens ---------- */
       :root {
+        /* Color palette */
         --blue: #4169e1;
         --blue-soft: rgba(65, 105, 225, 0.18);
         --blue-glow: rgba(65, 105, 225, 0.45);
@@ -27,27 +28,32 @@
         --green-soft: rgba(0, 128, 0, 0.22);
         --green-glow: rgba(0, 200, 80, 0.45);
 
+        /* Background layers */
         --bg-0: #06080f;
         --bg-1: #0a0e1a;
         --bg-2: #0f1422;
         --line: rgba(255, 255, 255, 0.08);
         --line-strong: rgba(255, 255, 255, 0.16);
 
+        /* Text colors */
         --text: #e9edf7;
         --text-soft: #aab2c8;
         --text-mute: #7a8298;
 
+        /* Typography */
         --display: "Syne", "Fraunces", "Times New Roman", serif;
         --serif: "Fraunces", "Times New Roman", serif;
         --mono:
           "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
+        /* Layout */
         --radius: 18px;
         --radius-sm: 12px;
         --maxw: 1180px;
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
+      /* ---------- Global resets ---------- */
       *,
       *::before,
       *::after {
@@ -75,6 +81,25 @@
         overflow-x: hidden;
         min-height: 100vh;
         position: relative;
+      }
+
+      /* ---------- Skip link for accessibility ---------- */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--blue);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-family: var(--mono);
+        font-size: 14px;
+        z-index: 100;
+        transition: top 0.3s var(--ease);
+      }
+      .skip-link:focus {
+        top: 6px;
       }
 
       /* ---------- Background mesh + grain ---------- */
@@ -1279,6 +1304,112 @@
         white-space: nowrap;
       }
 
+      /* ---------- Projects ---------- */
+      .project-card {
+        display: grid;
+        grid-template-columns: 110px 1fr auto;
+        gap: 28px;
+        align-items: start;
+        padding: 28px;
+        border-radius: var(--radius);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.015)
+        );
+        border: 1px solid var(--line);
+        position: relative;
+        overflow: hidden;
+      }
+      .project-card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: var(--radius);
+        padding: 1px;
+        background: linear-gradient(
+          135deg,
+          var(--blue),
+          transparent 40%,
+          var(--green)
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .project-mark {
+        width: 110px;
+        height: 110px;
+        border-radius: 22px;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(
+            circle at 30% 20%,
+            rgba(65, 105, 225, 0.4),
+            transparent 60%
+          ),
+          linear-gradient(160deg, #0a0f1d, #060912);
+        border: 1px solid var(--line-strong);
+      }
+      .project-mark svg {
+        width: 44px;
+        height: 44px;
+        color: #cdd6ff;
+      }
+      .project-card h3 {
+        margin: 0 0 6px;
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+      }
+      .project-card .project-sub {
+        color: var(--text-soft);
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+      .project-card .project-desc {
+        color: var(--text-soft);
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+      .project-card .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .project-card .project-tech span {
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(65, 105, 225, 0.12);
+        color: #b9c4ff;
+        border: 1px solid rgba(65, 105, 225, 0.35);
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .project-card .project-year {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(65, 105, 225, 0.4);
+        color: #cdd6ff;
+        background: rgba(65, 105, 225, 0.1);
+        white-space: nowrap;
+        align-self: start;
+      }
+
       /* ---------- Certifications ---------- */
       .certs-grid {
         display: grid;
@@ -1598,6 +1729,17 @@
           grid-column: 1 / -1;
           justify-self: start;
         }
+        .project-card {
+          grid-template-columns: 80px 1fr;
+        }
+        .project-mark {
+          width: 80px;
+          height: 80px;
+        }
+        .project-card .project-year {
+          grid-column: 1 / -1;
+          justify-self: start;
+        }
       }
 
       @media (max-width: 720px) {
@@ -1642,6 +1784,7 @@
     </style>
   </head>
   <body>
+    <a href="#top" class="skip-link">Skip to main content</a>
     <div class="bg" aria-hidden="true"></div>
     <div class="orb b1" aria-hidden="true"></div>
     <div class="orb b2" aria-hidden="true"></div>
@@ -1659,9 +1802,10 @@
             <a href="#experience" class="link" data-num="02">Experience</a>
           </li>
           <li><a href="#skills" class="link" data-num="03">Skills</a></li>
-          <li><a href="#ai" class="link" data-num="04">AI</a></li>
-          <li><a href="#education" class="link" data-num="05">Education</a></li>
-          <li><a href="#contact" class="link" data-num="06">Contact</a></li>
+          <li><a href="#projects" class="link" data-num="04">Projects</a></li>
+          <li><a href="#ai" class="link" data-num="05">AI</a></li>
+          <li><a href="#education" class="link" data-num="06">Education</a></li>
+          <li><a href="#contact" class="link" data-num="07">Contact</a></li>
         </ul>
         <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
           <span></span>
@@ -1867,7 +2011,8 @@
               <div class="meta">
                 <span class="pill">Apr 2026 — Present</span>
                 <h3>Software Engineer</h3>
-              <div class="org">JaaGa.AI · Hyderabad, India</div>
+                <div class="org">JaaGa.AI · Hyderabad, India</div>
+              </div>
               <ul>
                 <li>
                   Building backend solutions to automate processes and improve
@@ -1958,12 +2103,65 @@
       </div>
     </section>
 
+    <!-- Projects -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-num"><span>/</span>04 — Projects</div>
+            <h2>Notable <em>Projects</em>.</h2>
+          </div>
+          <p class="section-sub">
+            Showcasing impactful work that solves real problems.
+          </p>
+        </div>
+        <div class="project-card reveal delay-1">
+          <div class="project-mark" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              ></path>
+              <polyline points="14,2 14,8 20,8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10,9 9,9 8,9"></polyline>
+            </svg>
+          </div>
+          <div>
+            <h3>Lawyer Module</h3>
+            <div class="project-sub">JaaGa.AI · Backend Development</div>
+            <p class="project-desc">
+              Developed a comprehensive lawyer module that integrates OCR
+              technology to streamline legal document processing. The system
+              automates document scanning, text extraction, and data
+              organization, making legal work more efficient and user-friendly
+              for lawyers.
+            </p>
+            <div class="project-tech">
+              <span>OCR</span>
+              <span>Python</span>
+              <span>AWS</span>
+              <span>MongoDB</span>
+            </div>
+          </div>
+          <span class="project-year">2024 — Present</span>
+        </div>
+      </div>
+    </section>
+
     <!-- AI -->
     <section id="ai">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>04 — AI</div>
+            <div class="section-num"><span>/</span>05 — AI</div>
             <h2>AI makes my <em>work faster</em>.</h2>
           </div>
           <p class="section-sub">
@@ -2009,7 +2207,7 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>05 — Education</div>
+            <div class="section-num"><span>/</span>06 — Education</div>
             <h2>Always <em>learning</em>.</h2>
           </div>
           <p class="section-sub">
@@ -2041,7 +2239,7 @@
         <!-- Certifications -->
         <div class="section-head reveal delay-2" style="margin-top: 64px">
           <div>
-            <div class="section-num"><span>/</span>05.5 — Certifications</div>
+            <div class="section-num"><span>/</span>06.5 — Certifications</div>
             <h2>Certificates &amp; <em>Learning</em>.</h2>
           </div>
         </div>
@@ -2056,7 +2254,7 @@
           <div class="contact-grid">
             <div>
               <div class="section-num" style="margin-bottom: 14px">
-                <span>/</span>06 — Contact
+                <span>/</span>07 — Contact
               </div>
               <h2>Let's work <em>together</em>.</h2>
               <p>
