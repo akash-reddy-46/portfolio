@@ -279,10 +279,7 @@
           background 0.25s var(--ease);
       }
       .nav a.link::before {
-        content: attr(data-num);
-        color: var(--blue);
-        margin-right: 8px;
-        opacity: 0.85;
+        display: none;
       }
       .nav a.link:hover {
         color: var(--text);
@@ -1793,15 +1790,13 @@
           <span>Akash<span style="color: var(--blue)">.</span>Reddy</span>
         </a>
         <ul id="navList">
-          <li><a href="#about" class="link" data-num="01">About</a></li>
-          <li>
-            <a href="#experience" class="link" data-num="02">Experience</a>
-          </li>
-          <li><a href="#skills" class="link" data-num="03">Skills</a></li>
-          <li><a href="#projects" class="link" data-num="04">Projects</a></li>
-          <li><a href="#ai" class="link" data-num="05">AI</a></li>
-          <li><a href="#education" class="link" data-num="06">Education</a></li>
-          <li><a href="#contact" class="link" data-num="07">Contact</a></li>
+          <li><a href="#about" class="link">About</a></li>
+          <li><a href="#experience" class="link">Experience</a></li>
+          <li><a href="#skills" class="link">Skills</a></li>
+          <li><a href="#projects" class="link">Projects</a></li>
+          <li><a href="#ai" class="link">AI</a></li>
+          <li><a href="#education" class="link">Education</a></li>
+          <li><a href="#contact" class="link">Contact</a></li>
         </ul>
         <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
           <span></span>
@@ -1815,7 +1810,7 @@
         <div class="hero-grid">
           <div>
             <div class="eyebrow load l1">
-              Hyderabad, India · Available for Software Engineer roles
+              Hyderabad, India · AI-Driven Backend Architect
             </div>
             <h1 class="load l2">
               Vanga Akash <span class="accent">Reddy</span>
@@ -1879,12 +1874,9 @@
                 <span class="corner tr" aria-hidden="true"></span>
                 <span class="corner bl" aria-hidden="true"></span>
                 <span class="corner br" aria-hidden="true"></span>
-                <div class="status-pill" aria-label="Status">
-                  Available for hire
-                </div>
                 <div class="tag">
                   <span><span class="name-mini">Vanga Akash Reddy</span></span>
-                  <span class="role-mini">Software Engineer</span>
+                  <span class="role-mini">AI Engineer & Backend Architect</span>
                 </div>
               </div>
             </div>
@@ -1943,12 +1935,12 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>01 — About</div>
-            <h2>Developer of <em>backend &amp; tools</em>.</h2>
+            <div class="section-num">About</div>
+            <h2>Engineering intelligent backend systems.</h2>
           </div>
           <p class="section-sub">
-            Two years of building backends. Now using tools to make systems
-            better and faster.
+            Building premium server-side architectures, automation workflows,
+            and AI-powered tools.
           </p>
         </div>
         <div class="about-grid">
@@ -1997,12 +1989,12 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>02 — Experience</div>
-            <h2>My <em>journey</em>.</h2>
+            <div class="section-num">Experience</div>
+            <h2>Professional growth in backend & AI.</h2>
           </div>
           <p class="section-sub">
-            From learning basics to building better systems at JaaGa.AI — always
-            improving and learning.
+            Clear milestones that demonstrate impact, reliability, and technical
+            leadership.
           </p>
         </div>
 
@@ -2016,21 +2008,20 @@
               </div>
               <ul>
                 <li>
-                  Leveraging AI to automate tasks, optimize workflows, and
-                  improve development speed.
+                  Architecting AI-enabled backend services and automation
+                  pipelines to reduce manual work.
                 </li>
                 <li>
-                  Building AI-driven solutions that reduce manual effort,
-                  including automating content generation and streamlining
-                  backend processes.
+                  Embedding intelligence into workflows, content generation, and
+                  system operations.
                 </li>
                 <li>
-                  Combining backend engineering expertise with Generative AI to
-                  create practical, production-ready solutions.
+                  Delivering production-ready solutions that connect AI with
+                  scalable backend systems.
                 </li>
                 <li>
-                  Focusing on bridging traditional backend systems with modern
-                  AI capabilities for smarter applications.
+                  Partnering with cross-functional teams to shape practical AI
+                  enhancements for core services.
                 </li>
               </ul>
             </div>
@@ -2046,26 +2037,20 @@
               <div class="org">JaaGa.AI · Hyderabad, India</div>
               <ul>
                 <li>
-                  Designed and maintained scalable server-side applications with
-                  hands-on experience in AWS, MongoDB, and RESTful API
-                  development.
+                  Delivered robust backend services with Node.js, AWS, MongoDB,
+                  and RESTful APIs.
                 </li>
                 <li>
-                  Integrated third-party services such as Cashfree for payment
-                  processing, ensuring secure payment workflows and handling
-                  callbacks.
+                  Built secure Cashfree payment workflows, including callback
+                  handling and transaction orchestration.
                 </li>
                 <li>
-                  Implemented WhatsApp notification systems to improve user
-                  communication and transaction updates.
+                  Created WhatsApp-based notification systems for payment alerts
+                  and operational updates.
                 </li>
                 <li>
-                  Managed database design, API development, and cloud-based
-                  deployments with focus on performance optimization.
-                </li>
-                <li>
-                  Wrote clean, maintainable code while optimizing backend
-                  performance to deliver seamless user experiences.
+                  Improved reliability through cloud deployments, schema design,
+                  and process automation.
                 </li>
               </ul>
             </div>
@@ -2081,22 +2066,20 @@
               <div class="org">JaaGa.AI · Hyderabad, India</div>
               <ul>
                 <li>
-                  Focused on learning core backend development concepts
-                  including designing RESTful APIs, handling data processing,
-                  and managing databases.
+                  Built RESTful APIs and managed backend data flows using
+                  MongoDB.
                 </li>
                 <li>
-                  Gained hands-on experience in backend architecture, request
-                  handling, and data flow between client and server.
-                </li>
-                <li>
-                  Collaborated with team members on real-world development
-                  practices and contributed to building reliable backend
+                  Supported architecture and debugging for production-quality
                   features.
                 </li>
                 <li>
-                  Established a solid foundation in backend development and
-                  strengthened problem-solving and debugging skills.
+                  Collaborated with the team on real development workflows and
+                  best practices.
+                </li>
+                <li>
+                  Strengthened core server-side skills with clean, maintainable
+                  code.
                 </li>
               </ul>
             </div>
@@ -2110,7 +2093,7 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>03 — Skills</div>
+            <div class="section-num">Skills</div>
             <h2>The <em>toolkit</em>.</h2>
           </div>
           <p class="section-sub">
@@ -2128,7 +2111,7 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>04 — Projects</div>
+            <div class="section-num">Projects</div>
             <h2>Notable <em>Projects</em>.</h2>
           </div>
           <p class="section-sub">
@@ -2339,7 +2322,7 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>05 — AI</div>
+            <div class="section-num">AI</div>
             <h2>AI makes my <em>work faster</em>.</h2>
           </div>
           <p class="section-sub">
@@ -2385,7 +2368,7 @@
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <div class="section-num"><span>/</span>06 — Education</div>
+            <div class="section-num">Education</div>
             <h2>Always <em>learning</em>.</h2>
           </div>
           <p class="section-sub">
@@ -2417,7 +2400,7 @@
         <!-- Certifications -->
         <div class="section-head reveal delay-2" style="margin-top: 64px">
           <div>
-            <div class="section-num"><span>/</span>06.5 — Certifications</div>
+            <div class="section-num">Certifications</div>
             <h2>Certificates &amp; <em>Learning</em>.</h2>
           </div>
         </div>
@@ -2431,9 +2414,7 @@
         <div class="contact-wrap reveal">
           <div class="contact-grid">
             <div>
-              <div class="section-num" style="margin-bottom: 14px">
-                <span>/</span>07 — Contact
-              </div>
+              <div class="section-num" style="margin-bottom: 14px">Contact</div>
               <h2>Let's work <em>together</em>.</h2>
               <p>
                 Open to software engineer roles, freelance projects, and
