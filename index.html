@@ -951,22 +951,83 @@
         color: var(--text);
         font-weight: 600;
       }
-      .stats {
+      .profile-card {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 14px;
-      }
-      .stat {
-        position: relative;
-        padding: 22px 22px 20px;
-        border-radius: var(--radius-sm);
+        gap: 24px;
+        padding: 28px;
+        border-radius: var(--radius-lg);
         background: linear-gradient(
           180deg,
-          rgba(255, 255, 255, 0.03),
-          rgba(255, 255, 255, 0.01)
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.02)
         );
         border: 1px solid var(--line);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+      }
+      .profile-photo {
+        position: relative;
+        width: 100%;
+        padding-top: 100%;
+        border-radius: 24px;
         overflow: hidden;
+        background: linear-gradient(
+          180deg,
+          rgba(8, 17, 31, 0.95),
+          rgba(3, 6, 12, 0.95)
+        );
+      }
+      .profile-photo img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .profile-meta {
+        display: grid;
+        gap: 18px;
+      }
+      .profile-meta p {
+        margin: 0;
+        color: var(--text-soft);
+        line-height: 1.8;
+      }
+      .profile-details {
+        display: grid;
+        gap: 16px;
+      }
+      .profile-detail {
+        display: grid;
+        gap: 6px;
+      }
+      .profile-detail strong {
+        font-size: 13px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+      }
+      .profile-detail span {
+        color: var(--text);
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .profile-badges {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .profile-badges span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 14px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-soft);
+        font-size: 14px;
+        font-weight: 600;
       }
       .stat::before {
         content: "";
@@ -1962,22 +2023,41 @@
               delivering reliable, production-ready solutions.
             </p>
           </div>
-          <div class="stats reveal delay-2">
-            <div class="stat">
-              <div class="num">3+</div>
-              <div class="label">Years of experience</div>
+          <div class="profile-card reveal delay-2">
+            <div class="profile-photo">
+              <img
+                src="assets/profile.png"
+                alt="Vanga Akash Reddy"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
-            <div class="stat">
-              <div class="num">20+</div>
-              <div class="label">Technologies mastered</div>
-            </div>
-            <div class="stat">
-              <div class="num">8+</div>
-              <div class="label">Certifications earned</div>
-            </div>
-            <div class="stat">
-              <div class="num">∞</div>
-              <div class="label">Problems solved</div>
+            <div class="profile-meta">
+              <p>
+                A polished profile panel that highlights your photo, core role,
+                and career strengths in a format that feels premium and
+                personal.
+              </p>
+              <div class="profile-details">
+                <div class="profile-detail">
+                  <strong>Role</strong>
+                  <span>AI Engineer & Backend Architect</span>
+                </div>
+                <div class="profile-detail">
+                  <strong>Location</strong>
+                  <span>Hyderabad, India</span>
+                </div>
+                <div class="profile-detail">
+                  <strong>Focus</strong>
+                  <span>Automation · Cloud · Scalable APIs</span>
+                </div>
+              </div>
+              <div class="profile-badges">
+                <span>3+ years experience</span>
+                <span>AI-enabled systems</span>
+                <span>Cloud automation</span>
+                <span>Production-ready</span>
+              </div>
             </div>
           </div>
         </div>
