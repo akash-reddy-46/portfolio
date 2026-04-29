@@ -912,7 +912,7 @@
       }
       .hero h1 .accent {
         display: inline-block;
-        animation: name-move 2.6s ease-in-out infinite alternate;
+        animation: name-move 3.6s ease-in-out infinite alternate;
       }
       @keyframes name-move {
         0% {
@@ -2748,13 +2748,13 @@
       // ---------- Typewriter ----------
       const phrases = [
         "Senior Backend Developer",
+        "AI Systems Architect",
+        "Cloud Infrastructure Engineer",
+        "Scalable Solutions Expert",
+        "Automation & DevOps Specialist",
         "Full-Stack Engineer",
-        "Cloud Solutions Architect",
-        "Automation Expert",
-        "System Integrator",
-        "DevOps Practitioner",
-        "API Specialist",
-        "Database Engineer",
+        "API Design & Integration",
+        "Database Architecture Specialist",
       ];
       const typer = document.getElementById("typer");
       let pi = 0,
@@ -2790,22 +2790,18 @@
         { name: "AWS", cat: "Cloud", icon: "cloud" },
         { name: "MongoDB", cat: "Database", icon: "db" },
         { name: "RESTful APIs", cat: "Backend", icon: "api" },
-        { name: "Code Helpers", cat: "AI Tools", icon: "spark", alt: true },
-        { name: "Smart Tools", cat: "AI Tools", icon: "brain", alt: true },
-        { name: "Loveable", cat: "No-Code", icon: "code", alt: true },
-        { name: "Google Sheets", cat: "No-Code", icon: "grid", alt: true },
-        { name: "Lucid", cat: "Design", icon: "grid", alt: true },
-        { name: "Web Scraping", cat: "Automation", icon: "spider" },
-        { name: "Automation", cat: "Workflows", icon: "bolt", alt: true },
-        { name: "Cashfree Payments", cat: "Integrations", icon: "card" },
-        { name: "WhatsApp API", cat: "Messaging", icon: "chat", alt: true },
-        { name: "Backend Architecture", cat: "Systems", icon: "layers" },
-        { name: "System Design", cat: "Systems", icon: "grid" },
-        { name: "DevOps Basics", cat: "Infra", icon: "infinity", alt: true },
+        { name: "Docker", cat: "Containers", icon: "grid" },
         { name: "Git", cat: "Versioning", icon: "branch" },
-        { name: "WinSCP", cat: "Tools", icon: "infinity", alt: true },
-        { name: "Bash", cat: "Scripting", icon: "bolt", alt: true },
-        { name: "PM2", cat: "Process Mgmt", icon: "infinity", alt: true },
+        { name: "Jira", cat: "Project Mgmt", icon: "grid" },
+        { name: "CI/CD", cat: "Automation", icon: "bolt" },
+        { name: "DevOps", cat: "Infra", icon: "infinity" },
+        { name: "Backend Architecture", cat: "Architecture", icon: "layers" },
+        { name: "System Design", cat: "Architecture", icon: "grid" },
+        { name: "Automation", cat: "Workflows", icon: "bolt" },
+        { name: "Testing", cat: "Quality", icon: "spark" },
+        { name: "Data Modeling", cat: "Database", icon: "db" },
+        { name: "WhatsApp API", cat: "Integrations", icon: "chat" },
+        { name: "Bash", cat: "Scripting", icon: "bolt" },
       ];
 
       const ICONS = {
