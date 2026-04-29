@@ -517,7 +517,7 @@
       /* ---------- Hero portrait (premium) ---------- */
       .portrait-wrap {
         position: relative;
-        max-width: 340px;
+        max-width: 520px;
         margin-left: auto;
         perspective: 1200px;
         animation: float 6s ease-in-out infinite;
@@ -901,6 +901,13 @@
         color: #cdd6ff;
         animation-delay: -7s;
       }
+      .float-chip.fc-name {
+        top: -12px;
+        right: 16px;
+        border-color: rgba(255, 255, 255, 0.22);
+        color: #ffffff;
+        animation-delay: -2.5s;
+      }
       @keyframes floaty {
         0%,
         100% {
@@ -930,6 +937,9 @@
           left: 8px;
         }
         .float-chip.fc-7 {
+          right: 8px;
+        }
+        .float-chip.fc-name {
           right: 8px;
         }
         .float-chip.fc-8 {
@@ -1943,6 +1953,7 @@
                 />
               </div>
             </div>
+            <div class="float-chip fc-name" aria-hidden="true">Reddy</div>
           </div>
         </div>
       </div>
