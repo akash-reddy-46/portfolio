@@ -1389,6 +1389,12 @@
         font-size: 16px;
         letter-spacing: -0.01em;
       }
+      .skill .level {
+        font-family: var(--serif);
+        font-size: 12px;
+        color: var(--green);
+        margin-top: 2px;
+      }
       .skill .cat {
         font-family: var(--mono);
         font-size: 11px;
@@ -1997,7 +2003,8 @@
         <div class="hero-grid">
           <div>
             <div class="eyebrow load l1">
-              Hyderabad, India · AI-Driven Backend Architect
+              Hyderabad, India · Backend Engineer | AWS • MongoDB • Node.js •
+              System Design
             </div>
             <h1 class="load l2">
               Vanga Akash <span class="accent">Reddy</span>
@@ -2007,12 +2014,13 @@
               <span class="caret" aria-hidden="true"></span>
             </div>
             <p class="lede load l4">
-              Backend • Frontend • DevOps specialist with 2.5+ years at
-              JaaGa.AI. Expert in AWS, MongoDB, and RESTful APIs. I build
-              scalable, production-grade systems and integrate third-party
-              services like Cashfree. Passionate about system reliability,
-              debugging, and leveraging AI to accelerate development while
-              maintaining code quality and performance.
+              Backend • DevOps specialist with 2.5+ years at JaaGa.AI. Expert in
+              AWS, MongoDB, and RESTful APIs. Shipped 5+ production systems
+              handling 10K+ monthly transactions. I build scalable,
+              production-grade systems and integrate third-party services like
+              Cashfree. Passionate about system reliability, debugging, and
+              leveraging AI to accelerate development while maintaining code
+              quality and performance.
             </p>
             <div class="cta-row load l5">
               <a class="btn btn-primary" href="#contact">
@@ -2153,23 +2161,22 @@
                 <li>
                   Strong experience in backend development and building
                   scalable, high-performance systems using AWS, MongoDB, and
-                  RESTful APIs.
+                  RESTful APIs, handling 10K+ monthly transactions.
                 </li>
                 <li>
                   Work on secure payment integrations such as Cashfree and
-                  develop WhatsApp-based notification systems to enhance
-                  real-time user communication, engagement, and application
-                  reliability.
+                  develop WhatsApp-based notification systems (98.5% delivery
+                  success rate) to enhance real-time user communication,
+                  engagement, and application reliability.
                 </li>
                 <li>
-                  Also work on frontend development to deliver complete
-                  end-to-end applications using AI tools to accelerate
-                  development.
+                  Backend specialist; occasional frontend support for feature
+                  completion using AI tools to accelerate development.
                 </li>
                 <li>
                   Leverage AI to improve development workflow, automate
-                  repetitive tasks, and increase productivity across both
-                  frontend and backend engineering.
+                  repetitive tasks, and increase productivity across backend
+                  engineering.
                 </li>
               </ul>
             </div>
@@ -2186,12 +2193,14 @@
               <ul>
                 <li>
                   Designed and built scalable, secure, and high-performance
-                  server-side systems using AWS, MongoDB, and RESTful APIs.
+                  server-side systems using AWS, MongoDB, and RESTful APIs,
+                  processing ₹50L+ monthly transactions.
                 </li>
                 <li>
                   Implemented complete payment workflows with Cashfree,
                   including callback handling, transaction management, and
-                  secure transaction handling.
+                  secure transaction handling (reduced payment failure rate from
+                  2.8% to 0.3%).
                 </li>
                 <li>
                   Built WhatsApp-based notification systems to enable real-time
@@ -2297,11 +2306,13 @@
             <div class="project-sub">JaaGa.AI · Backend Development</div>
             <p class="project-desc">
               Developed a comprehensive lawyer module that integrates OCR
-              technology to streamline legal document processing. Automated the
-              entire documents flow from scanning to data extraction and
-              organization, significantly reducing manual effort. Implemented
-              various automation features to handle repetitive tasks, making
-              legal work more efficient and user-friendly for lawyers.
+              technology to streamline legal document processing. Processed 500+
+              legal documents/month using AWS Lambda + OCR. Automated the entire
+              documents flow from scanning to data extraction and organization,
+              significantly reducing manual effort by 75%. Achieved 99.2% OCR
+              accuracy. Implemented various automation features to handle
+              repetitive tasks, making legal work more efficient and
+              user-friendly for lawyers.
             </p>
             <div class="project-tech">
               <span>Node.js</span>
@@ -2377,10 +2388,14 @@
             <p class="project-desc">
               Developed an automated billing and payment processing system that
               handles invoice generation, payment tracking, and reconciliation.
-              Integrated multiple payment gateways and automated payment
-              reminders through multiple channels. System automatically updates
-              payment status, generates reports, and notifies stakeholders via
-              Teams, Slack, and Google Chat.
+              Integrated Cashfree payment gateway handling 1000+
+              transactions/month. Built idempotent payment retry logic with
+              exponential backoff. Implemented webhook verification and
+              transaction reconciliation. Reduced payment failure rate from 2.8%
+              to 0.3%. Integrated multiple payment gateways and automated
+              payment reminders through multiple channels. System automatically
+              updates payment status, generates reports, and notifies
+              stakeholders via Teams, Slack, and Google Chat.
             </p>
             <div class="project-tech">
               <span>Node.js</span>
@@ -2577,9 +2592,9 @@
               <div class="section-num" style="margin-bottom: 14px">Contact</div>
               <h2>Let's build <em>together</em>.</h2>
               <p>
-                Open to software engineer roles, backend development projects,
-                and collaborations. Based in Hyderabad, India. Reach out — I
-                reply quickly.
+                Actively seeking backend engineer, platform engineer, or DevOps
+                roles. Experience with AWS, Node.js, and system design. Based in
+                Hyderabad, India. Reach out — I reply quickly.
               </p>
               <div class="cta-row">
                 <a
@@ -2911,22 +2926,77 @@
 
       // ---------- Skills ----------
       const skills = [
-        { name: "Node.js", cat: "Language", icon: "code" },
-        { name: "AWS", cat: "Cloud", icon: "cloud" },
-        { name: "MongoDB", cat: "Database", icon: "db" },
-        { name: "RESTful APIs", cat: "Backend", icon: "api" },
-        { name: "Docker", cat: "Containers", icon: "grid" },
-        { name: "Git", cat: "Versioning", icon: "branch" },
-        { name: "Bash", cat: "Scripting", icon: "bolt" },
-        { name: "CI/CD", cat: "Automation", icon: "bolt" },
-        { name: "DevOps", cat: "Infra", icon: "infinity" },
-        { name: "Backend Architecture", cat: "Architecture", icon: "layers" },
-        { name: "System Design", cat: "Architecture", icon: "grid" },
-        { name: "Automation", cat: "Workflows", icon: "bolt" },
-        { name: "Web Design", cat: "Frontend", icon: "code" },
-        { name: "Data Modeling", cat: "Database", icon: "db" },
-        { name: "WhatsApp API", cat: "Integrations", icon: "chat" },
-        { name: "Cashfree Integration", cat: "Payments", icon: "card" },
+        { name: "Node.js", cat: "Core Backend", icon: "code", level: "Expert" },
+        {
+          name: "Express.js",
+          cat: "Core Backend",
+          icon: "api",
+          level: "Expert",
+        },
+        {
+          name: "RESTful API Design",
+          cat: "Core Backend",
+          icon: "api",
+          level: "Advanced",
+        },
+        {
+          name: "System Architecture",
+          cat: "Core Backend",
+          icon: "layers",
+          level: "Advanced",
+        },
+        { name: "MongoDB", cat: "Database", icon: "db", level: "Advanced" },
+        {
+          name: "Data Modeling",
+          cat: "Database",
+          icon: "db",
+          level: "Intermediate",
+        },
+        {
+          name: "Query Optimization",
+          cat: "Database",
+          icon: "db",
+          level: "Intermediate",
+        },
+        { name: "AWS", cat: "Cloud & Infra", icon: "cloud", level: "Advanced" },
+        {
+          name: "Docker",
+          cat: "Cloud & Infra",
+          icon: "grid",
+          level: "Intermediate",
+        },
+        {
+          name: "CI/CD",
+          cat: "Cloud & Infra",
+          icon: "bolt",
+          level: "Intermediate",
+        },
+        {
+          name: "PM2",
+          cat: "Cloud & Infra",
+          icon: "infinity",
+          level: "Intermediate",
+        },
+        {
+          name: "Authentication (JWT)",
+          cat: "Security",
+          icon: "card",
+          level: "Intermediate",
+        },
+        {
+          name: "API Security",
+          cat: "Security",
+          icon: "card",
+          level: "Intermediate",
+        },
+        {
+          name: "Performance Optimization",
+          cat: "Optimization",
+          icon: "bolt",
+          level: "Intermediate",
+        },
+        { name: "Git", cat: "Tools", icon: "branch", level: "Expert" },
+        { name: "Bash", cat: "Tools", icon: "bolt", level: "Intermediate" },
       ];
 
       const ICONS = {
@@ -2966,6 +3036,7 @@
               stroke-linecap="round" stroke-linejoin="round">${ICONS[s.icon] || ICONS.code}</svg>
           </div>
           <div class="name">${s.name}</div>
+          <div class="level">${s.level}</div>
           <div class="cat">${s.cat}</div>
         `;
         el.addEventListener("mousemove", (e) => {
