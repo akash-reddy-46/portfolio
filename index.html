@@ -401,10 +401,10 @@
         opacity: 0.3;
       }
       .hero-grid {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
         gap: 64px;
-        align-items: center;
         position: relative;
         z-index: 1;
       }
@@ -446,6 +446,9 @@
         font-size: clamp(48px, 8.2vw, 100px);
         line-height: 1;
         letter-spacing: -0.025em;
+        font-feature-settings:
+          "liga" 1,
+          "calt" 1;
         margin: 0 0 24px;
         text-shadow:
           0 0 40px rgba(65, 105, 225, 0.25),
@@ -510,6 +513,9 @@
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         font-weight: 400;
         letter-spacing: 0.3px;
+        font-feature-settings:
+          "liga" 1,
+          "calt" 1;
       }
 
       .cta-row {
