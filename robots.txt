@@ -1,0 +1,28 @@
+# robots.txt — Akash Reddy Vanga portfolio
+# https://akash-reddy-46.github.io/portfolio/
+
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+Sitemap: https://akash-reddy-46.github.io/portfolio/sitemap.xml
