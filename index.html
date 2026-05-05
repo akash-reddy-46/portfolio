@@ -11,6 +11,33 @@
       name="description"
       content="Portfolio of Vanga Akash Reddy — Backend Developer based in Hyderabad. Building scalable systems with AWS, MongoDB, and AI tools."
     />
+    <meta name="theme-color" content="#06080f" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="author" content="Vanga Akash Reddy" />
+    <meta
+      name="keywords"
+      content="Vanga Akash Reddy, Backend Developer, Software Engineer, Node.js, AWS, MongoDB, Hyderabad, JaaGa.AI, Portfolio"
+    />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Vanga Akash Reddy — Backend Developer" />
+    <meta
+      property="og:description"
+      content="Backend & DevOps specialist. Building scalable systems with AWS, MongoDB, and AI tools."
+    />
+    <meta property="og:image" content="assets/profile.png" />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Vanga Akash Reddy — Backend Developer" />
+    <meta
+      name="twitter:description"
+      content="Backend & DevOps specialist. Building scalable systems with AWS, MongoDB, and AI tools."
+    />
+
+    <link rel="icon" type="image/png" href="assets/profile.png" />
+    <link rel="apple-touch-icon" href="assets/profile.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -1161,6 +1188,32 @@
         color: var(--text);
         font-weight: 600;
       }
+      .stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .stat {
+        position: relative;
+        padding: 26px 22px;
+        border-radius: var(--radius-sm);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.015)
+        );
+        border: 1px solid var(--line);
+        overflow: hidden;
+        transition:
+          transform 0.3s var(--ease),
+          border-color 0.3s var(--ease),
+          box-shadow 0.3s var(--ease);
+      }
+      .stat:hover {
+        transform: translateY(-3px);
+        border-color: rgba(65, 105, 225, 0.45);
+        box-shadow: 0 18px 40px -22px rgba(65, 105, 225, 0.5);
+      }
       .stat::before {
         content: "";
         position: absolute;
@@ -1890,29 +1943,180 @@
         }
       }
 
+      /* ---------- Scroll progress bar ---------- */
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--blue), var(--green));
+        z-index: 100;
+        box-shadow: 0 0 12px var(--blue-glow);
+        transition: width 0.1s linear;
+        pointer-events: none;
+      }
+
+      /* ---------- Back to top button ---------- */
+      .back-to-top {
+        position: fixed;
+        right: 24px;
+        bottom: 24px;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--blue), #5a7dff);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        z-index: 60;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(12px) scale(0.9);
+        transition:
+          opacity 0.3s var(--ease),
+          transform 0.3s var(--ease),
+          box-shadow 0.3s var(--ease);
+        box-shadow:
+          0 12px 30px -10px var(--blue-glow),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+      }
+      .back-to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+      .back-to-top:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow:
+          0 18px 40px -10px var(--blue-glow),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+      }
+      .back-to-top:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 4px;
+      }
+      .back-to-top svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      /* ---------- Toast (copy feedback) ---------- */
+      .toast {
+        position: fixed;
+        bottom: 90px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        padding: 12px 22px;
+        border-radius: 999px;
+        background: rgba(8, 11, 20, 0.95);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(0, 200, 80, 0.5);
+        color: #d6f1de;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        z-index: 200;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s var(--ease),
+          transform 0.3s var(--ease);
+        box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* ---------- Improved focus states (accessibility) ---------- */
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      /* ---------- Improved mobile menu icon (animated X) ---------- */
+      .menu-btn {
+        transition: background 0.25s var(--ease);
+      }
+      .menu-btn:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .nav.open .menu-btn span {
+        background: transparent;
+      }
+      .nav.open .menu-btn span::before {
+        top: 0;
+        transform: rotate(45deg);
+      }
+      .nav.open .menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+      }
+      .menu-btn span,
+      .menu-btn span::before,
+      .menu-btn span::after {
+        transition:
+          transform 0.3s var(--ease),
+          top 0.3s var(--ease),
+          background 0.3s var(--ease);
+      }
+
+      /* ---------- Mobile nav link sizing ---------- */
+      .nav.open ul a.link {
+        padding: 14px 16px;
+        font-size: 14px;
+      }
+
       /* ---------- Responsive ---------- */
+      /* Tablet landscape & below */
+      @media (max-width: 1024px) {
+        section {
+          padding: 100px 0;
+        }
+        .container {
+          padding: 0 24px;
+        }
+      }
+
+      /* Tablet portrait & below */
       @media (max-width: 960px) {
-        .hero-grid,
+        .hero-grid {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 48px;
+        }
         .about-grid,
         .contact-grid {
           grid-template-columns: 1fr;
-          gap: 36px;
+          gap: 40px;
         }
         .portrait-wrap {
-          max-width: 380px;
+          max-width: 320px;
           width: 100%;
           margin: 0 auto;
         }
         .section-head {
           flex-direction: column;
           align-items: flex-start;
-          gap: 10px;
+          gap: 12px;
+          margin-bottom: 44px;
         }
         section {
           padding: 88px 0;
         }
         .contact-wrap {
-          padding: 40px 28px;
+          padding: 44px 32px;
         }
         .edu-card {
           grid-template-columns: 80px 1fr;
@@ -1921,45 +2125,310 @@
           width: 80px;
           height: 80px;
         }
+        .edu-mark svg {
+          width: 32px;
+          height: 32px;
+        }
         .edu-card .years {
           grid-column: 1 / -1;
           justify-self: start;
         }
         .project-card {
           grid-template-columns: 80px 1fr;
+          gap: 22px;
+          padding: 24px;
         }
         .project-mark {
           width: 80px;
           height: 80px;
         }
+        .project-mark svg {
+          width: 32px;
+          height: 32px;
+        }
+        .hero {
+          padding-top: 48px;
+          padding-bottom: 48px;
+          min-height: auto;
+        }
       }
 
-      @media (max-width: 720px) {
+      /* Tablet small / mobile landscape */
+      @media (max-width: 768px) {
         .nav ul {
           display: none;
         }
         .menu-btn {
           display: inline-flex;
         }
+        .nav-inner {
+          height: 64px;
+        }
         .nav.open ul {
           display: flex;
           position: absolute;
-          top: 72px;
-          left: 16px;
-          right: 16px;
+          top: 64px;
+          left: 12px;
+          right: 12px;
           flex-direction: column;
-          background: rgba(8, 11, 20, 0.95);
-          backdrop-filter: blur(14px);
-          padding: 14px;
+          background: rgba(8, 11, 20, 0.97);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          padding: 12px;
           border-radius: 16px;
           border: 1px solid var(--line);
-          gap: 4px;
+          gap: 2px;
+          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+          animation: menuDrop 0.3s var(--ease);
         }
-        .stats {
-          grid-template-columns: 1fr 1fr;
+        @keyframes menuDrop {
+          from {
+            opacity: 0;
+            transform: translateY(-12px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
         .container {
           padding: 0 20px;
+        }
+        section {
+          padding: 72px 0;
+        }
+        .timeline::before {
+          left: 14px;
+        }
+        .tl-item {
+          padding-left: 44px;
+        }
+        .tl-item::before {
+          left: 8px;
+        }
+        .tl-card {
+          padding: 22px 22px 20px;
+        }
+        .tl-card h3 {
+          font-size: 20px;
+        }
+        .contact-wrap {
+          padding: 36px 24px;
+        }
+        .hero p.lede {
+          font-size: 17px;
+          margin-bottom: 36px;
+        }
+        .scroll-cue {
+          margin-top: 44px;
+        }
+      }
+
+      /* Mobile portrait */
+      @media (max-width: 640px) {
+        section {
+          padding: 64px 0;
+        }
+        .container {
+          padding: 0 18px;
+        }
+        .hero {
+          padding-top: 36px;
+          padding-bottom: 36px;
+        }
+        .hero h1 {
+          margin-bottom: 18px;
+        }
+        .typer-wrap {
+          margin-bottom: 24px;
+        }
+        .hero p.lede {
+          font-size: 16px;
+          line-height: 1.7;
+          margin-bottom: 32px;
+        }
+        .eyebrow {
+          font-size: 11px;
+          padding: 6px 14px;
+          gap: 10px;
+          margin-bottom: 22px;
+          letter-spacing: 0.16em;
+        }
+        .eyebrow::before {
+          width: 24px;
+        }
+        .cta-row .btn {
+          flex: 1;
+          justify-content: center;
+          min-width: 0;
+        }
+        .btn {
+          padding: 13px 20px;
+          font-size: 12px;
+        }
+        .btn-primary {
+          padding: 14px 22px;
+        }
+        .portrait-wrap {
+          max-width: 280px;
+        }
+        .section-head h2 {
+          font-size: clamp(26px, 7vw, 38px);
+        }
+        .stats {
+          gap: 12px;
+        }
+        .stat {
+          padding: 22px 18px;
+        }
+        .stat .num {
+          font-size: 32px;
+        }
+        .stat .label {
+          font-size: 11px;
+        }
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 12px;
+        }
+        .skill {
+          padding: 18px 16px;
+        }
+        .project-card {
+          grid-template-columns: 1fr;
+          gap: 18px;
+          padding: 22px;
+        }
+        .project-mark {
+          width: 60px;
+          height: 60px;
+          border-radius: 16px;
+        }
+        .project-mark svg {
+          width: 26px;
+          height: 26px;
+        }
+        .project-card h3 {
+          font-size: 20px;
+        }
+        .project-card .project-desc {
+          font-size: 15px;
+        }
+        .edu-card {
+          grid-template-columns: 60px 1fr;
+          padding: 22px;
+          gap: 18px;
+        }
+        .edu-mark {
+          width: 60px;
+          height: 60px;
+          border-radius: 16px;
+        }
+        .edu-mark svg {
+          width: 26px;
+          height: 26px;
+        }
+        .edu-card h3 {
+          font-size: 19px;
+        }
+        .contact-wrap {
+          padding: 32px 20px;
+          border-radius: 22px;
+        }
+        .contact-grid h2 {
+          font-size: clamp(26px, 7vw, 36px);
+        }
+        .contact-item {
+          padding: 16px 18px;
+        }
+        .contact-item .val {
+          font-size: 14px;
+          word-break: break-word;
+        }
+        .foot {
+          flex-direction: column;
+          align-items: flex-start;
+          font-size: 11px;
+        }
+        .back-to-top {
+          right: 18px;
+          bottom: 18px;
+          width: 44px;
+          height: 44px;
+        }
+        .toast {
+          bottom: 80px;
+          font-size: 11px;
+          padding: 10px 18px;
+        }
+      }
+
+      /* Small phones */
+      @media (max-width: 420px) {
+        .container {
+          padding: 0 16px;
+        }
+        .hero h1 {
+          font-size: clamp(38px, 11vw, 56px);
+        }
+        .typer-wrap {
+          font-size: clamp(18px, 5.5vw, 22px);
+        }
+        .cta-row {
+          flex-direction: column;
+          width: 100%;
+        }
+        .cta-row .btn {
+          width: 100%;
+        }
+        .stats {
+          grid-template-columns: 1fr;
+        }
+        .certs-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-inner {
+          height: 60px;
+        }
+        .nav.open ul {
+          top: 60px;
+        }
+        .brand {
+          font-size: 16px;
+        }
+        .scroll-cue {
+          font-size: 10px;
+        }
+        .scroll-cue .line {
+          width: 50px;
+        }
+        section {
+          padding: 56px 0;
+        }
+      }
+
+      /* iOS safe area for notches */
+      @supports (padding: max(0px)) {
+        .container {
+          padding-left: max(20px, env(safe-area-inset-left));
+          padding-right: max(20px, env(safe-area-inset-right));
+        }
+        .back-to-top {
+          right: max(18px, env(safe-area-inset-right));
+          bottom: max(18px, env(safe-area-inset-bottom));
+        }
+      }
+
+      /* Better touch behavior */
+      @media (hover: none) {
+        .skill:hover,
+        .stat:hover,
+        .cert:hover,
+        .tl-card:hover {
+          transform: none;
+        }
+        .contact-item:hover {
+          transform: none;
         }
       }
 
@@ -1977,6 +2446,7 @@
   </head>
   <body>
     <a href="#top" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
     <div class="bg" aria-hidden="true"></div>
     <div class="orb b1" aria-hidden="true"></div>
     <div class="orb b2" aria-hidden="true"></div>
@@ -1997,7 +2467,13 @@
           <li><a href="#education" class="link">Education</a></li>
           <li><a href="#contact" class="link">Contact</a></li>
         </ul>
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+        <button
+          class="menu-btn"
+          id="menuBtn"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+          aria-controls="navList"
+        >
           <span></span>
         </button>
       </div>
@@ -2635,7 +3111,12 @@
               </div>
             </div>
             <div class="contact-list">
-              <a class="contact-item" href="mailto:vangaakashreddy@gmail.com">
+              <a
+                class="contact-item"
+                href="mailto:vangaakashreddy@gmail.com"
+                data-copy="vangaakashreddy@gmail.com"
+                title="Click to email · double-click to copy"
+              >
                 <span class="ic" aria-hidden="true">
                   <svg
                     viewBox="0 0 24 24"
@@ -2779,6 +3260,44 @@
       </div>
     </footer>
 
+    <!-- Back to top button -->
+    <button
+      class="back-to-top"
+      id="backToTop"
+      aria-label="Back to top"
+      title="Back to top"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+      <span id="toastText">Copied!</span>
+    </div>
+
     <script>
       // ---------- Year ----------
       document.getElementById("yr").textContent = new Date().getFullYear();
@@ -2839,22 +3358,64 @@
         wrap.addEventListener("mouseleave", reset);
       })();
 
-      // ---------- Nav scroll state ----------
+      // ---------- Nav scroll state + scroll progress + back-to-top ----------
       const nav = document.getElementById("nav");
+      const scrollProgress = document.getElementById("scrollProgress");
+      const backToTop = document.getElementById("backToTop");
+
       const onScroll = () => {
-        nav.classList.toggle("scrolled", window.scrollY > 12);
+        const y = window.scrollY;
+        nav.classList.toggle("scrolled", y > 12);
+
+        // Scroll progress
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = docHeight > 0 ? (y / docHeight) * 100 : 0;
+        scrollProgress.style.width = scrolled + "%";
+
+        // Back-to-top visibility
+        backToTop.classList.toggle("show", y > 600);
       };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
 
+      backToTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
       // ---------- Mobile menu ----------
       const menuBtn = document.getElementById("menuBtn");
-      menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
-      document
-        .querySelectorAll(".nav a.link")
-        .forEach((a) =>
-          a.addEventListener("click", () => nav.classList.remove("open")),
-        );
+      const setMenuExpanded = (open) => {
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      };
+      menuBtn.addEventListener("click", () => {
+        const isOpen = nav.classList.toggle("open");
+        setMenuExpanded(isOpen);
+      });
+      document.querySelectorAll(".nav a.link").forEach((a) =>
+        a.addEventListener("click", () => {
+          nav.classList.remove("open");
+          setMenuExpanded(false);
+        }),
+      );
+      // Close menu on outside click
+      document.addEventListener("click", (e) => {
+        if (
+          nav.classList.contains("open") &&
+          !nav.contains(e.target)
+        ) {
+          nav.classList.remove("open");
+          setMenuExpanded(false);
+        }
+      });
+      // Close menu on Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && nav.classList.contains("open")) {
+          nav.classList.remove("open");
+          setMenuExpanded(false);
+          menuBtn.focus();
+        }
+      });
 
       // ---------- Active section highlight ----------
       const navLinks = [...document.querySelectorAll(".nav a.link")];
@@ -3076,6 +3637,129 @@
         certsGrid.appendChild(el);
         io.observe(el);
       });
+
+      // ---------- Toast helper ----------
+      const toast = document.getElementById("toast");
+      const toastText = document.getElementById("toastText");
+      let toastTimer;
+      const showToast = (text) => {
+        toastText.textContent = text;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(
+          () => toast.classList.remove("show"),
+          1800,
+        );
+      };
+
+      // ---------- Copy email on long-press / double-click ----------
+      (function () {
+        const items = document.querySelectorAll("[data-copy]");
+        const copyText = async (text) => {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(text);
+            } else {
+              const ta = document.createElement("textarea");
+              ta.value = text;
+              ta.style.position = "fixed";
+              ta.style.opacity = "0";
+              document.body.appendChild(ta);
+              ta.select();
+              document.execCommand("copy");
+              document.body.removeChild(ta);
+            }
+            showToast("Copied to clipboard");
+            return true;
+          } catch (_) {
+            showToast("Copy failed");
+            return false;
+          }
+        };
+        items.forEach((el) => {
+          el.addEventListener("dblclick", (e) => {
+            e.preventDefault();
+            copyText(el.dataset.copy);
+          });
+          // Long-press for touch devices
+          let pressTimer = null;
+          let longPressed = false;
+          el.addEventListener("touchstart", () => {
+            longPressed = false;
+            pressTimer = setTimeout(() => {
+              longPressed = true;
+              copyText(el.dataset.copy);
+            }, 500);
+          }, { passive: true });
+          el.addEventListener("touchend", (e) => {
+            if (pressTimer) clearTimeout(pressTimer);
+            if (longPressed) e.preventDefault();
+          });
+          el.addEventListener("touchmove", () => {
+            if (pressTimer) clearTimeout(pressTimer);
+          }, { passive: true });
+        });
+      })();
+
+      // ---------- Animated stat counters ----------
+      (function () {
+        const animateCount = (el, target, suffix) => {
+          const duration = 1400;
+          const start = performance.now();
+          const initial = 0;
+          const step = (now) => {
+            const t = Math.min(1, (now - start) / duration);
+            // easeOutCubic
+            const eased = 1 - Math.pow(1 - t, 3);
+            const current = initial + (target - initial) * eased;
+            const display =
+              target % 1 !== 0
+                ? current.toFixed(1)
+                : Math.round(current).toString();
+            el.textContent = display + suffix;
+            if (t < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+        };
+
+        const parseStat = (raw) => {
+          // Only animate clean trailing-suffix values (e.g. "2.5+", "5", "16+", "60%").
+          // Skip values like "24/7" or "∞" — keep them as-is.
+          const m = raw.match(/^(\d+(?:\.\d+)?)([+%]?)$/);
+          if (!m) return null;
+          return { num: parseFloat(m[1]), suffix: m[2] };
+        };
+
+        const seen = new WeakSet();
+        const counterIO = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting && !seen.has(e.target)) {
+                seen.add(e.target);
+                const original = e.target.dataset.original;
+                const parsed = parseStat(original);
+                if (parsed) {
+                  animateCount(e.target, parsed.num, parsed.suffix);
+                } else {
+                  e.target.textContent = original;
+                }
+                counterIO.unobserve(e.target);
+              }
+            });
+          },
+          { threshold: 0.4 },
+        );
+
+        document.querySelectorAll(".stat .num").forEach((el) => {
+          const raw = el.textContent.trim();
+          el.dataset.original = raw;
+          const parsed = parseStat(raw);
+          // Leave non-animatable values (∞, 24/7, etc.) as-is
+          if (!parsed) return;
+          el.textContent = "0" + parsed.suffix;
+          counterIO.observe(el);
+        });
+      })();
     </script>
   </body>
 </html>
