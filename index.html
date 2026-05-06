@@ -242,6 +242,7 @@
         --radius: 18px;
         --radius-sm: 12px;
         --maxw: 1180px;
+        --nav-h: 72px;
         --ease: cubic-bezier(0.22, 1, 0.36, 1);
       }
 
@@ -254,6 +255,7 @@
 
       html {
         scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--nav-h) + 12px);
         width: 100%;
         max-width: 100%;
         overflow-x: clip;
@@ -264,7 +266,6 @@
       html,
       body {
         margin: 0;
-        padding: 0;
       }
 
       body {
@@ -280,6 +281,8 @@
         max-width: 100%;
         min-height: 100vh;
         min-height: 100dvh;
+        padding: 0;
+        padding-top: var(--nav-h);
         position: relative;
         touch-action: manipulation;
       }
@@ -412,16 +415,19 @@
 
       /* ---------- Nav ---------- */
       .nav {
-        position: sticky;
+        position: fixed;
+        left: 0;
+        right: 0;
         top: 0;
         z-index: 50;
         backdrop-filter: blur(14px) saturate(140%);
         -webkit-backdrop-filter: blur(14px) saturate(140%);
         background: rgba(8, 11, 20, 0.55);
-        border-bottom: 1px solid transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         transition:
           border-color 0.3s var(--ease),
-          background 0.3s var(--ease);
+          background 0.3s var(--ease),
+          box-shadow 0.3s var(--ease);
       }
       .nav.scrolled {
         background: rgba(8, 11, 20, 0.78);
@@ -432,7 +438,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 72px;
+        height: var(--nav-h);
       }
       .brand {
         font-family: var(--display);
@@ -543,7 +549,8 @@
       .hero {
         padding-top: 80px;
         padding-bottom: 60px;
-        min-height: calc(100vh - 72px);
+        min-height: calc(100vh - var(--nav-h));
+        min-height: calc(100svh - var(--nav-h));
         display: grid;
         align-items: center;
         position: relative;
@@ -2651,19 +2658,19 @@
 
       /* Tablet small / mobile landscape */
       @media (max-width: 768px) {
+        :root {
+          --nav-h: 64px;
+        }
         .nav ul {
           display: none;
         }
         .menu-btn {
           display: inline-flex;
         }
-        .nav-inner {
-          height: 64px;
-        }
         .nav.open ul {
           display: flex;
           position: absolute;
-          top: 64px;
+          top: calc(env(safe-area-inset-top, 0px) + var(--nav-h));
           left: 12px;
           right: 12px;
           flex-direction: column;
@@ -2867,6 +2874,9 @@
 
       /* Small phones */
       @media (max-width: 420px) {
+        :root {
+          --nav-h: 60px;
+        }
         .container {
           padding: 0 16px;
         }
@@ -2889,12 +2899,6 @@
         .certs-grid {
           grid-template-columns: 1fr;
         }
-        .nav-inner {
-          height: 60px;
-        }
-        .nav.open ul {
-          top: 60px;
-        }
         .brand {
           font-size: 16px;
         }
@@ -2911,6 +2915,12 @@
 
       /* iOS safe area for notches */
       @supports (padding: max(0px)) {
+        .nav {
+          padding-top: env(safe-area-inset-top, 0px);
+        }
+        body {
+          padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+        }
         .container {
           padding-left: max(20px, env(safe-area-inset-left));
           padding-right: max(20px, env(safe-area-inset-right));
