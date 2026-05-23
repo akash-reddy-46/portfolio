@@ -3304,6 +3304,49 @@
         pointer-events: none;
       }
 
+      /* ---------- 3D card tilt host ---------- */
+      .snapshot-grid,
+      .codebase-grid,
+      .lead-grid {
+        perspective: 1200px;
+        transform-style: preserve-3d;
+      }
+      /* Tracking transition is set inline by JS on mousemove for snap response;
+         reset returns to the default (slower) CSS easing for a smooth settle. */
+      .snap-card,
+      .codebase-card,
+      .lead-card,
+      .project-card {
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+      /* Subtle inner depth — icons / titles pop forward when card is tilted */
+      .snap-card .snap-icon,
+      .codebase-card .cb-icon,
+      .lead-card .lc-icon {
+        transform: translateZ(28px);
+        transition: transform 0.4s var(--ease);
+      }
+      .snap-card .snap-headline,
+      .codebase-card .cb-title-block,
+      .lead-card h3 {
+        transform: translateZ(18px);
+      }
+      .codebase-card .cb-num {
+        transform: translateZ(36px);
+      }
+      @media (prefers-reduced-motion: reduce), (pointer: coarse) {
+        .snap-card .snap-icon,
+        .codebase-card .cb-icon,
+        .lead-card .lc-icon,
+        .snap-card .snap-headline,
+        .codebase-card .cb-title-block,
+        .lead-card h3,
+        .codebase-card .cb-num {
+          transform: none;
+        }
+      }
+
       /* ---------- Sticky hire pill ---------- */
       .hire-pill {
         position: fixed;
@@ -5661,6 +5704,57 @@
         };
         wrap.addEventListener("mousemove", onMove);
         wrap.addEventListener("mouseleave", reset);
+      })();
+
+      // ---------- 3D card tilt (snapshot, codebase, project, leadership) ----------
+      (function () {
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        const isCoarse = window.matchMedia("(pointer: coarse)").matches;
+        if (reduceMotion || isCoarse) return;
+
+        const cards = document.querySelectorAll(
+          ".snap-card, .codebase-card, .project-card, .lead-card",
+        );
+        const liftFor = (el) => {
+          if (el.classList.contains("codebase-card")) return -6;
+          if (el.classList.contains("snap-card")) return -4;
+          if (el.classList.contains("lead-card")) return -4;
+          return -3; // project-card and others
+        };
+        const angleFor = (el) =>
+          el.classList.contains("codebase-card") ? 6 : 5;
+
+        cards.forEach((card) => {
+          let raf = 0;
+          const onMove = (e) => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5;
+            const y = (e.clientY - r.top) / r.height - 0.5;
+            const a = angleFor(card);
+            const lift = liftFor(card);
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+              card.style.transform = `perspective(1100px) rotateY(${
+                x * a
+              }deg) rotateX(${-y * a}deg) translateY(${lift}px)`;
+            });
+          };
+          const enter = () => {
+            // Snap to the cursor with low-latency easing.
+            card.style.transition = "transform 0.12s ease-out";
+          };
+          const leave = () => {
+            cancelAnimationFrame(raf);
+            // Restore the original CSS transition for a smooth settle.
+            card.style.transition = "";
+            card.style.transform = "";
+          };
+          card.addEventListener("mouseenter", enter);
+          card.addEventListener("mousemove", onMove);
+          card.addEventListener("mouseleave", leave);
+        });
       })();
 
       // ---------- Nav scroll state + scroll progress + back-to-top ----------
