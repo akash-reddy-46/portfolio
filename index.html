@@ -3307,8 +3307,9 @@
       /* ---------- 3D card tilt host ---------- */
       .snapshot-grid,
       .codebase-grid,
-      .lead-grid {
-        perspective: 1200px;
+      .lead-grid,
+      #projects {
+        perspective: 1400px;
         transform-style: preserve-3d;
       }
       /* Tracking transition is set inline by JS on mousemove for snap response;
@@ -3320,30 +3321,114 @@
         transform-style: preserve-3d;
         will-change: transform;
       }
-      /* Subtle inner depth — icons / titles pop forward when card is tilted */
+      /* Inner depth — icons / titles / numbers pop forward as the card tilts */
       .snap-card .snap-icon,
       .codebase-card .cb-icon,
-      .lead-card .lc-icon {
-        transform: translateZ(28px);
+      .lead-card .lc-icon,
+      .project-card .project-mark {
+        transform: translateZ(48px);
         transition: transform 0.4s var(--ease);
       }
       .snap-card .snap-headline,
       .codebase-card .cb-title-block,
-      .lead-card h3 {
-        transform: translateZ(18px);
+      .lead-card h3,
+      .project-card h3 {
+        transform: translateZ(28px);
       }
-      .codebase-card .cb-num {
-        transform: translateZ(36px);
+      .codebase-card .cb-num,
+      .lead-card .lc-num {
+        transform: translateZ(56px);
+      }
+      .codebase-card .cb-chips,
+      .snap-card .snap-sub {
+        transform: translateZ(14px);
+      }
+      /* Specular cursor shine — follows the mouse across the card surface */
+      .snap-card,
+      .codebase-card,
+      .lead-card,
+      .project-card {
+        position: relative;
+      }
+      .snap-card .shine,
+      .codebase-card .shine,
+      .lead-card .shine,
+      .project-card .shine {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        border-radius: inherit;
+        background: radial-gradient(
+          420px 280px at var(--mx, 50%) var(--my, 50%),
+          rgba(255, 255, 255, 0.14),
+          rgba(110, 144, 255, 0.05) 35%,
+          transparent 65%
+        );
+        opacity: 0;
+        transition: opacity 0.45s var(--ease);
+        transform: translateZ(2px);
+        z-index: 1;
+        mix-blend-mode: screen;
+      }
+      .codebase-card.alt .shine,
+      .lead-card.alt .shine {
+        background: radial-gradient(
+          420px 280px at var(--mx, 50%) var(--my, 50%),
+          rgba(255, 255, 255, 0.12),
+          rgba(77, 209, 122, 0.05) 35%,
+          transparent 65%
+        );
+      }
+      .snap-card.is-tilting .shine,
+      .codebase-card.is-tilting .shine,
+      .lead-card.is-tilting .shine,
+      .project-card.is-tilting .shine {
+        opacity: 1;
+      }
+      /* 3D reveal — cards rotate gently into view */
+      .snap-card.reveal,
+      .codebase-card.reveal,
+      .lead-card.reveal,
+      .project-card.reveal {
+        opacity: 0;
+        transform: perspective(1400px) rotateX(18deg) translateY(40px);
+        transition:
+          opacity 0.95s var(--ease),
+          transform 0.95s var(--ease);
+      }
+      .snap-card.reveal.in,
+      .codebase-card.reveal.in,
+      .lead-card.reveal.in,
+      .project-card.reveal.in {
+        opacity: 1;
+        transform: perspective(1400px) rotateX(0deg) translateY(0);
       }
       @media (prefers-reduced-motion: reduce), (pointer: coarse) {
         .snap-card .snap-icon,
         .codebase-card .cb-icon,
         .lead-card .lc-icon,
+        .project-card .project-mark,
         .snap-card .snap-headline,
         .codebase-card .cb-title-block,
         .lead-card h3,
-        .codebase-card .cb-num {
+        .project-card h3,
+        .codebase-card .cb-num,
+        .lead-card .lc-num,
+        .codebase-card .cb-chips,
+        .snap-card .snap-sub {
           transform: none;
+        }
+        .snap-card.reveal,
+        .codebase-card.reveal,
+        .lead-card.reveal,
+        .project-card.reveal {
+          transform: translateY(28px);
+        }
+        .snap-card.reveal.in,
+        .codebase-card.reveal.in,
+        .lead-card.reveal.in,
+        .project-card.reveal.in {
+          transform: translateY(0);
         }
       }
 
@@ -5693,9 +5778,9 @@
           const y = (e.clientY - r.top) / r.height - 0.5;
           cancelAnimationFrame(raf);
           raf = requestAnimationFrame(() => {
-            portrait.style.transform = `rotateY(${x * 8}deg) rotateX(${
-              -y * 8
-            }deg) translateZ(0)`;
+            portrait.style.transform = `perspective(1000px) rotateY(${
+              x * 14
+            }deg) rotateX(${-y * 14}deg) translateZ(20px) scale(1.015)`;
           });
         };
         const reset = () => {
@@ -5712,44 +5797,63 @@
           "(prefers-reduced-motion: reduce)",
         ).matches;
         const isCoarse = window.matchMedia("(pointer: coarse)").matches;
-        if (reduceMotion || isCoarse) return;
 
         const cards = document.querySelectorAll(
           ".snap-card, .codebase-card, .project-card, .lead-card",
         );
+
+        // Inject the specular shine element into every card (works on all devices,
+        // even when the JS tilt handler is disabled — provides a hover-only sheen).
+        cards.forEach((card) => {
+          if (card.querySelector(":scope > .shine")) return;
+          const shine = document.createElement("span");
+          shine.className = "shine";
+          shine.setAttribute("aria-hidden", "true");
+          card.appendChild(shine);
+        });
+
+        if (reduceMotion || isCoarse) return;
+
         const liftFor = (el) => {
-          if (el.classList.contains("codebase-card")) return -6;
-          if (el.classList.contains("snap-card")) return -4;
-          if (el.classList.contains("lead-card")) return -4;
-          return -3; // project-card and others
+          if (el.classList.contains("codebase-card")) return -10;
+          if (el.classList.contains("snap-card")) return -7;
+          if (el.classList.contains("lead-card")) return -7;
+          return -5; // project-card and others
         };
         const angleFor = (el) =>
-          el.classList.contains("codebase-card") ? 6 : 5;
+          el.classList.contains("codebase-card") ? 11 : 9;
 
         cards.forEach((card) => {
           let raf = 0;
           const onMove = (e) => {
             const r = card.getBoundingClientRect();
-            const x = (e.clientX - r.left) / r.width - 0.5;
-            const y = (e.clientY - r.top) / r.height - 0.5;
+            const px = e.clientX - r.left;
+            const py = e.clientY - r.top;
+            const x = px / r.width - 0.5;
+            const y = py / r.height - 0.5;
             const a = angleFor(card);
             const lift = liftFor(card);
             cancelAnimationFrame(raf);
             raf = requestAnimationFrame(() => {
               card.style.transform = `perspective(1100px) rotateY(${
                 x * a
-              }deg) rotateX(${-y * a}deg) translateY(${lift}px)`;
+              }deg) rotateX(${-y * a}deg) translateY(${lift}px) scale(1.015)`;
+              // Move the specular highlight to follow the cursor.
+              card.style.setProperty("--mx", px + "px");
+              card.style.setProperty("--my", py + "px");
             });
           };
           const enter = () => {
             // Snap to the cursor with low-latency easing.
-            card.style.transition = "transform 0.12s ease-out";
+            card.style.transition = "transform 0.14s ease-out";
+            card.classList.add("is-tilting");
           };
           const leave = () => {
             cancelAnimationFrame(raf);
             // Restore the original CSS transition for a smooth settle.
             card.style.transition = "";
             card.style.transform = "";
+            card.classList.remove("is-tilting");
           };
           card.addEventListener("mouseenter", enter);
           card.addEventListener("mousemove", onMove);
