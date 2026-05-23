@@ -136,18 +136,38 @@
               "Node.js",
               "Express.js",
               "MongoDB",
+              "MongoDB Geospatial / GeoJSON",
+              "Redis",
               "AWS",
               "AWS Lambda",
+              "AWS S3",
+              "AWS SES",
+              "AWS SQS",
               "RESTful APIs",
               "System Design",
+              "Microservices Architecture",
+              "Queue-based Workers",
+              "Event-driven Systems",
               "Cashfree Payment Integration",
               "Webhook Verification",
               "Idempotent Retries",
               "PM2",
               "Docker",
+              "Nginx",
               "CI/CD",
+              "Deployment Automation",
+              "TypeScript",
+              "React",
+              "React 18",
+              "React 19",
+              "Redux Toolkit",
+              "TanStack Query",
+              "Vite",
+              "Tailwind CSS",
               "Web Scraping",
               "Automation",
+              "OCR Pipelines",
+              "Google Generative AI",
               "AI-Assisted Development",
               "Code Review",
               "Team Collaboration",
@@ -2107,6 +2127,202 @@
         align-self: start;
       }
 
+      /* ---------- Codebases ---------- */
+      .codebase-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+        gap: 18px;
+      }
+      .codebase-card {
+        position: relative;
+        padding: 26px 26px 22px;
+        border-radius: var(--radius);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.04),
+          rgba(255, 255, 255, 0.015)
+        );
+        border: 1px solid var(--line);
+        overflow: hidden;
+        transition:
+          transform 0.35s var(--ease),
+          border-color 0.35s var(--ease),
+          box-shadow 0.35s var(--ease);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .codebase-card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: var(--radius);
+        padding: 1px;
+        background: linear-gradient(
+          135deg,
+          var(--blue),
+          transparent 40%,
+          var(--green)
+        );
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        opacity: 0.45;
+        pointer-events: none;
+      }
+      .codebase-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(65, 105, 225, 0.45);
+        box-shadow: 0 30px 60px -30px rgba(65, 105, 225, 0.45);
+      }
+      .cb-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .cb-icon {
+        width: 42px;
+        height: 42px;
+        flex: 0 0 auto;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          135deg,
+          rgba(65, 105, 225, 0.22),
+          rgba(0, 128, 0, 0.15)
+        );
+        border: 1px solid rgba(65, 105, 225, 0.35);
+        color: #cdd6ff;
+      }
+      .cb-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+      .codebase-card.alt .cb-icon {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 128, 0, 0.22),
+          rgba(65, 105, 225, 0.15)
+        );
+        border-color: rgba(0, 128, 0, 0.4);
+        color: #c8f0d3;
+      }
+      .cb-title {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 19px;
+        margin: 0;
+        letter-spacing: -0.01em;
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+      .cb-badge {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(65, 105, 225, 0.4);
+        color: #cdd6ff;
+        background: rgba(65, 105, 225, 0.1);
+        white-space: nowrap;
+      }
+      .codebase-card.alt .cb-badge {
+        border-color: rgba(0, 128, 0, 0.4);
+        color: #c8f0d3;
+        background: rgba(0, 128, 0, 0.1);
+      }
+      .cb-sub {
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+        color: var(--text-mute);
+        margin: -4px 0 0;
+        text-transform: none;
+      }
+      .cb-desc {
+        color: var(--text-soft);
+        font-size: 14.5px;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .cb-desc strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+      .cb-meta {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 4px;
+      }
+      .cb-stat {
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--line);
+        text-align: left;
+      }
+      .cb-stat-num {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.1;
+        background: linear-gradient(120deg, #fff, #b9c4ff 60%, var(--blue));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        letter-spacing: -0.01em;
+      }
+      .cb-stat-lbl {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+        margin-top: 3px;
+        line-height: 1.35;
+      }
+      .cb-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .cb-tech span {
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: rgba(65, 105, 225, 0.1);
+        color: #b9c4ff;
+        border: 1px solid rgba(65, 105, 225, 0.3);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.06em;
+      }
+      .codebase-card.alt .cb-tech span {
+        background: rgba(0, 128, 0, 0.1);
+        color: #b3e6c0;
+        border-color: rgba(0, 128, 0, 0.35);
+      }
+      @media (max-width: 640px) {
+        .codebase-grid {
+          grid-template-columns: 1fr;
+        }
+        .codebase-card {
+          padding: 22px 20px 20px;
+        }
+        .cb-title {
+          font-size: 17px;
+        }
+        .cb-meta {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
       /* ---------- Certifications ---------- */
       .certs-grid {
         display: grid;
@@ -2976,6 +3192,7 @@
           <li><a href="#leadership" class="link">Leadership</a></li>
           <li><a href="#skills" class="link">Skills</a></li>
           <li><a href="#projects" class="link">Projects</a></li>
+          <li><a href="#codebases" class="link">Codebases</a></li>
           <li><a href="#ai" class="link">How I work</a></li>
           <li><a href="#education" class="link">Education</a></li>
           <li><a href="#contact" class="link">Contact</a></li>
@@ -3056,8 +3273,8 @@
                 <div class="hm-lbl">Payment failure rate</div>
               </div>
               <div class="hm">
-                <div class="hm-num">5+</div>
-                <div class="hm-lbl">Systems in production</div>
+                <div class="hm-num">5</div>
+                <div class="hm-lbl">Production codebases owned</div>
               </div>
             </div>
             <div class="cta-row load l6">
@@ -3165,6 +3382,16 @@
               production calm.
             </p>
             <p>
+              I own <strong>5 production codebases</strong> end-to-end &mdash;
+              the backend monorepo (9 modules, 13+ queue workers), an
+              intelligence service, and three React/TypeScript frontends
+              (<strong>www.jaaga.ai</strong>, the partner portal, and an internal
+              admin). I also handle <strong>Docker, Nginx and deployment scripts</strong>
+              across dev, staging and prod &mdash; so I&rsquo;m comfortable
+              moving from API contract to a live, monitored rollout without
+              hand-offs.
+            </p>
+            <p>
               Beyond shipping code, I <strong>write runbooks</strong>,
               collaborate in reviews when my domain comes up, and partner directly with
               finance, ops and product to turn ambiguous business problems into
@@ -3192,8 +3419,8 @@
               <div class="label">Monthly transactions</div>
             </div>
             <div class="stat">
-              <div class="num">5+</div>
-              <div class="label">Production systems shipped</div>
+              <div class="num">13+</div>
+              <div class="label">Microservices &amp; workers shipped</div>
             </div>
           </div>
         </div>
@@ -3772,6 +3999,244 @@
       </div>
     </section>
 
+    <!-- Codebases -->
+    <section id="codebases">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-num">Codebases</div>
+            <h2>Repos I own &amp; <em>ship from</em>.</h2>
+          </div>
+          <p class="section-sub">
+            Five production codebases at JaaGa.AI &mdash; backend, frontends and
+            internal tooling. I work across all of them and own the
+            deployments behind <strong>www.jaaga.ai</strong>.
+          </p>
+        </div>
+
+        <div class="codebase-grid">
+          <!-- 1. Backend monorepo -->
+          <article class="codebase-card reveal delay-1">
+            <div class="cb-head">
+              <span class="cb-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="6" rx="8" ry="3"></ellipse>
+                  <path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"></path>
+                  <path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"></path>
+                </svg>
+              </span>
+              <h3 class="cb-title">jaaga-1 &mdash; Backend Monorepo</h3>
+              <span class="cb-badge">Primary owner</span>
+            </div>
+            <p class="cb-sub">Node.js · Express · MongoDB · AWS &middot; powers www.jaaga.ai</p>
+            <p class="cb-desc">
+              Core production backend. <strong>9 domain modules</strong>
+              (payments, property, sale-deed, billing, intelligence, KNOWSRO,
+              orders, users, consumers) plus <strong>13+ SQS / queue-driven
+              workers</strong> for payments, OCR, notifications, WhatsApp,
+              legal-service and document linking. Cron jobs, Redis caching,
+              AWS Lambda integration, Dockerized.
+            </p>
+            <div class="cb-meta">
+              <div class="cb-stat">
+                <div class="cb-stat-num">9</div>
+                <div class="cb-stat-lbl">Domain modules</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">13+</div>
+                <div class="cb-stat-lbl">Queue workers</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">3</div>
+                <div class="cb-stat-lbl">Public APIs</div>
+              </div>
+            </div>
+            <div class="cb-tech">
+              <span>Node.js</span><span>Express</span><span>MongoDB</span>
+              <span>AWS S3/SES/SQS</span><span>Lambda</span><span>Redis</span>
+              <span>Puppeteer</span><span>Tesseract OCR</span><span>Cashfree</span>
+              <span>Firebase</span><span>Docker</span>
+            </div>
+          </article>
+
+          <!-- 2. Intelligence service -->
+          <article class="codebase-card alt reveal delay-2">
+            <div class="cb-head">
+              <span class="cb-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m3.08 3.08l4.24 4.24M1 12h6m6 0h6M4.22 19.78l4.24-4.24m3.08-3.08l4.24-4.24"></path>
+                </svg>
+              </span>
+              <h3 class="cb-title">jaaga_ci &mdash; Intelligence Service</h3>
+              <span class="cb-badge">Owner</span>
+            </div>
+            <p class="cb-sub">Node.js · MongoDB GeoJSON · Geospatial analytics</p>
+            <p class="cb-desc">
+              Specialized backend isolating compute-heavy property
+              intelligence workloads. <strong>Geospatial queries</strong> with
+              Mongoose-GeoJSON, AI-assisted document enrichment via Google
+              Generative AI, and tuned <strong>2dsphere / compound
+              indexes</strong> for sub-100ms query latency on millions of
+              property records.
+            </p>
+            <div class="cb-meta">
+              <div class="cb-stat">
+                <div class="cb-stat-num">&lt;100ms</div>
+                <div class="cb-stat-lbl">p95 geo query</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">2dsphere</div>
+                <div class="cb-stat-lbl">Indexed</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">AI</div>
+                <div class="cb-stat-lbl">Gemini enrich</div>
+              </div>
+            </div>
+            <div class="cb-tech">
+              <span>Node.js</span><span>MongoDB</span><span>GeoJSON</span>
+              <span>Google GenAI</span><span>AWS</span><span>Express</span>
+            </div>
+          </article>
+
+          <!-- 3. Public website -->
+          <article class="codebase-card reveal delay-3">
+            <div class="cb-head">
+              <span class="cb-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                </svg>
+              </span>
+              <h3 class="cb-title">jaaga_web &mdash; www.jaaga.ai</h3>
+              <span class="cb-badge">Contributor + Ops</span>
+            </div>
+            <p class="cb-sub">React 18 · Redux Toolkit · MUI · Tailwind · Vite</p>
+            <p class="cb-desc">
+              Customer-facing web app for property discovery, transactions
+              and intelligence. <strong>20+ pages</strong> &mdash; dashboard,
+              wallet, properties, documents, AI chatbot, states, services and
+              checkout. Cashfree payments UI, Google Maps with marker
+              clustering &amp; spiderfier, React-PDF viewer, react-chatbot-kit.
+              I own the <strong>backend it talks to and the AWS hosting
+              behind it</strong>.
+            </p>
+            <div class="cb-meta">
+              <div class="cb-stat">
+                <div class="cb-stat-num">20+</div>
+                <div class="cb-stat-lbl">Pages shipped</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">3</div>
+                <div class="cb-stat-lbl">Build envs</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">Nginx</div>
+                <div class="cb-stat-lbl">Edge served</div>
+              </div>
+            </div>
+            <div class="cb-tech">
+              <span>React 18</span><span>Vite</span><span>Redux Toolkit</span>
+              <span>TanStack Query</span><span>MUI</span><span>Tailwind</span>
+              <span>Cashfree</span><span>Google Maps</span><span>Framer Motion</span>
+              <span>Nginx</span><span>Docker</span>
+            </div>
+          </article>
+
+          <!-- 4. Partner portal -->
+          <article class="codebase-card alt reveal delay-4">
+            <div class="cb-head">
+              <span class="cb-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </span>
+              <h3 class="cb-title">jaaga-partner &mdash; Partner Portal</h3>
+              <span class="cb-badge">Contributor</span>
+            </div>
+            <p class="cb-sub">React 19 · TypeScript · Zustand · TanStack Query · Vite</p>
+            <p class="cb-desc">
+              SaaS portal for <strong>SRO offices, agents and lawyers</strong>.
+              Includes the <strong>Lawyer Module</strong> (legal opinions /
+              report service), case creation, partner dashboard and
+              service-provider requests. Document preview pipeline
+              (mammoth + docx-preview), Fabric.js canvas for signatures,
+              jsPDF export, react-hook-form + yup validation.
+            </p>
+            <div class="cb-meta">
+              <div class="cb-stat">
+                <div class="cb-stat-num">6</div>
+                <div class="cb-stat-lbl">Feature areas</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">TS</div>
+                <div class="cb-stat-lbl">Strict mode</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">Vercel</div>
+                <div class="cb-stat-lbl">Deploy target</div>
+              </div>
+            </div>
+            <div class="cb-tech">
+              <span>React 19</span><span>TypeScript</span><span>Vite</span>
+              <span>TanStack Query</span><span>Zustand</span><span>Tailwind v4</span>
+              <span>shadcn/ui</span><span>Fabric.js</span><span>jsPDF</span>
+              <span>react-hook-form</span><span>Vercel</span>
+            </div>
+          </article>
+
+          <!-- 5. Admin -->
+          <article class="codebase-card reveal delay-5">
+            <div class="cb-head">
+              <span class="cb-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </span>
+              <h3 class="cb-title">web_admin &mdash; Internal Admin</h3>
+              <span class="cb-badge">Contributor</span>
+            </div>
+            <p class="cb-sub">React 18 · TypeScript · Redux Toolkit · TanStack Table</p>
+            <p class="cb-desc">
+              Internal ops dashboard for the JaaGa team. <strong>13
+              feature modules</strong> &mdash; users, partners, properties,
+              orders, coupons, call-requests, service-requests,
+              verification-requests, organization &amp; landing. Powers
+              daily operations, customer support and partner verification
+              flows.
+            </p>
+            <div class="cb-meta">
+              <div class="cb-stat">
+                <div class="cb-stat-num">13</div>
+                <div class="cb-stat-lbl">Feature modules</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">TS</div>
+                <div class="cb-stat-lbl">Typed throughout</div>
+              </div>
+              <div class="cb-stat">
+                <div class="cb-stat-num">Daily</div>
+                <div class="cb-stat-lbl">In use by ops</div>
+              </div>
+            </div>
+            <div class="cb-tech">
+              <span>React 18</span><span>TypeScript</span><span>Vite</span>
+              <span>Redux Toolkit</span><span>TanStack Table</span>
+              <span>Radix UI</span><span>Tailwind</span><span>Recharts</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- How I work -->
     <section id="ai">
       <div class="container">
@@ -4312,11 +4777,14 @@
       const phrases = [
         "Backend Engineer · 3+ yrs",
         "Node.js · MongoDB · AWS",
+        "5 production codebases owned",
+        "13+ microservices · SQS workers",
         "Payments · ₹50L+ / month",
         "OCR + Lambda pipelines",
         "Idempotent retries · Webhooks",
+        "Docker · Nginx · CI/CD",
+        "Contributes React + TypeScript",
         "Owns services end-to-end",
-        "Collaboration · Clear specs · Docs",
         "On-call · Post-mortems · Runbooks",
       ];
       const typer = document.getElementById("typer");
@@ -4381,23 +4849,41 @@
           icon: "db",
           level: "Advanced",
         },
-        { name: "AWS (Lambda, S3, EC2)", cat: "Cloud", icon: "cloud", level: "Advanced" },
+        { name: "AWS (Lambda, S3, SES, SQS)", cat: "Cloud", icon: "cloud", level: "Advanced" },
         {
           name: "Docker",
           cat: "Cloud",
           icon: "grid",
+          level: "Advanced",
+        },
+        {
+          name: "Nginx",
+          cat: "Cloud",
+          icon: "layers",
           level: "Intermediate",
         },
         {
-          name: "CI/CD",
+          name: "CI/CD &amp; deploy scripts",
           cat: "Cloud",
           icon: "bolt",
-          level: "Intermediate",
+          level: "Advanced",
         },
         {
           name: "PM2 / Process mgmt",
           cat: "Cloud",
           icon: "infinity",
+          level: "Advanced",
+        },
+        {
+          name: "Redis",
+          cat: "Database",
+          icon: "db",
+          level: "Intermediate",
+        },
+        {
+          name: "Microservices &amp; SQS workers",
+          cat: "Architecture",
+          icon: "layers",
           level: "Advanced",
         },
         {
@@ -4432,6 +4918,11 @@
         },
         { name: "Git", cat: "Engineering", icon: "branch", level: "Expert" },
         { name: "Bash / Linux", cat: "Engineering", icon: "bolt", level: "Advanced" },
+        { name: "TypeScript", cat: "Frontend (contributor)", icon: "code", level: "Intermediate" },
+        { name: "React 18 / 19", cat: "Frontend (contributor)", icon: "code", level: "Intermediate" },
+        { name: "Redux Toolkit", cat: "Frontend (contributor)", icon: "layers", level: "Intermediate" },
+        { name: "TanStack Query &amp; Table", cat: "Frontend (contributor)", icon: "grid", level: "Intermediate" },
+        { name: "Vite &amp; Tailwind", cat: "Frontend (contributor)", icon: "bolt", level: "Intermediate" },
       ];
 
       const ICONS = {
