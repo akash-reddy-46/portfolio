@@ -760,81 +760,83 @@
         max-width: 520px;
       }
       .hm {
-        padding: 14px 16px;
-        border-radius: 14px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.04),
-          rgba(255, 255, 255, 0.015)
-        );
-        border: 1px solid var(--line);
+        padding: 18px 18px 16px;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.025);
+        backdrop-filter: blur(10px) saturate(140%);
+        -webkit-backdrop-filter: blur(10px) saturate(140%);
+        border: 1px solid rgba(255, 255, 255, 0.06);
         position: relative;
         overflow: hidden;
         transition:
           transform 0.3s var(--ease),
-          border-color 0.3s var(--ease);
+          border-color 0.3s var(--ease),
+          background 0.3s var(--ease);
       }
       .hm::before {
         content: "";
         position: absolute;
         top: 0;
-        left: 0;
-        right: 0;
+        left: 18px;
+        width: 28px;
         height: 1px;
-        background: linear-gradient(90deg, transparent, var(--blue), transparent);
-        opacity: 0.6;
+        background: linear-gradient(90deg, var(--blue), transparent);
+        opacity: 0.8;
       }
       .hm:hover {
-        transform: translateY(-2px);
+        transform: translateY(-3px);
         border-color: rgba(65, 105, 225, 0.4);
+        background: rgba(255, 255, 255, 0.04);
       }
       .hm-num {
         font-family: var(--display);
         font-weight: 700;
-        font-size: 22px;
-        line-height: 1.1;
-        background: linear-gradient(120deg, #fff, #b9c4ff 60%, var(--blue));
+        font-size: 28px;
+        line-height: 1.05;
+        background: linear-gradient(135deg, #fff 0%, #cfd6f5 55%, var(--blue) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        letter-spacing: -0.01em;
+        letter-spacing: -0.02em;
       }
       .hm-lbl {
         font-family: var(--mono);
         font-size: 10px;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
         color: var(--text-mute);
-        margin-top: 4px;
+        margin-top: 6px;
         line-height: 1.4;
       }
       @media (max-width: 640px) {
         .hero-metrics {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 10px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
           margin-bottom: 28px;
         }
         .hm {
-          padding: 12px 14px;
+          padding: 14px 12px 12px;
+          border-radius: 14px;
         }
         .hm-num {
-          font-size: 19px;
+          font-size: 20px;
         }
         .hm-lbl {
-          font-size: 9.5px;
+          font-size: 9px;
         }
       }
 
       .hero h1 {
         font-family: var(--display);
         font-weight: 800;
-        font-size: clamp(48px, 8.2vw, 100px);
-        line-height: 1;
-        letter-spacing: -0.025em;
+        font-size: clamp(52px, 8.6vw, 108px);
+        line-height: 0.98;
+        letter-spacing: -0.035em;
         font-feature-settings:
           "liga" 1,
-          "calt" 1;
-        margin: 0 0 14px;
+          "calt" 1,
+          "ss01" 1;
+        margin: 0 0 16px;
         text-shadow:
           0 0 40px rgba(65, 105, 225, 0.25),
           0 20px 60px rgba(65, 105, 225, 0.12);
@@ -1528,11 +1530,23 @@
         color: transparent;
       }
       .section-num {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
         font-family: var(--mono);
-        font-size: 12px;
-        letter-spacing: 0.2em;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.28em;
         text-transform: uppercase;
         color: var(--text-mute);
+        padding-bottom: 2px;
+      }
+      .section-num::before {
+        content: "";
+        width: 36px;
+        height: 1px;
+        background: linear-gradient(90deg, var(--blue), transparent);
+        flex: 0 0 auto;
       }
       .section-num span {
         color: var(--blue);
@@ -2304,19 +2318,18 @@
       }
       .snap-card {
         position: relative;
-        padding: 22px 20px;
-        border-radius: 16px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.05),
-          rgba(255, 255, 255, 0.015)
-        );
-        border: 1px solid var(--line);
+        padding: 24px 22px 22px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.025);
+        backdrop-filter: blur(14px) saturate(150%);
+        -webkit-backdrop-filter: blur(14px) saturate(150%);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         overflow: hidden;
         transition:
-          transform 0.35s var(--ease),
-          border-color 0.35s var(--ease),
-          box-shadow 0.35s var(--ease);
+          transform 0.4s var(--ease),
+          border-color 0.4s var(--ease),
+          box-shadow 0.4s var(--ease),
+          background 0.4s var(--ease);
       }
       .snap-card::before {
         content: "";
@@ -2336,7 +2349,12 @@
       .snap-card:hover {
         transform: translateY(-4px);
         border-color: rgba(65, 105, 225, 0.45);
-        box-shadow: 0 22px 44px -22px rgba(65, 105, 225, 0.5);
+        background: rgba(255, 255, 255, 0.05);
+        box-shadow: 0 26px 52px -24px rgba(65, 105, 225, 0.55);
+      }
+      .snap-card.alt:hover {
+        border-color: rgba(0, 200, 80, 0.42);
+        box-shadow: 0 26px 52px -24px rgba(0, 200, 80, 0.45);
       }
       .snap-icon {
         width: 38px;
@@ -2518,34 +2536,47 @@
       }
       .codebase-card {
         position: relative;
-        padding: 32px 28px 24px;
+        padding: 34px 30px 26px;
         border-radius: var(--radius);
         background:
           radial-gradient(
             120% 80% at 0% 0%,
-            rgba(65, 105, 225, 0.08),
+            rgba(65, 105, 225, 0.07),
             transparent 55%
           ),
           radial-gradient(
             120% 80% at 100% 100%,
-            rgba(0, 128, 0, 0.06),
+            rgba(0, 128, 0, 0.05),
             transparent 55%
           ),
-          linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.045),
-            rgba(255, 255, 255, 0.012)
-          );
-        border: 1px solid var(--line);
+          rgba(255, 255, 255, 0.022);
+        backdrop-filter: blur(16px) saturate(160%);
+        -webkit-backdrop-filter: blur(16px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.07);
         overflow: hidden;
         isolation: isolate;
         transition:
           transform 0.5s var(--ease),
           border-color 0.5s var(--ease),
-          box-shadow 0.5s var(--ease);
+          box-shadow 0.5s var(--ease),
+          background 0.5s var(--ease);
         display: flex;
         flex-direction: column;
         gap: 14px;
+      }
+      .codebase-card:hover {
+        background:
+          radial-gradient(
+            120% 80% at 0% 0%,
+            rgba(65, 105, 225, 0.12),
+            transparent 55%
+          ),
+          radial-gradient(
+            120% 80% at 100% 100%,
+            rgba(0, 128, 0, 0.08),
+            transparent 55%
+          ),
+          rgba(255, 255, 255, 0.04);
       }
       /* Border gradient sheen */
       .codebase-card::before {
@@ -2721,48 +2752,52 @@
         align-items: center;
         gap: 6px;
         font-family: var(--mono);
-        font-size: 10px;
-        letter-spacing: 0.16em;
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        padding: 5px 11px;
+        padding: 4px 10px;
         border-radius: 999px;
         white-space: nowrap;
-        font-weight: 600;
+        font-weight: 500;
+        transition:
+          background 0.25s var(--ease),
+          border-color 0.25s var(--ease),
+          color 0.25s var(--ease);
       }
       .cb-chip.type-backend {
-        color: #cdd6ff;
-        background: rgba(65, 105, 225, 0.14);
-        border: 1px solid rgba(65, 105, 225, 0.45);
+        color: #b9c4ff;
+        background: transparent;
+        border: 1px solid rgba(65, 105, 225, 0.35);
       }
       .cb-chip.type-service {
-        color: #b9c4ff;
-        background: rgba(110, 144, 255, 0.12);
-        border: 1px solid rgba(110, 144, 255, 0.4);
+        color: #a7b2d9;
+        background: transparent;
+        border: 1px solid rgba(110, 144, 255, 0.3);
       }
       .cb-chip.type-frontend {
-        color: #c8f0d3;
-        background: rgba(0, 200, 80, 0.12);
-        border: 1px solid rgba(0, 200, 80, 0.45);
+        color: #b3e6c0;
+        background: transparent;
+        border: 1px solid rgba(0, 200, 80, 0.35);
       }
       .cb-chip.role-owner {
         color: #fff;
+        font-weight: 600;
         background: linear-gradient(
           135deg,
-          rgba(65, 105, 225, 0.3),
-          rgba(0, 128, 0, 0.25)
+          rgba(65, 105, 225, 0.22),
+          rgba(0, 128, 0, 0.18)
         );
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        box-shadow: 0 4px 14px -6px rgba(65, 105, 225, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.16);
       }
       .cb-chip.role-contrib {
-        color: var(--text-soft);
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: var(--text-mute);
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.1);
       }
       .cb-chip.status-live {
-        color: #d6f1de;
-        background: rgba(0, 200, 80, 0.1);
-        border: 1px solid rgba(0, 200, 80, 0.4);
+        color: #c8e8d2;
+        background: transparent;
+        border: 1px solid rgba(0, 200, 80, 0.32);
       }
       .cb-chip.status-live::before {
         content: "";
@@ -2856,14 +2891,14 @@
         margin-top: 2px;
       }
       .cb-tech span {
-        padding: 4px 10px;
+        padding: 3px 10px;
         border-radius: 999px;
-        background: rgba(65, 105, 225, 0.08);
-        color: #b9c4ff;
-        border: 1px solid rgba(65, 105, 225, 0.28);
+        background: transparent;
+        color: #a7b2d9;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         font-family: var(--mono);
-        font-size: 10.5px;
-        letter-spacing: 0.06em;
+        font-size: 10px;
+        letter-spacing: 0.08em;
         transition:
           background 0.25s var(--ease),
           color 0.25s var(--ease),
@@ -2871,20 +2906,18 @@
           transform 0.25s var(--ease);
       }
       .cb-tech span:hover {
-        background: rgba(65, 105, 225, 0.22);
+        background: rgba(65, 105, 225, 0.12);
         color: #fff;
-        border-color: rgba(65, 105, 225, 0.6);
+        border-color: rgba(65, 105, 225, 0.45);
         transform: translateY(-1px);
       }
       .codebase-card.alt .cb-tech span {
-        background: rgba(0, 128, 0, 0.08);
-        color: #b3e6c0;
-        border-color: rgba(0, 128, 0, 0.32);
+        color: #a3c8af;
       }
       .codebase-card.alt .cb-tech span:hover {
-        background: rgba(0, 200, 80, 0.22);
+        background: rgba(0, 200, 80, 0.12);
         color: #fff;
-        border-color: rgba(0, 200, 80, 0.6);
+        border-color: rgba(0, 200, 80, 0.45);
       }
       @media (max-width: 640px) {
         .codebase-grid {
@@ -3263,6 +3296,91 @@
         box-shadow: 0 0 12px var(--blue-glow);
         transition: width 0.1s linear;
         pointer-events: none;
+      }
+
+      /* ---------- Sticky hire pill ---------- */
+      .hire-pill {
+        position: fixed;
+        left: 24px;
+        bottom: 24px;
+        z-index: 60;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 18px 11px 14px;
+        border-radius: 999px;
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #e6f7eb;
+        text-decoration: none;
+        background: rgba(8, 11, 20, 0.78);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        border: 1px solid rgba(0, 200, 80, 0.5);
+        box-shadow:
+          0 14px 36px -16px rgba(0, 200, 80, 0.55),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+        opacity: 0;
+        transform: translateY(8px) scale(0.96);
+        transition:
+          opacity 0.5s var(--ease),
+          transform 0.5s var(--ease),
+          box-shadow 0.3s var(--ease),
+          border-color 0.3s var(--ease);
+      }
+      .hire-pill.show {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      .hire-pill:hover {
+        border-color: rgba(0, 200, 80, 0.85);
+        box-shadow:
+          0 20px 46px -16px rgba(0, 200, 80, 0.7),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        transform: translateY(-2px) scale(1);
+      }
+      .hire-pill .hp-dot {
+        position: relative;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: #21c55d;
+        box-shadow: 0 0 12px #21c55d;
+      }
+      .hire-pill .hp-dot::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(33, 197, 93, 0.55);
+        animation: ringPulse 1.8s ease-out infinite;
+      }
+      @keyframes ringPulse {
+        0% { transform: scale(0.85); opacity: 0.9; }
+        100% { transform: scale(1.7); opacity: 0; }
+      }
+      .hire-pill .hp-arrow {
+        margin-left: 2px;
+        transition: transform 0.25s var(--ease);
+      }
+      .hire-pill:hover .hp-arrow {
+        transform: translateX(3px);
+      }
+      .hire-pill .hp-arrow svg {
+        width: 13px;
+        height: 13px;
+      }
+      @media (max-width: 640px) {
+        .hire-pill {
+          left: 16px;
+          bottom: 16px;
+          padding: 10px 14px 10px 12px;
+          font-size: 10.5px;
+          letter-spacing: 0.1em;
+          gap: 8px;
+        }
       }
 
       /* ---------- Back to top button ---------- */
@@ -5430,6 +5548,18 @@
       </div>
     </footer>
 
+    <!-- Sticky hire pill -->
+    <a class="hire-pill" id="hirePill" href="#contact" aria-label="Open to hire — jump to contact">
+      <span class="hp-dot" aria-hidden="true"></span>
+      Open to hire
+      <span class="hp-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </span>
+    </a>
+
     <!-- Back to top button -->
     <button
       class="back-to-top"
@@ -5532,6 +5662,7 @@
       const nav = document.getElementById("nav");
       const scrollProgress = document.getElementById("scrollProgress");
       const backToTop = document.getElementById("backToTop");
+      const hirePill = document.getElementById("hirePill");
 
       const onScroll = () => {
         const y = window.scrollY;
@@ -5545,6 +5676,14 @@
 
         // Back-to-top visibility
         backToTop.classList.toggle("show", y > 600);
+
+        // Hire pill — appears after first scroll, hides near contact (avoid overlap)
+        if (hirePill) {
+          const contact = document.getElementById("contact");
+          const nearContact =
+            contact && y + window.innerHeight > contact.offsetTop + 120;
+          hirePill.classList.toggle("show", y > 200 && !nearContact);
+        }
       };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
