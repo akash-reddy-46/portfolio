@@ -662,6 +662,56 @@
         top: 6px;
       }
 
+      /* ---------- Hero bike banner ---------- */
+      .hero-bike {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 260px;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        opacity: 0;
+        transition: opacity 1.2s var(--ease);
+      }
+      .hero-bike.loaded {
+        opacity: 1;
+      }
+      .hero-bike img {
+        width: min(98vw, 1400px);
+        height: 100%;
+        object-fit: cover;
+        object-position: center 60%;
+        opacity: 0.42;
+        filter:
+          grayscale(0.35)
+          contrast(1.08)
+          brightness(0.95);
+        -webkit-mask-image:
+          radial-gradient(ellipse 75% 70% at center 70%, black 25%, transparent 95%);
+        mask-image:
+          radial-gradient(ellipse 75% 70% at center 70%, black 25%, transparent 95%);
+      }
+      /* Subtle motion — gentle leftward drift, like a slow ride past */
+      @keyframes heroBikeDrift {
+        from { transform: translateX(-8px); }
+        to   { transform: translateX(8px); }
+      }
+      .hero-bike img {
+        animation: heroBikeDrift 18s ease-in-out infinite alternate;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-bike img { animation: none; }
+      }
+      @media (max-width: 760px) {
+        .hero-bike { height: 200px; }
+        .hero-bike img { opacity: 0.32; }
+      }
+
       /* ---------- Hero ---------- */
       .hero {
         padding-top: 80px;
@@ -3666,6 +3716,24 @@
         height: auto;
         display: block;
       }
+      /* Real Bullet photo — sits where the SVG used to */
+      .bike-photo {
+        width: clamp(320px, 60vw, 560px);
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        filter:
+          drop-shadow(0 22px 30px rgba(0, 0, 0, 0.55))
+          drop-shadow(0 0 24px rgba(65, 105, 225, 0.4));
+      }
+      /* When the photo loads, hide the SVG fallback */
+      .car-3d[data-imgok="1"] .car-svg {
+        display: none;
+      }
+      /* When the photo fails entirely, hide the broken img and let SVG show */
+      .car-3d:not([data-imgok="1"]) .bike-photo[data-failed="1"] {
+        display: none;
+      }
       .car-wheel-spokes {
         transform-box: fill-box;
         transform-origin: center;
@@ -4568,6 +4636,17 @@
         href="https://www.linkedin.com/in/akash-reddy-vanga-49377b358"
       />
       <link itemprop="sameAs" href="https://github.com/akash-reddy-46" />
+      <div class="hero-bike" aria-hidden="true">
+        <img
+          alt=""
+          loading="eager"
+          decoding="async"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Beutiful_orissa.jpg/1920px-Beutiful_orissa.jpg"
+          data-fallback="https://upload.wikimedia.org/wikipedia/commons/0/0f/A_Royal_Enfield_Motorbike_-_geograph.org.uk_-_4089405.jpg"
+          onload="this.parentElement.classList.add('loaded')"
+          onerror="(function(el){var fb=el.dataset.fallback;if(fb&&el.src!==fb){el.src=fb;el.dataset.fallback='';}else{el.parentElement.remove();}})(this)"
+        />
+      </div>
       <div class="container">
         <div class="hero-grid">
           <div>
@@ -4695,6 +4774,16 @@
             <div class="garage-floor" aria-hidden="true"></div>
             <div class="car-stage">
               <div class="car-3d" aria-hidden="true">
+                <img
+                  class="bike-photo"
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/02018_Royal_Enfield.jpg/1280px-02018_Royal_Enfield.jpg"
+                  data-fallback="https://upload.wikimedia.org/wikipedia/commons/c/c8/A_red_Royal_Enfield_Bullet.jpg"
+                  onload="this.parentElement.dataset.imgok='1'"
+                  onerror="(function(el){var fb=el.dataset.fallback;if(fb&&el.src!==fb){el.src=fb;el.dataset.fallback='';}else{el.dataset.failed='1';}})(this)"
+                />
                 <svg class="car-svg" viewBox="0 0 460 170" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="bikeTank" x1="0" y1="0" x2="0" y2="1">
