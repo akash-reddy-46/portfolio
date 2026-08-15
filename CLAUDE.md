@@ -60,7 +60,7 @@ Skip: `feat: ...`, `chore: ...`, `Implement feature X` (we use plain sentences, 
 | Location | Hyderabad, Telangana, India |
 | Current role | Software Engineer at JaaGa.AI (since Apr 2026) |
 | Experience claim | 2.5+ years full-time + 6-month internship (NOT "3+ years") |
-| Codebase count | 7 (jaaga backend, web_admin, JaaGa-Whatsapp-App, jaaga-partner, jaaga_web, docsbyai, portfolio) — mobile repos (mobile_jaaga, Jaaga-Partner-App) are deliberately excluded |
+| Codebase count | 6 (jaaga backend, web_admin, JaaGa-Whatsapp-App, jaaga-partner, jaaga_web, docsbyai) — mobile repos (mobile_jaaga, Jaaga-Partner-App) and this portfolio repo itself are deliberately excluded |
 | Color palette | Blue (`#4169e1`) + Green (`#008000`) on dark (`#06080f`) |
 
 ## Things to NEVER change without an explicit ask
@@ -80,7 +80,7 @@ Skip: `feat: ...`, `chore: ...`, `Implement feature X` (we use plain sentences, 
 - **Hero metrics** — the CSS `.hero-metrics { grid-template-columns: repeat(N, ...) }` must match
   the number of `.hm` children. `.codebase-grid` is `repeat(2, ...)`; an odd final card is
   stretched full-width by `.codebase-card:last-child:nth-child(odd)`.
-- **Codebase card numbering** — `cb-num` labels are `NN / 07`. Update both the digit and the
+- **Codebase card numbering** — `cb-num` labels are `NN / 06`. Update both the digit and the
   denominator if the count changes.
 - **JSON-LD FAQ entries** must mirror the visible FAQ items. If you add/edit a visible question,
   edit the corresponding entry in `@type: FAQPage` too — otherwise Google rich results break.
