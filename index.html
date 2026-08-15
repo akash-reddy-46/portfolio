@@ -4334,6 +4334,7 @@
         </a>
         <ul id="navList">
           <li><a href="#stack" class="link">Stack</a></li>
+          <li><a href="#capabilities" class="link">What I build</a></li>
           <li><a href="#ai" class="link">How I work</a></li>
           <li><a href="#about" class="link">About</a></li>
           <li><a href="#experience" class="link">Experience</a></li>
@@ -4660,6 +4661,259 @@
               <span class="key">Observability &amp; alerting</span>
               <span>Runbooks</span><span>On-call &amp; post-mortems</span>
               <span class="key">Git &amp; PR review</span><span>Web scraping (Puppeteer)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What I can build -->
+    <section id="capabilities">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-num">What I can build</div>
+            <h2>Hand me one of these and <em>it ships</em>.</h2>
+          </div>
+          <p class="section-sub">
+            Systems I&rsquo;ve built before and can build again from a blank
+            repo &mdash; described as <strong>Build &middot; Harden &middot;
+            Operate</strong>, because shipping the happy path is the easy third
+            of the job.
+          </p>
+        </div>
+        <p class="project-intro-note reveal">
+          These are capability areas, not a client list. My employer&rsquo;s
+          product details stay confidential &mdash; but the engineering below is
+          mine, and I&rsquo;m happy to go as deep as you like on any of it in an
+          interview.
+        </p>
+
+        <div class="project-card reveal delay-1">
+          <div class="project-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Payment &amp; billing flows</h3>
+            <div class="project-sub">Gateway checkout &middot; UPI collection &middot; Reconciliation</div>
+            <ul class="project-bullets">
+              <li>
+                <span class="pb-tag">Build</span> Checkout and order lifecycle
+                against a payment gateway, UPI collection via VPA/QR with an
+                operator confirmation step, refunds, invoices and a coupon /
+                pricing layer.
+              </li>
+              <li>
+                <span class="pb-tag">Harden</span> Idempotency keys so a retried
+                request can never double-charge, signed-webhook verification,
+                exponential backoff, dead-letter handling for callbacks that
+                never arrive, and a daily reconciliation job against the
+                provider&rsquo;s settlement data.
+              </li>
+              <li>
+                <span class="pb-tag">Operate</span> Alerting on failed and
+                stuck payments, a replay path for dropped webhooks, and an audit
+                trail finance can actually close books against.
+              </li>
+            </ul>
+            <div class="project-tech">
+              <span>Node.js</span><span>Payment gateway APIs</span><span>UPI</span>
+              <span>MongoDB</span><span>AWS SQS</span><span>Webhooks</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal delay-2">
+          <div class="project-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v6"></path><path d="M12 16v6"></path>
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M4.9 4.9 9 9"></path><path d="M15 15l4.1 4.1"></path>
+              <path d="M2 12h6"></path><path d="M16 12h6"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Queue-driven background processing</h3>
+            <div class="project-sub">Workers &middot; Retries &middot; Scheduled jobs</div>
+            <ul class="project-bullets">
+              <li>
+                <span class="pb-tag">Build</span> Anything slow, bursty or
+                failure-prone moved off the request path into queue consumers
+                &mdash; file processing, third-party calls, fan-out, exports,
+                nightly cron jobs.
+              </li>
+              <li>
+                <span class="pb-tag">Harden</span> At-least-once semantics with
+                idempotent handlers, bounded retries with backoff, dead-letter
+                queues for poison messages, and concurrency limits so one bad
+                batch can&rsquo;t take the workers down.
+              </li>
+              <li>
+                <span class="pb-tag">Operate</span> Per-worker process
+                management, queue-depth and age alerting, and a documented way
+                to drain, replay or re-drive a backlog.
+              </li>
+            </ul>
+            <div class="project-tech">
+              <span>AWS SQS</span><span>Node.js</span><span>PM2</span>
+              <span>Redis</span><span>Cron</span><span>Docker</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal delay-3">
+          <div class="project-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14,2 14,8 20,8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <div>
+            <h3>Document pipelines &mdash; OCR &amp; AI extraction</h3>
+            <div class="project-sub">Ingest &middot; Extract &middot; Generate</div>
+            <ul class="project-bullets">
+              <li>
+                <span class="pb-tag">Build</span> Upload &rarr; object storage
+                &rarr; OCR &rarr; LLM structured extraction &rarr; validated
+                record, plus the reverse: templated DOCX/PDF generation from
+                structured data, with versioned templates.
+              </li>
+              <li>
+                <span class="pb-tag">Harden</span> Schema validation on every
+                extraction so a confident-but-wrong model answer gets rejected,
+                duplicate detection on re-uploads, a human review step for
+                low-confidence fields, and per-document retries that don&rsquo;t
+                block the batch.
+              </li>
+              <li>
+                <span class="pb-tag">Operate</span> Cost and latency visibility
+                per document, a preview UI for reviewers, and audit stamps on
+                every edit so you know who changed what.
+              </li>
+            </ul>
+            <div class="project-tech">
+              <span>Google Gemini</span><span>Vertex AI</span><span>Tesseract OCR</span>
+              <span>AWS Lambda</span><span>S3</span><span>docxtemplater</span><span>pdf-lib</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal delay-4">
+          <div class="project-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Multi-channel notifications &amp; messaging</h3>
+            <div class="project-sub">Push &middot; Email &middot; Chat &middot; Campaigns</div>
+            <ul class="project-bullets">
+              <li>
+                <span class="pb-tag">Build</span> One event fanned out to mobile
+                push, email, business-messaging channels and internal team
+                channels, with templates, variable substitution, scheduling and
+                audience segmentation.
+              </li>
+              <li>
+                <span class="pb-tag">Harden</span> Per-channel rate limits,
+                template fallbacks when a live session window has closed,
+                opt-out handling honoured across every channel, and queue-backed
+                retries on transient provider failures.
+              </li>
+              <li>
+                <span class="pb-tag">Operate</span> Delivery, open and failure
+                counters per send, A/B variant comparison, and one auditable
+                answer to &ldquo;who was contacted, when, and with what&rdquo;.
+              </li>
+            </ul>
+            <div class="project-tech">
+              <span>Firebase FCM</span><span>WhatsApp Cloud API</span><span>AWS SES</span>
+              <span>AWS SQS</span><span>Node.js</span><span>React</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal delay-5">
+          <div class="project-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+          </div>
+          <div>
+            <h3>Internal tools, admin consoles &amp; dashboards</h3>
+            <div class="project-sub">Ops workflows &middot; RBAC &middot; Reporting</div>
+            <ul class="project-bullets">
+              <li>
+                <span class="pb-tag">Build</span> The screens a business
+                actually runs on &mdash; searchable tables over large datasets,
+                detail drawers, bulk actions, configurable pipeline/stage
+                workflows, scheduling and reminders, and charts that answer a
+                real question.
+              </li>
+              <li>
+                <span class="pb-tag">Harden</span> Role-based and per-module
+                access control, double-submit guards on state changes, mandatory
+                reasons captured on destructive or irreversible transitions, and
+                a full change history rather than a last-write-wins field.
+              </li>
+              <li>
+                <span class="pb-tag">Operate</span> Audit stamps on every edit,
+                printable/exportable reports for people who live in
+                spreadsheets, and access logs for anything sensitive.
+              </li>
+            </ul>
+            <div class="project-tech">
+              <span>React 18/19</span><span>TypeScript</span><span>TanStack Table</span>
+              <span>TanStack Query</span><span>Recharts</span><span>Tailwind</span><span>Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal delay-1">
+          <div class="project-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <div>
+            <h3>Third-party integrations &amp; edge services</h3>
+            <div class="project-sub">OAuth &middot; Webhooks &middot; Cloudflare Workers</div>
+            <ul class="project-bullets">
+              <li>
+                <span class="pb-tag">Build</span> Integrations against messaging,
+                advertising, search and payment APIs &mdash; OAuth flows with
+                refresh-token rotation, pagination, sync jobs, and inbound
+                webhook receivers. Comfortable shipping the whole thing on
+                <strong>Cloudflare Workers, D1 and R2</strong> when an edge
+                runtime fits better than a server.
+              </li>
+              <li>
+                <span class="pb-tag">Harden</span> Signature verification on
+                every inbound webhook, provider rate limits respected with
+                backoff, tokens and secrets kept out of source control and
+                rotatable, and graceful degradation when a provider is down
+                rather than a cascading failure.
+              </li>
+              <li>
+                <span class="pb-tag">Operate</span> Pinned API versions with a
+                documented upgrade path, replayable webhook logs, and alerts
+                when a token is close to expiry instead of after it breaks.
+              </li>
+            </ul>
+            <div class="project-tech">
+              <span>Cloudflare Workers</span><span>D1</span><span>R2</span><span>Wrangler</span>
+              <span>OAuth 2.0</span><span>REST</span><span>Webhooks</span><span>Node.js</span>
             </div>
           </div>
         </div>

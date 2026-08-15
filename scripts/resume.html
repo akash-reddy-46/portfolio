@@ -164,6 +164,17 @@
         color: var(--ink);
       }
 
+      /* ---------- capabilities ---------- */
+      ul.caps {
+        margin-top: 1pt;
+      }
+
+      ul.caps li {
+        margin-bottom: 2.6pt;
+        color: var(--ink-soft);
+        break-inside: avoid;
+      }
+
       /* ---------- skills ---------- */
       .skills {
         margin-top: 1pt;
@@ -267,6 +278,48 @@
         first-line on-call. Promoted twice in two years. Open to Backend,
         Platform or DevOps roles.
       </p>
+    </section>
+
+    <section>
+      <h2>What I Can Build</h2>
+      <ul class="caps">
+        <li>
+          <strong>Payment &amp; billing flows</strong> — gateway checkout and
+          order lifecycle, UPI collection, idempotency keys, signed-webhook
+          verification, exponential backoff, dead-letter handling and daily
+          settlement reconciliation.
+        </li>
+        <li>
+          <strong>Queue-driven background processing</strong> — moving slow,
+          bursty or failure-prone work off the request path; at-least-once
+          delivery with idempotent handlers, bounded retries, dead-letter
+          queues, concurrency limits and scheduled jobs.
+        </li>
+        <li>
+          <strong>Document pipelines (OCR + AI)</strong> — upload → object
+          storage → OCR → LLM structured extraction → schema-validated record,
+          with duplicate detection, a human review step for low-confidence
+          fields, and templated DOCX/PDF generation.
+        </li>
+        <li>
+          <strong>Multi-channel notifications &amp; messaging</strong> — one
+          event fanned out to mobile push, email, business-messaging and
+          internal channels; templates, scheduling, audience segmentation,
+          opt-out handling and A/B variant testing.
+        </li>
+        <li>
+          <strong>Internal tools, admin consoles &amp; dashboards</strong> —
+          searchable tables over large datasets, configurable pipeline and
+          stage workflows, role-based and per-module access control, change
+          history, audit stamps and exportable reporting.
+        </li>
+        <li>
+          <strong>Third-party integrations &amp; edge services</strong> — OAuth
+          flows with refresh-token rotation, rate-limit-aware sync jobs,
+          pagination, inbound webhook receivers with signature verification, and
+          full applications on Cloudflare Workers, D1 and R2.
+        </li>
+      </ul>
     </section>
 
     <section>
