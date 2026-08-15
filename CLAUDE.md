@@ -60,7 +60,7 @@ Skip: `feat: ...`, `chore: ...`, `Implement feature X` (we use plain sentences, 
 | Location | Hyderabad, Telangana, India |
 | Current role | Software Engineer at JaaGa.AI (since Apr 2026) |
 | Experience claim | 2.5+ years full-time + 6-month internship (NOT "3+ years") |
-| Codebase count | 6 (jaaga backend, web_admin, JaaGa-Whatsapp-App, jaaga-partner, jaaga_web, docsbyai) — mobile repos (mobile_jaaga, Jaaga-Partner-App) and this portfolio repo itself are deliberately excluded |
+| Employer confidentiality | **No JaaGa-internal detail on the site.** No private repo names, module/worker counts, commit counts, business figures (revenue, transaction volume, failure/delivery rates, document throughput) or named internal products (CRM, lawyer module, marketing suite). Describe work by engineering category instead. JaaGa.AI as employer name and www.jaaga.ai are fine. |
 | Color palette | Blue (`#4169e1`) + Green (`#008000`) on dark (`#06080f`) |
 
 ## Things to NEVER change without an explicit ask
@@ -68,7 +68,7 @@ Skip: `feat: ...`, `chore: ...`, `Implement feature X` (we use plain sentences, 
 - Color palette
 - The `Person` / `WebSite` / `ProfilePage` / `FAQPage` / `BreadcrumbList` JSON-LD `@id` URLs
 - The visible name on the page (`Vanga Akash Reddy` in hero h1)
-- Section IDs (`#about`, `#experience`, ...) — these are linked from external places
+- Section IDs (`#stack`, `#ai`, `#about`, `#experience`, ...) — these are linked from external places
 - File structure (`index.html`, `assets/`, `robots.txt`, `sitemap.xml`)
 - The 5 most recent commits' style — match the existing repo voice
 
@@ -78,10 +78,11 @@ Skip: `feat: ...`, `chore: ...`, `Implement feature X` (we use plain sentences, 
   and `icon` MUST be a key in the `ICONS` object (`code`, `api`, `db`, `cloud`, `grid`,
   `layers`, `bolt`, `card`, `infinity`, `branch`, `brain`, `spark`, `spider`, `chat`).
 - **Hero metrics** — the CSS `.hero-metrics { grid-template-columns: repeat(N, ...) }` must match
-  the number of `.hm` children. `.codebase-grid` is `repeat(2, ...)`; an odd final card is
-  stretched full-width by `.codebase-card:last-child:nth-child(odd)`.
-- **Codebase card numbering** — `cb-num` labels are `NN / 06`. Update both the digit and the
-  denominator if the count changes.
+  the number of `.hm` children. Keep `.hm-num` values short (a number or one short word); longer
+  strings like "Full-stack" wrap mid-word and push the hero past one viewport.
+- **Hero height** — the hero is tuned to ~832px so it fits one 900px screen. If you add a line to
+  the lede or a metric label wraps, re-check it.
+- **Stack card pills** — `.sc-pills span.key` is the highlighted "use daily" state.
 - **JSON-LD FAQ entries** must mirror the visible FAQ items. If you add/edit a visible question,
   edit the corresponding entry in `@type: FAQPage` too — otherwise Google rich results break.
 
