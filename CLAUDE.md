@@ -83,6 +83,10 @@ Skip: `feat: ...`, `chore: ...`, `Implement feature X` (we use plain sentences, 
 - **Hero height** — the hero is tuned to ~832px so it fits one 900px screen. If you add a line to
   the lede or a metric label wraps, re-check it.
 - **Stack card pills** — `.sc-pills span.key` is the highlighted "use daily" state.
+- **Resume** — `scripts/resume.html` is the source of truth. Edit it, run `./scripts/build-resume.sh`
+  (headless Chrome, nothing to install), commit both the HTML and the regenerated
+  `assets/Vanga-Akash-Reddy-Resume.pdf`. The PDF is publicly downloadable from the site, so the
+  employer-confidentiality rule above applies to it exactly as it does to `index.html`.
 - **JSON-LD FAQ entries** must mirror the visible FAQ items. If you add/edit a visible question,
   edit the corresponding entry in `@type: FAQPage` too — otherwise Google rich results break.
 

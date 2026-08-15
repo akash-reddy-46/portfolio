@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Vanga Akash Reddy — Backend &amp; Platform Engineer</title>
+    <style>
+      /* ------------------------------------------------------------------
+         Print-first resume. Single column on purpose: multi-column layouts
+         confuse ATS parsers, which read top-to-bottom and interleave the
+         columns into nonsense. Real text throughout — no images, no icons
+         that carry meaning.
+         ------------------------------------------------------------------ */
+      @page {
+        size: A4;
+        margin: 13mm 14mm;
+      }
+
+      :root {
+        --ink: #14181f;
+        --ink-soft: #3d4551;
+        --ink-mute: #5d6673;
+        --rule: #c8cdd6;
+        --accent: #1f3f8f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 9.4pt;
+        line-height: 1.42;
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ---------- header ---------- */
+      .name {
+        font-size: 21pt;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        margin: 0;
+        color: var(--accent);
+      }
+
+      .role {
+        font-size: 10.6pt;
+        font-weight: 600;
+        color: var(--ink-soft);
+        margin: 2pt 0 5pt;
+        letter-spacing: 0.01em;
+      }
+
+      .contact {
+        font-size: 8.8pt;
+        color: var(--ink-soft);
+        line-height: 1.5;
+      }
+
+      .contact a {
+        color: var(--ink-soft);
+        text-decoration: none;
+      }
+
+      .contact .sep {
+        color: var(--rule);
+        padding: 0 4pt;
+      }
+
+      .rule {
+        border: 0;
+        border-top: 1.6pt solid var(--accent);
+        margin: 7pt 0 0;
+      }
+
+      /* ---------- sections ---------- */
+      section {
+        margin-top: 9pt;
+        /* Never orphan a section heading at the foot of a page. */
+        break-inside: auto;
+      }
+
+      h2 {
+        font-size: 9.4pt;
+        font-weight: 700;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin: 0 0 4pt;
+        padding-bottom: 2pt;
+        border-bottom: 0.7pt solid var(--rule);
+        break-after: avoid;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .summary {
+        text-align: justify;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- experience ---------- */
+      .job {
+        margin-top: 6pt;
+        break-inside: avoid;
+      }
+
+      .job:first-of-type {
+        margin-top: 2pt;
+      }
+
+      .job-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10pt;
+      }
+
+      .job-title {
+        font-size: 10pt;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .job-dates {
+        font-size: 8.6pt;
+        font-weight: 600;
+        color: var(--ink-mute);
+        white-space: nowrap;
+      }
+
+      .job-org {
+        font-size: 9pt;
+        font-style: italic;
+        color: var(--ink-soft);
+        margin: 0 0 3pt;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 12pt;
+      }
+
+      li {
+        margin-bottom: 2.2pt;
+        padding-left: 1pt;
+      }
+
+      li::marker {
+        color: var(--accent);
+      }
+
+      strong {
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      /* ---------- skills ---------- */
+      .skills {
+        margin-top: 1pt;
+      }
+
+      .skill-row {
+        display: flex;
+        gap: 7pt;
+        margin-bottom: 2.6pt;
+        break-inside: avoid;
+      }
+
+      .skill-label {
+        flex: 0 0 92pt;
+        font-weight: 700;
+        color: var(--ink);
+      }
+
+      .skill-value {
+        flex: 1;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- education ---------- */
+      .edu {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10pt;
+        margin-bottom: 3pt;
+        break-inside: avoid;
+      }
+
+      .edu-what {
+        font-weight: 700;
+      }
+
+      .edu-where {
+        font-style: italic;
+        color: var(--ink-soft);
+        font-weight: 400;
+      }
+
+      .edu-when {
+        font-size: 8.6pt;
+        font-weight: 600;
+        color: var(--ink-mute);
+        white-space: nowrap;
+      }
+
+      .certs {
+        color: var(--ink-soft);
+      }
+
+      /* ---------- footer ---------- */
+      .footer {
+        margin-top: 10pt;
+        padding-top: 5pt;
+        border-top: 0.7pt solid var(--rule);
+        font-size: 8.4pt;
+        color: var(--ink-mute);
+        display: flex;
+        justify-content: space-between;
+        gap: 10pt;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="name">VANGA AKASH REDDY</h1>
+      <p class="role">Backend &amp; Platform Engineer</p>
+      <div class="contact">
+        Hyderabad, Telangana, India <span class="sep">|</span>
+        <a href="mailto:vangaakashreddy@gmail.com">vangaakashreddy@gmail.com</a>
+        <span class="sep">|</span> +91 77992 18720<br />
+        <a href="https://www.linkedin.com/in/akash-reddy-vanga-49377b358"
+          >linkedin.com/in/akash-reddy-vanga-49377b358</a
+        >
+        <span class="sep">|</span>
+        <a href="https://github.com/akash-reddy-46">github.com/akash-reddy-46</a>
+        <span class="sep">|</span>
+        <a href="https://akash-reddy-46.github.io/portfolio/"
+          >akash-reddy-46.github.io/portfolio</a
+        >
+      </div>
+      <hr class="rule" />
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">
+        Backend engineer with <strong>2.5+ years full-time</strong> (plus a
+        6-month internship) building revenue-critical production systems on
+        <strong>Node.js, Express, MongoDB and AWS</strong>, with
+        <strong>Cloudflare Workers</strong> at the edge and
+        <strong>React&nbsp;+&nbsp;TypeScript</strong> front ends. Experience
+        across payment-gateway and UPI integrations, queue-driven background
+        workers, OCR and LLM document pipelines, notification and messaging
+        platforms, and internal business tooling. Owns services end-to-end —
+        from API contract and data model through deployment, monitoring and
+        first-line on-call. Promoted twice in two years. Open to Backend,
+        Platform or DevOps roles.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <p class="job-title">Software Engineer</p>
+          <span class="job-dates">Apr 2026 – Present</span>
+        </div>
+        <p class="job-org">JaaGa.AI — Hyderabad, India (promoted)</p>
+        <ul>
+          <li>
+            <strong>Own backend services end-to-end</strong> — API design and
+            data modeling through deployment, monitoring and on-call.
+          </li>
+          <li>
+            <strong>Design and ship internal business platforms</strong> —
+            configurable pipeline and workflow tooling, scheduling and
+            reminders, role-based access control and reporting — taking each
+            from spec through the data model to the React&nbsp;/&nbsp;TypeScript
+            interface.
+          </li>
+          <li>
+            <strong>Built a multi-channel marketing and messaging platform</strong>
+            on <strong>Cloudflare Workers, D1 and R2</strong>, integrating
+            several third-party marketing and messaging APIs behind a single
+            interface — replacing a paid SaaS subscription.
+          </li>
+          <li>
+            <strong>Architected a payment retry and reconciliation layer</strong>
+            — idempotency keys, exponential backoff, signed-webhook
+            verification, dead-letter handling and a daily settlement
+            reconciliation job — plus a UPI collection rail with an operator
+            confirmation step.
+          </li>
+          <li>
+            Write and maintain <strong>runbooks</strong>; first-line on-call and
+            blameless post-mortems with follow-up actions driven to closure.
+          </li>
+          <li>
+            Partner with finance, ops, product and legal to turn ambiguous
+            business asks into precise, shippable specs.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <p class="job-title">Backend Developer</p>
+          <span class="job-dates">Apr 2024 – Apr 2026</span>
+        </div>
+        <p class="job-org">JaaGa.AI — Hyderabad, India</p>
+        <ul>
+          <li>
+            <strong>Designed and shipped revenue-critical services</strong> on
+            AWS, MongoDB and Node.js, backed by <strong>SQS queue workers</strong>
+            for anything slow, retryable or bursty.
+          </li>
+          <li>
+            <strong>Integrated a payment gateway end-to-end</strong> — checkout,
+            webhook signature verification, idempotent retries with exponential
+            backoff and settlement reconciliation — so a duplicate callback or a
+            dropped response can never double-charge or lose a payment.
+          </li>
+          <li>
+            <strong>Built a notification platform</strong> — a single consumer
+            fanning one event out to push (Firebase Cloud Messaging), messaging,
+            email and internal channels, with template fallbacks and
+            queue-backed retries; later extended with audience segmentation and
+            A/B variant testing.
+          </li>
+          <li>
+            <strong>Automated document processing</strong> with an
+            S3&nbsp;→&nbsp;OCR&nbsp;→&nbsp;LLM extraction&nbsp;→&nbsp;MongoDB
+            pipeline plus templated document generation, replacing a manual
+            read-and-retype step with a validated, reviewable one.
+          </li>
+          <li>
+            Profiled and tuned <strong>MongoDB indexes and aggregations</strong>
+            and Node.js hot paths (event-loop pressure) to remove latency
+            bottlenecks under real traffic.
+          </li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <p class="job-title">Backend Developer Intern</p>
+          <span class="job-dates">Oct 2023 – Mar 2024</span>
+        </div>
+        <p class="job-org">JaaGa.AI — Hyderabad, India</p>
+        <ul>
+          <li>
+            Shipped REST endpoints in <strong>Node.js and Express</strong>
+            against MongoDB, contributing production-facing features within the
+            first three months.
+          </li>
+          <li>
+            Wrote schemas, queries and validation for new modules; learned code
+            review, deployment discipline and debugging real incidents.
+          </li>
+          <li>
+            Converted to full-time on the strength of ownership shown on the
+            document-processing and billing work.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <div class="skill-row">
+          <div class="skill-label">Languages</div>
+          <div class="skill-value">
+            JavaScript (ES2022), TypeScript, Node.js, SQL, Bash, HTML5, CSS3
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Backend &amp; APIs</div>
+          <div class="skill-value">
+            Express, REST API design, Mongoose, Joi validation, JWT &amp;
+            sessions, bcrypt, Helmet, rate limiting, input sanitisation, Winston
+            &amp; Morgan logging, cron jobs
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Data &amp; storage</div>
+          <div class="skill-value">
+            MongoDB (data modeling, indexing, aggregation pipelines, GeoJSON /
+            geospatial), Redis, Cloudflare D1, AWS S3, Cloudflare R2, Azure Blob
+            Storage
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Cloud &amp; DevOps</div>
+          <div class="skill-value">
+            AWS (Lambda, S3, SES, SQS), Cloudflare Workers, Pages, D1, R2 and
+            Wrangler, Docker, Nginx, PM2, Vercel, shell deployment scripts,
+            dev&nbsp;/&nbsp;staging&nbsp;/&nbsp;production environments
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">AI &amp; documents</div>
+          <div class="skill-value">
+            Google Gemini, Vertex AI, Tesseract OCR, structured extraction,
+            docxtemplater, mammoth, pdf-lib, pdf-parse, QR generation
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Integrations</div>
+          <div class="skill-value">
+            Payment gateways (Cashfree) and UPI, WhatsApp Business Cloud API,
+            Meta Graph API, Instagram Graph API, Google Ads API, Meta Ads API,
+            Google Search Console API, Firebase Cloud Messaging, Nodemailer,
+            Telegram Bot API, Slack&nbsp;/&nbsp;Teams webhooks
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Frontend</div>
+          <div class="skill-value">
+            React 18&nbsp;/&nbsp;19, Vite, TanStack Query &amp; Table, Redux
+            Toolkit, Zustand, React Router, React Hook Form + Yup, Tailwind CSS,
+            Radix UI, shadcn/ui, MUI, Recharts, Leaflet
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Reliability</div>
+          <div class="skill-value">
+            Idempotency, retries with exponential backoff, webhook signature
+            verification, dead-letter handling, reconciliation jobs, rate
+            limiting, RBAC, audit trails, observability and alerting, runbooks,
+            on-call and post-mortems
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Tools</div>
+          <div class="skill-value">
+            Git and pull-request review, Postman, Puppeteer (web scraping),
+            Linux, Jira, AI-assisted development
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="edu">
+        <div>
+          <span class="edu-what">Master of Computer Applications (MCA)</span>
+          <span class="edu-where">— Osmania University, Hyderabad</span>
+        </div>
+        <span class="edu-when">2025 – 2027 (in progress)</span>
+      </div>
+      <div class="edu">
+        <div>
+          <span class="edu-what"
+            >B.Sc. — Electronics, Computer Science &amp; Mathematics</span
+          >
+          <span class="edu-where">— Andhra Loyola College, Vijayawada</span>
+        </div>
+        <span class="edu-when">2019 – 2022</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications</h2>
+      <p class="certs">
+        Introduction to Databases &nbsp;·&nbsp; AI Fundamentals &nbsp;·&nbsp;
+        Build Your Own Responsive Website &nbsp;·&nbsp; Build Your Own Static
+        Website &nbsp;·&nbsp; AI for Brainstorming and Planning
+      </p>
+    </section>
+
+    <div class="footer">
+      <span
+        >Declaration: the information above is accurate to the best of my
+        knowledge.</span
+      >
+      <span>Place: Hyderabad &nbsp;·&nbsp; (Vanga Akash Reddy)</span>
+    </div>
+  </body>
+</html>
