@@ -61,7 +61,7 @@ Skip: `feat: ...`, `chore: ...`, `Implement feature X` (we use plain sentences, 
 | Current role | Software Engineer at JaaGa.AI (since Apr 2026) |
 | Experience claim | 2.5+ years full-time + 6-month internship (NOT "3+ years") |
 | Employer confidentiality | **No JaaGa-internal detail on the site.** No private repo names, module/worker counts, commit counts, business figures (revenue, transaction volume, failure/delivery rates, document throughput) or named internal products (CRM, lawyer module, marketing suite). Describe work by engineering category instead. JaaGa.AI as employer name and www.jaaga.ai are fine. |
-| Color palette | Two themes, toggle in the nav. **Black & white** (default) is a soft light "paper and ink" theme: off-white page `#fafaf9`, charcoal text `#1c1c1f`, grey accents, colour photo — never pure `#000`/`#fff` (glare). **Blue**: Blue (`#4169e1`) + Green (`#008000`) on dark (`#06080f`). Every colour is a CSS var defined in the "Themes" block at the end of the `<style>` — add new colours there for both themes. Choice persists in `localStorage.akr_theme`. |
+| Color palette | Two themes, toggle in the nav. **Black & white** (default) is a soft light "paper and ink" theme: off-white page `#fafaf9`, charcoal text `#1c1c1f`, grey neutrals + one brand-blue accent (`#3451d1`, 60-30-10 rule) on buttons, links, highlights; colour photo — never pure `#000`/`#fff` (glare). **Blue**: Blue (`#4169e1`) + Green (`#008000`) on dark (`#06080f`). Every colour is a CSS var defined in the "Themes" block at the end of the `<style>` — add new colours there for both themes. Choice persists in `localStorage.akr_theme`. |
 
 ## Things to NEVER change without an explicit ask
 
