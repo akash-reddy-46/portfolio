@@ -17,6 +17,18 @@
     />
     <meta name="author" content="Akash Reddy Vanga" />
     <meta name="theme-color" content="#06080f" />
+    <script>
+      (function () {
+        var t = "mono";
+        try {
+          var v = localStorage.getItem("akr_theme");
+          if (v === "blue" || v === "mono") t = v;
+        } catch (e) {}
+        if (t === "mono") document.documentElement.setAttribute("data-theme", "mono");
+        var m = document.querySelector('meta[name="theme-color"]');
+        if (m) m.setAttribute("content", t === "mono" ? "#0a0a0a" : "#06080f");
+      })();
+    </script>
     <meta name="application-name" content="Akash Reddy Vanga · Official Portfolio" />
     <meta name="color-scheme" content="dark" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -339,26 +351,26 @@
       /* ---------- Tokens ---------- */
       :root {
         /* Color palette */
-        --blue: #4169e1;
-        --blue-soft: rgba(65, 105, 225, 0.18);
-        --blue-glow: rgba(65, 105, 225, 0.45);
-        --green: #008000;
-        --green-soft: rgba(0, 128, 0, 0.22);
-        --green-glow: rgba(0, 200, 80, 0.45);
+        --blue: var(--c-4169e1);
+        --blue-soft: rgba(var(--rgb-65-105-225), 0.18);
+        --blue-glow: rgba(var(--rgb-65-105-225), 0.45);
+        --green: var(--c-008000);
+        --green-soft: rgba(var(--rgb-0-128-0), 0.22);
+        --green-glow: rgba(var(--rgb-0-200-80), 0.45);
         /* Accent used for the hairline rule under section headings */
-        --gold-stripe: #d4a73c;
+        --gold-stripe: var(--c-d4a73c);
 
         /* Background layers */
-        --bg-0: #06080f;
-        --bg-1: #0a0e1a;
-        --bg-2: #0f1422;
+        --bg-0: var(--c-06080f);
+        --bg-1: var(--c-0a0e1a);
+        --bg-2: var(--c-0f1422);
         --line: rgba(255, 255, 255, 0.08);
         --line-strong: rgba(255, 255, 255, 0.16);
 
         /* Text colors */
-        --text: #e9edf7;
-        --text-soft: #aab2c8;
-        --text-mute: #7a8298;
+        --text: var(--c-e9edf7);
+        --text-soft: var(--c-aab2c8);
+        --text-mute: var(--c-7a8298);
 
         /* Typography */
         --display: "Syne", "Fraunces", "Times New Roman", serif;
@@ -421,7 +433,7 @@
         top: -40px;
         left: 6px;
         background: var(--blue);
-        color: white;
+        color: var(--on-accent);
         padding: 8px 16px;
         border-radius: 8px;
         text-decoration: none;
@@ -442,20 +454,20 @@
         background:
           radial-gradient(
             60rem 40rem at 12% -10%,
-            rgba(65, 105, 225, 0.22),
+            rgba(var(--rgb-65-105-225), 0.22),
             transparent 60%
           ),
           radial-gradient(
             48rem 36rem at 92% 6%,
-            rgba(0, 128, 0, 0.18),
+            rgba(var(--rgb-0-128-0), 0.18),
             transparent 60%
           ),
           radial-gradient(
             70rem 50rem at 50% 110%,
-            rgba(65, 105, 225, 0.16),
+            rgba(var(--rgb-65-105-225), 0.16),
             transparent 60%
           ),
-          linear-gradient(180deg, #05070d 0%, #080b14 45%, #06080f 100%);
+          linear-gradient(180deg, var(--c-05070d) 0%, var(--c-080b14) 45%, var(--c-06080f) 100%);
       }
       .bg::before {
         content: "";
@@ -550,7 +562,7 @@
         z-index: 50;
         backdrop-filter: blur(14px) saturate(140%);
         -webkit-backdrop-filter: blur(14px) saturate(140%);
-        background: rgba(8, 11, 20, 0.55);
+        background: rgba(var(--rgb-8-11-20), 0.55);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         transition:
           border-color 0.3s var(--ease),
@@ -558,7 +570,7 @@
           box-shadow 0.3s var(--ease);
       }
       .nav.scrolled {
-        background: rgba(8, 11, 20, 0.78);
+        background: rgba(var(--rgb-8-11-20), 0.78);
         border-bottom-color: var(--line);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
       }
@@ -591,7 +603,7 @@
       }
       .brand:hover .brand-mark {
         transform: rotate(-8deg) scale(1.06);
-        color: #6e90ff;
+        color: var(--c-6e90ff);
         filter: drop-shadow(0 0 10px var(--blue-glow));
       }
       .nav ul {
@@ -682,10 +694,10 @@
         position: relative;
         background: linear-gradient(
           135deg,
-          #050609 0%,
-          #0a0d16 35%,
-          #0f1428 65%,
-          #0a0d16 100%
+          var(--c-050609) 0%,
+          var(--c-0a0d16) 35%,
+          var(--c-0f1428) 65%,
+          var(--c-0a0d16) 100%
         );
         overflow: hidden;
       }
@@ -696,17 +708,17 @@
         background:
           radial-gradient(
             ellipse 800px 400px at 20% -10%,
-            rgba(65, 105, 225, 0.25),
+            rgba(var(--rgb-65-105-225), 0.25),
             transparent 40%
           ),
           radial-gradient(
             ellipse 600px 400px at 80% 100%,
-            rgba(0, 128, 0, 0.2),
+            rgba(var(--rgb-0-128-0), 0.2),
             transparent 40%
           ),
           radial-gradient(
             ellipse 500px 300px at 50% 50%,
-            rgba(65, 105, 225, 0.08),
+            rgba(var(--rgb-65-105-225), 0.08),
             transparent 50%
           );
         pointer-events: none;
@@ -752,14 +764,14 @@
         align-items: center;
         gap: 12px;
         margin-bottom: 20px;
-        text-shadow: 0 0 20px rgba(65, 105, 225, 0.4);
+        text-shadow: 0 0 20px rgba(var(--rgb-65-105-225), 0.4);
         font-weight: 600;
         padding: 8px 16px;
-        background: rgba(65, 105, 225, 0.08);
-        border: 1px solid rgba(65, 105, 225, 0.25);
+        background: rgba(var(--rgb-65-105-225), 0.08);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.25);
         border-radius: 50px;
         backdrop-filter: blur(8px);
-        box-shadow: 0 0 30px rgba(65, 105, 225, 0.1);
+        box-shadow: 0 0 30px rgba(var(--rgb-65-105-225), 0.1);
       }
       .eyebrow::before {
         content: "";
@@ -777,8 +789,8 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #21c55d;
-        box-shadow: 0 0 12px #21c55d;
+        background: var(--c-21c55d);
+        box-shadow: 0 0 12px var(--c-21c55d);
         animation: pulseDot 1.6s ease-in-out infinite;
         margin-right: -4px;
       }
@@ -817,7 +829,7 @@
       }
       .hm:hover {
         transform: translateY(-3px);
-        border-color: rgba(65, 105, 225, 0.4);
+        border-color: rgba(var(--rgb-65-105-225), 0.4);
         background: rgba(255, 255, 255, 0.04);
       }
       .hm-num {
@@ -825,7 +837,7 @@
         font-weight: 700;
         font-size: 28px;
         line-height: 1.05;
-        background: linear-gradient(135deg, #fff 0%, #cfd6f5 55%, var(--blue) 100%);
+        background: linear-gradient(135deg, #fff 0%, var(--c-cfd6f5) 55%, var(--blue) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -870,15 +882,15 @@
           "ss01" 1;
         margin: 0 0 12px;
         text-shadow:
-          0 0 40px rgba(65, 105, 225, 0.25),
-          0 20px 60px rgba(65, 105, 225, 0.12);
+          0 0 40px rgba(var(--rgb-65-105-225), 0.25),
+          0 20px 60px rgba(var(--rgb-65-105-225), 0.12);
         transform: translateZ(0);
       }
       .hero h1 .accent {
         background: linear-gradient(
           120deg,
           var(--blue) 10%,
-          #6e90ff 45%,
+          var(--c-6e90ff) 45%,
           var(--green) 90%
         );
         -webkit-background-clip: text;
@@ -889,20 +901,6 @@
         font-weight: 500;
       }
 
-      .hero-name-slug {
-        font-family: var(--mono);
-        font-size: clamp(11.5px, 1.3vw, 13px);
-        letter-spacing: 0.04em;
-        line-height: 1.5;
-        color: var(--text-mute);
-        margin: 0 0 14px;
-        max-width: 62ch;
-      }
-      .hero-name-slug strong {
-        color: var(--text-soft);
-        font-weight: 600;
-      }
-
       .typer-wrap {
         font-family: var(--display);
         font-size: clamp(21px, 2.4vw, 29px);
@@ -911,7 +909,7 @@
         letter-spacing: -0.01em;
         margin: 0 0 20px;
         min-height: 1.5em;
-        text-shadow: 0 0 20px rgba(65, 105, 225, 0.15);
+        text-shadow: 0 0 20px rgba(var(--rgb-65-105-225), 0.15);
       }
       .typer {
         color: var(--text);
@@ -919,7 +917,7 @@
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        text-shadow: 0 0 20px rgba(65, 105, 225, 0.2);
+        text-shadow: 0 0 20px rgba(var(--rgb-65-105-225), 0.2);
       }
       .caret {
         display: inline-block;
@@ -981,14 +979,14 @@
       .btn-primary {
         background: linear-gradient(
           135deg,
-          #4169e1 0%,
-          #5a7dff 50%,
-          #6a9dff 100%
+          var(--c-4169e1) 0%,
+          var(--c-5a7dff) 50%,
+          var(--c-6a9dff) 100%
         );
-        color: white;
+        color: var(--on-accent);
         box-shadow:
           0 15px 50px -15px var(--blue-glow),
-          0 0 30px -10px rgba(65, 105, 225, 0.4),
+          0 0 30px -10px rgba(var(--rgb-65-105-225), 0.4),
           inset 0 0 0 1px rgba(255, 255, 255, 0.2);
         padding: 16px 28px;
         font-weight: 600;
@@ -1012,7 +1010,7 @@
         transform: translateY(-3px);
         box-shadow:
           0 20px 60px -15px var(--blue-glow),
-          0 0 40px -5px rgba(65, 105, 225, 0.5),
+          0 0 40px -5px rgba(var(--rgb-65-105-225), 0.5),
           inset 0 0 0 1px rgba(255, 255, 255, 0.3);
       }
       .btn-primary:hover::after {
@@ -1027,9 +1025,9 @@
         transition: all 0.3s var(--ease);
       }
       .btn-ghost:hover {
-        border-color: rgba(0, 200, 80, 0.6);
-        color: #c8f0d3;
-        background: rgba(0, 128, 0, 0.08);
+        border-color: rgba(var(--rgb-0-200-80), 0.6);
+        color: var(--c-c8f0d3);
+        background: rgba(var(--rgb-0-128-0), 0.08);
         box-shadow: 0 15px 40px -10px var(--green-glow);
         transform: translateY(-3px);
       }
@@ -1049,7 +1047,7 @@
         margin-left: auto;
         perspective: 1200px;
         animation: float 7s ease-in-out infinite;
-        filter: drop-shadow(0 40px 80px rgba(65, 105, 225, 0.2));
+        filter: drop-shadow(0 40px 80px rgba(var(--rgb-65-105-225), 0.2));
       }
       @keyframes float {
         0%,
@@ -1083,9 +1081,9 @@
         background: conic-gradient(
           from var(--angle, 0deg),
           var(--blue),
-          #6e90ff 25%,
+          var(--c-6e90ff) 25%,
           var(--green) 50%,
-          #4dd17a 70%,
+          var(--c-4dd17a) 70%,
           var(--blue)
         );
         -webkit-mask:
@@ -1104,15 +1102,15 @@
         background:
           radial-gradient(
             50% 50% at 30% 30%,
-            rgba(65, 105, 225, 0.45),
+            rgba(var(--rgb-65-105-225), 0.45),
             transparent 70%
           ),
           radial-gradient(
             50% 50% at 70% 80%,
-            rgba(0, 128, 0, 0.4),
+            rgba(var(--rgb-0-128-0), 0.4),
             transparent 70%
           ),
-          linear-gradient(180deg, transparent 55%, rgba(6, 8, 15, 0.85) 100%);
+          linear-gradient(180deg, transparent 55%, rgba(var(--rgb-6-8-15), 0.85) 100%);
         filter: blur(60px);
         opacity: 0.8;
         z-index: -2;
@@ -1146,7 +1144,7 @@
         height: 100%;
         border-radius: 50%;
         overflow: hidden;
-        background: linear-gradient(180deg, #0a0f1d, #060912);
+        background: linear-gradient(180deg, var(--c-0a0f1d), var(--c-060912));
         display: grid;
         place-items: center;
         transform: translateZ(0);
@@ -1200,9 +1198,9 @@
         inset: 0;
         z-index: 2;
         background:
-          linear-gradient(160deg, rgba(65, 105, 225, 0.18), transparent 45%),
-          linear-gradient(20deg, rgba(0, 128, 0, 0.18), transparent 50%),
-          linear-gradient(180deg, transparent 55%, rgba(6, 8, 15, 0.85) 100%);
+          linear-gradient(160deg, rgba(var(--rgb-65-105-225), 0.18), transparent 45%),
+          linear-gradient(20deg, rgba(var(--rgb-0-128-0), 0.18), transparent 50%),
+          linear-gradient(180deg, transparent 55%, rgba(var(--rgb-6-8-15), 0.85) 100%);
         pointer-events: none;
         mix-blend-mode: normal;
       }
@@ -1271,7 +1269,7 @@
         background: linear-gradient(
           160deg,
           #fff 0%,
-          #b9c4ff 40%,
+          var(--c-b9c4ff) 40%,
           var(--blue) 70%,
           var(--green) 100%
         );
@@ -1281,7 +1279,7 @@
         letter-spacing: -0.04em;
         position: relative;
         z-index: 0;
-        text-shadow: 0 0 60px rgba(65, 105, 225, 0.35);
+        text-shadow: 0 0 60px rgba(var(--rgb-65-105-225), 0.35);
       }
 
       /* Status pill (top of photo) */
@@ -1300,29 +1298,29 @@
         font-size: 10.5px;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: #d6f1de;
-        background: rgba(8, 11, 20, 0.7);
+        color: var(--c-d6f1de);
+        background: rgba(var(--rgb-8-11-20), 0.7);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(0, 128, 0, 0.45);
-        box-shadow: 0 6px 20px -10px rgba(0, 128, 0, 0.6);
+        border: 1px solid rgba(var(--rgb-0-128-0), 0.45);
+        box-shadow: 0 6px 20px -10px rgba(var(--rgb-0-128-0), 0.6);
       }
       .status-pill::before {
         content: "";
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background: #21c55d;
-        box-shadow: 0 0 10px #21c55d;
+        background: var(--c-21c55d);
+        box-shadow: 0 0 10px var(--c-21c55d);
         animation: pulseDot 1.6s ease-in-out infinite;
       }
       @keyframes pulseDot {
         0%,
         100% {
-          box-shadow: 0 0 0 0 rgba(33, 197, 93, 0.6);
+          box-shadow: 0 0 0 0 rgba(var(--rgb-33-197-93), 0.6);
         }
         50% {
-          box-shadow: 0 0 0 6px rgba(33, 197, 93, 0);
+          box-shadow: 0 0 0 6px rgba(var(--rgb-33-197-93), 0);
         }
       }
 
@@ -1342,7 +1340,7 @@
         color: var(--text-soft);
         z-index: 4;
         padding: 10px 14px;
-        background: rgba(8, 11, 20, 0.55);
+        background: rgba(var(--rgb-8-11-20), 0.55);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border-radius: 12px;
@@ -1369,7 +1367,7 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
         color: var(--text);
-        background: rgba(10, 14, 26, 0.85);
+        background: rgba(var(--rgb-10-14-26), 0.85);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border: 1px solid var(--line-strong);
@@ -1384,50 +1382,50 @@
       .float-chip.fc-1 {
         top: 8%;
         left: -28px;
-        border-color: rgba(65, 105, 225, 0.45);
-        color: #cdd6ff;
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
+        color: var(--c-cdd6ff);
         animation-delay: -1s;
       }
       .float-chip.fc-2 {
         top: 42%;
         right: -38px;
-        border-color: rgba(0, 128, 0, 0.45);
-        color: #c8f0d3;
+        border-color: rgba(var(--rgb-0-128-0), 0.45);
+        color: var(--c-c8f0d3);
         animation-delay: -3s;
       }
       .float-chip.fc-3 {
         bottom: 14%;
         left: -22px;
-        border-color: rgba(65, 105, 225, 0.45);
-        color: #cdd6ff;
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
+        color: var(--c-cdd6ff);
         animation-delay: -5s;
       }
       .float-chip.fc-4 {
         top: 25%;
         left: -35px;
-        border-color: rgba(0, 128, 0, 0.45);
-        color: #c8f0d3;
+        border-color: rgba(var(--rgb-0-128-0), 0.45);
+        color: var(--c-c8f0d3);
         animation-delay: -2s;
       }
       .float-chip.fc-5 {
         top: 60%;
         right: -42px;
-        border-color: rgba(65, 105, 225, 0.45);
-        color: #cdd6ff;
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
+        color: var(--c-cdd6ff);
         animation-delay: -4s;
       }
       .float-chip.fc-6 {
         bottom: 35%;
         left: -30px;
-        border-color: rgba(0, 128, 0, 0.45);
-        color: #c8f0d3;
+        border-color: rgba(var(--rgb-0-128-0), 0.45);
+        color: var(--c-c8f0d3);
         animation-delay: -6s;
       }
       .float-chip.fc-7 {
         top: 75%;
         right: -25px;
-        border-color: rgba(65, 105, 225, 0.45);
-        color: #cdd6ff;
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
+        color: var(--c-cdd6ff);
         animation-delay: -7s;
       }
       @keyframes floaty {
@@ -1552,7 +1550,7 @@
         letter-spacing: -0.02em;
         margin: 8px 0 0;
         font-weight: 700;
-        text-shadow: 0 0 20px rgba(65, 105, 225, 0.1);
+        text-shadow: 0 0 20px rgba(var(--rgb-65-105-225), 0.1);
       }
       .section-head h2 em {
         position: relative;
@@ -1666,8 +1664,8 @@
       }
       .stat:hover {
         transform: translateY(-3px);
-        border-color: rgba(65, 105, 225, 0.45);
-        box-shadow: 0 18px 40px -22px rgba(65, 105, 225, 0.5);
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
+        box-shadow: 0 18px 40px -22px rgba(var(--rgb-65-105-225), 0.5);
       }
       .stat::before {
         content: "";
@@ -1689,7 +1687,7 @@
         font-weight: 700;
         font-size: 38px;
         line-height: 1;
-        background: linear-gradient(120deg, white, #b9c4ff 60%, var(--blue));
+        background: linear-gradient(120deg, white, var(--c-b9c4ff) 60%, var(--blue));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -1743,13 +1741,13 @@
         background: var(--bg-1);
         border: 2px solid var(--blue);
         box-shadow:
-          0 0 0 4px rgba(65, 105, 225, 0.15),
+          0 0 0 4px rgba(var(--rgb-65-105-225), 0.15),
           0 0 18px var(--blue-glow);
       }
       .tl-item.green::before {
         border-color: var(--green);
         box-shadow:
-          0 0 0 4px rgba(0, 128, 0, 0.15),
+          0 0 0 4px rgba(var(--rgb-0-128-0), 0.15),
           0 0 18px var(--green-glow);
       }
       .tl-card {
@@ -1769,8 +1767,8 @@
       }
       .tl-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(65, 105, 225, 0.35);
-        box-shadow: 0 30px 60px -30px rgba(65, 105, 225, 0.45);
+        border-color: rgba(var(--rgb-65-105-225), 0.35);
+        box-shadow: 0 30px 60px -30px rgba(var(--rgb-65-105-225), 0.45);
       }
       .tl-card .meta {
         display: flex;
@@ -1787,15 +1785,15 @@
       .tl-card .pill {
         padding: 4px 10px;
         border-radius: 999px;
-        background: rgba(65, 105, 225, 0.12);
-        color: #b9c4ff;
-        border: 1px solid rgba(65, 105, 225, 0.35);
+        background: rgba(var(--rgb-65-105-225), 0.12);
+        color: var(--c-b9c4ff);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.35);
         letter-spacing: 0.1em;
       }
       .tl-card.green .pill {
-        background: rgba(0, 128, 0, 0.12);
-        color: #b3e6c0;
-        border-color: rgba(0, 128, 0, 0.4);
+        background: rgba(var(--rgb-0-128-0), 0.12);
+        color: var(--c-b3e6c0);
+        border-color: rgba(var(--rgb-0-128-0), 0.4);
       }
       .tl-card h3 {
         font-family: var(--display);
@@ -1871,7 +1869,7 @@
         inset: 0;
         background: radial-gradient(
           120px 120px at var(--mx, 50%) var(--my, 50%),
-          rgba(65, 105, 225, 0.25),
+          rgba(var(--rgb-65-105-225), 0.25),
           transparent 60%
         );
         opacity: 0;
@@ -1880,8 +1878,8 @@
       }
       .skill:hover {
         transform: translateY(-4px);
-        border-color: rgba(65, 105, 225, 0.45);
-        box-shadow: 0 20px 40px -20px rgba(65, 105, 225, 0.5);
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
+        box-shadow: 0 20px 40px -20px rgba(var(--rgb-65-105-225), 0.5);
       }
       .skill:hover::before {
         opacity: 1;
@@ -1894,12 +1892,12 @@
         place-items: center;
         background: linear-gradient(
           135deg,
-          rgba(65, 105, 225, 0.18),
-          rgba(0, 128, 0, 0.12)
+          rgba(var(--rgb-65-105-225), 0.18),
+          rgba(var(--rgb-0-128-0), 0.12)
         );
-        border: 1px solid rgba(65, 105, 225, 0.3);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.3);
         margin-bottom: 14px;
-        color: #cdd6ff;
+        color: var(--c-cdd6ff);
       }
       .skill .icon svg {
         width: 18px;
@@ -1928,11 +1926,11 @@
       .skill.alt .icon {
         background: linear-gradient(
           135deg,
-          rgba(0, 128, 0, 0.22),
-          rgba(65, 105, 225, 0.15)
+          rgba(var(--rgb-0-128-0), 0.22),
+          rgba(var(--rgb-65-105-225), 0.15)
         );
-        border-color: rgba(0, 128, 0, 0.4);
-        color: #c8f0d3;
+        border-color: rgba(var(--rgb-0-128-0), 0.4);
+        color: var(--c-c8f0d3);
       }
 
       /* ---------- Leadership ---------- */
@@ -1969,8 +1967,8 @@
       }
       .lead-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(65, 105, 225, 0.4);
-        box-shadow: 0 25px 50px -25px rgba(65, 105, 225, 0.45);
+        border-color: rgba(var(--rgb-65-105-225), 0.4);
+        box-shadow: 0 25px 50px -25px rgba(var(--rgb-65-105-225), 0.45);
       }
       .lead-card .lc-num {
         position: absolute;
@@ -1989,11 +1987,11 @@
         place-items: center;
         background: linear-gradient(
           135deg,
-          rgba(65, 105, 225, 0.22),
-          rgba(0, 128, 0, 0.15)
+          rgba(var(--rgb-65-105-225), 0.22),
+          rgba(var(--rgb-0-128-0), 0.15)
         );
-        border: 1px solid rgba(65, 105, 225, 0.35);
-        color: #cdd6ff;
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.35);
+        color: var(--c-cdd6ff);
         margin-bottom: 18px;
       }
       .lead-card .lc-icon svg {
@@ -2023,11 +2021,11 @@
       .lead-card.alt .lc-icon {
         background: linear-gradient(
           135deg,
-          rgba(0, 128, 0, 0.22),
-          rgba(65, 105, 225, 0.15)
+          rgba(var(--rgb-0-128-0), 0.22),
+          rgba(var(--rgb-65-105-225), 0.15)
         );
-        border-color: rgba(0, 128, 0, 0.4);
-        color: #c8f0d3;
+        border-color: rgba(var(--rgb-0-128-0), 0.4);
+        color: var(--c-c8f0d3);
       }
       @media (max-width: 640px) {
         .lead-card {
@@ -2089,16 +2087,16 @@
         background:
           radial-gradient(
             circle at 30% 20%,
-            rgba(65, 105, 225, 0.4),
+            rgba(var(--rgb-65-105-225), 0.4),
             transparent 60%
           ),
-          linear-gradient(160deg, #0a0f1d, #060912);
+          linear-gradient(160deg, var(--c-0a0f1d), var(--c-060912));
         border: 1px solid var(--line-strong);
       }
       .edu-mark svg {
         width: 44px;
         height: 44px;
-        color: #cdd6ff;
+        color: var(--c-cdd6ff);
       }
       .edu-card h3 {
         margin: 0 0 6px;
@@ -2118,9 +2116,9 @@
         text-transform: uppercase;
         padding: 8px 14px;
         border-radius: 999px;
-        border: 1px solid rgba(65, 105, 225, 0.4);
-        color: #cdd6ff;
-        background: rgba(65, 105, 225, 0.1);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.4);
+        color: var(--c-cdd6ff);
+        background: rgba(var(--rgb-65-105-225), 0.1);
         white-space: nowrap;
       }
 
@@ -2170,16 +2168,16 @@
         background:
           radial-gradient(
             circle at 30% 20%,
-            rgba(65, 105, 225, 0.4),
+            rgba(var(--rgb-65-105-225), 0.4),
             transparent 60%
           ),
-          linear-gradient(160deg, #0a0f1d, #060912);
+          linear-gradient(160deg, var(--c-0a0f1d), var(--c-060912));
         border: 1px solid var(--line-strong);
       }
       .project-mark svg {
         width: 44px;
         height: 44px;
-        color: #cdd6ff;
+        color: var(--c-cdd6ff);
       }
       .project-card h3 {
         margin: 0 0 6px;
@@ -2223,19 +2221,19 @@
         padding: 2px 8px;
         margin-right: 10px;
         border-radius: 4px;
-        background: rgba(65, 105, 225, 0.1);
-        border: 1px solid rgba(65, 105, 225, 0.3);
+        background: rgba(var(--rgb-65-105-225), 0.1);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.3);
         vertical-align: 1px;
       }
       .project-card .project-bullets li:nth-child(2) .pb-tag {
-        color: #cdd6ff;
+        color: var(--c-cdd6ff);
         background: rgba(255, 255, 255, 0.04);
         border-color: rgba(255, 255, 255, 0.12);
       }
       .project-card .project-bullets li:nth-child(3) .pb-tag {
-        color: #b3e6c0;
-        background: rgba(0, 128, 0, 0.12);
-        border-color: rgba(0, 128, 0, 0.4);
+        color: var(--c-b3e6c0);
+        background: rgba(var(--rgb-0-128-0), 0.12);
+        border-color: rgba(var(--rgb-0-128-0), 0.4);
       }
       .project-card .project-tech {
         display: flex;
@@ -2246,9 +2244,9 @@
       .project-card .project-tech span {
         padding: 4px 10px;
         border-radius: 999px;
-        background: rgba(65, 105, 225, 0.12);
-        color: #b9c4ff;
-        border: 1px solid rgba(65, 105, 225, 0.35);
+        background: rgba(var(--rgb-65-105-225), 0.12);
+        color: var(--c-b9c4ff);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.35);
         font-family: var(--mono);
         font-size: 11px;
         letter-spacing: 0.08em;
@@ -2261,9 +2259,9 @@
         text-transform: uppercase;
         padding: 8px 14px;
         border-radius: 999px;
-        border: 1px solid rgba(65, 105, 225, 0.4);
-        color: #cdd6ff;
-        background: rgba(65, 105, 225, 0.1);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.4);
+        color: var(--c-cdd6ff);
+        background: rgba(var(--rgb-65-105-225), 0.1);
         white-space: nowrap;
         align-self: start;
       }
@@ -2281,15 +2279,15 @@
         background:
           radial-gradient(
             60% 80% at 0% 0%,
-            rgba(65, 105, 225, 0.18),
+            rgba(var(--rgb-65-105-225), 0.18),
             transparent 60%
           ),
           radial-gradient(
             60% 80% at 100% 100%,
-            rgba(0, 128, 0, 0.14),
+            rgba(var(--rgb-0-128-0), 0.14),
             transparent 60%
           ),
-          linear-gradient(180deg, #0a0f1d, #06080f);
+          linear-gradient(180deg, var(--c-0a0f1d), var(--c-06080f));
         border: 1px solid var(--line-strong);
       }
       .snapshot-wrap::before {
@@ -2366,11 +2364,11 @@
         font-size: 11px;
         letter-spacing: 0.2em;
         text-transform: uppercase;
-        color: #d6f1de;
+        color: var(--c-d6f1de);
         padding: 8px 14px;
         border-radius: 999px;
-        background: rgba(0, 200, 80, 0.1);
-        border: 1px solid rgba(0, 200, 80, 0.4);
+        background: rgba(var(--rgb-0-200-80), 0.1);
+        border: 1px solid rgba(var(--rgb-0-200-80), 0.4);
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -2380,8 +2378,8 @@
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background: #21c55d;
-        box-shadow: 0 0 10px #21c55d;
+        background: var(--c-21c55d);
+        box-shadow: 0 0 10px var(--c-21c55d);
         animation: pulseDot 1.6s ease-in-out infinite;
       }
       .snapshot-grid {
@@ -2421,13 +2419,13 @@
       }
       .snap-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(65, 105, 225, 0.45);
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
         background: rgba(255, 255, 255, 0.05);
-        box-shadow: 0 26px 52px -24px rgba(65, 105, 225, 0.55);
+        box-shadow: 0 26px 52px -24px rgba(var(--rgb-65-105-225), 0.55);
       }
       .snap-card.alt:hover {
-        border-color: rgba(0, 200, 80, 0.42);
-        box-shadow: 0 26px 52px -24px rgba(0, 200, 80, 0.45);
+        border-color: rgba(var(--rgb-0-200-80), 0.42);
+        box-shadow: 0 26px 52px -24px rgba(var(--rgb-0-200-80), 0.45);
       }
       .snap-icon {
         width: 38px;
@@ -2437,21 +2435,21 @@
         place-items: center;
         background: linear-gradient(
           135deg,
-          rgba(65, 105, 225, 0.22),
-          rgba(0, 128, 0, 0.15)
+          rgba(var(--rgb-65-105-225), 0.22),
+          rgba(var(--rgb-0-128-0), 0.15)
         );
-        border: 1px solid rgba(65, 105, 225, 0.35);
-        color: #cdd6ff;
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.35);
+        color: var(--c-cdd6ff);
         margin-bottom: 14px;
       }
       .snap-card.alt .snap-icon {
         background: linear-gradient(
           135deg,
-          rgba(0, 128, 0, 0.22),
-          rgba(65, 105, 225, 0.15)
+          rgba(var(--rgb-0-128-0), 0.22),
+          rgba(var(--rgb-65-105-225), 0.15)
         );
-        border-color: rgba(0, 200, 80, 0.4);
-        color: #c8f0d3;
+        border-color: rgba(var(--rgb-0-200-80), 0.4);
+        color: var(--c-c8f0d3);
       }
       .snap-icon svg {
         width: 18px;
@@ -2467,13 +2465,13 @@
         color: var(--text);
       }
       .snap-headline strong {
-        background: linear-gradient(120deg, #fff, #b9c4ff 60%, var(--blue));
+        background: linear-gradient(120deg, #fff, var(--c-b9c4ff) 60%, var(--blue));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
       }
       .snap-card.alt .snap-headline strong {
-        background: linear-gradient(120deg, #fff, #c8f0d3 60%, var(--green));
+        background: linear-gradient(120deg, #fff, var(--c-c8f0d3) 60%, var(--green));
         -webkit-background-clip: text;
         background-clip: text;
       }
@@ -2521,8 +2519,8 @@
         transition: border-color 0.3s var(--ease);
       }
       .faq-item[open] {
-        border-color: rgba(65, 105, 225, 0.45);
-        box-shadow: 0 18px 40px -25px rgba(65, 105, 225, 0.45);
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
+        box-shadow: 0 18px 40px -25px rgba(var(--rgb-65-105-225), 0.45);
       }
       .faq-summary {
         cursor: pointer;
@@ -2543,25 +2541,25 @@
         display: none;
       }
       .faq-summary:hover {
-        color: #cdd6ff;
+        color: var(--c-cdd6ff);
       }
       .faq-summary .faq-chev {
         flex: 0 0 auto;
         width: 22px;
         height: 22px;
         border-radius: 50%;
-        background: rgba(65, 105, 225, 0.12);
-        border: 1px solid rgba(65, 105, 225, 0.35);
+        background: rgba(var(--rgb-65-105-225), 0.12);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.35);
         display: grid;
         place-items: center;
-        color: #cdd6ff;
+        color: var(--c-cdd6ff);
         transition: transform 0.3s var(--ease);
       }
       .faq-item[open] .faq-chev {
         transform: rotate(180deg);
-        background: rgba(0, 200, 80, 0.14);
-        border-color: rgba(0, 200, 80, 0.45);
-        color: #c8f0d3;
+        background: rgba(var(--rgb-0-200-80), 0.14);
+        border-color: rgba(var(--rgb-0-200-80), 0.45);
+        color: var(--c-c8f0d3);
       }
       .faq-chev svg {
         width: 12px;
@@ -2611,8 +2609,8 @@
         font-family: var(--mono);
         font-size: 0.92em;
         color: var(--text);
-        background: rgba(65, 105, 225, 0.12);
-        border: 1px solid rgba(65, 105, 225, 0.24);
+        background: rgba(var(--rgb-65-105-225), 0.12);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.24);
         border-radius: 5px;
         padding: 1px 6px;
         white-space: nowrap;
@@ -2629,12 +2627,12 @@
         background:
           radial-gradient(
             120% 80% at 0% 0%,
-            rgba(65, 105, 225, 0.07),
+            rgba(var(--rgb-65-105-225), 0.07),
             transparent 55%
           ),
           radial-gradient(
             120% 80% at 100% 100%,
-            rgba(0, 128, 0, 0.05),
+            rgba(var(--rgb-0-128-0), 0.05),
             transparent 55%
           ),
           rgba(255, 255, 255, 0.022);
@@ -2656,12 +2654,12 @@
         background:
           radial-gradient(
             120% 80% at 0% 0%,
-            rgba(65, 105, 225, 0.12),
+            rgba(var(--rgb-65-105-225), 0.12),
             transparent 55%
           ),
           radial-gradient(
             120% 80% at 100% 100%,
-            rgba(0, 128, 0, 0.08),
+            rgba(var(--rgb-0-128-0), 0.08),
             transparent 55%
           ),
           rgba(255, 255, 255, 0.04);
@@ -2710,16 +2708,16 @@
       }
       .codebase-card:hover {
         transform: translateY(-6px);
-        border-color: rgba(65, 105, 225, 0.55);
+        border-color: rgba(var(--rgb-65-105-225), 0.55);
         box-shadow:
-          0 36px 70px -28px rgba(65, 105, 225, 0.55),
-          0 0 0 1px rgba(65, 105, 225, 0.15);
+          0 36px 70px -28px rgba(var(--rgb-65-105-225), 0.55),
+          0 0 0 1px rgba(var(--rgb-65-105-225), 0.15);
       }
       .codebase-card.alt:hover {
-        border-color: rgba(0, 200, 80, 0.5);
+        border-color: rgba(var(--rgb-0-200-80), 0.5);
         box-shadow:
-          0 36px 70px -28px rgba(0, 200, 80, 0.5),
-          0 0 0 1px rgba(0, 200, 80, 0.15);
+          0 36px 70px -28px rgba(var(--rgb-0-200-80), 0.5),
+          0 0 0 1px rgba(var(--rgb-0-200-80), 0.15);
       }
       /* Corner number */
       .cb-num {
@@ -2752,24 +2750,24 @@
         background:
           radial-gradient(
             circle at 30% 25%,
-            rgba(65, 105, 225, 0.35),
+            rgba(var(--rgb-65-105-225), 0.35),
             transparent 70%
           ),
           linear-gradient(
             135deg,
-            rgba(65, 105, 225, 0.22),
-            rgba(0, 128, 0, 0.15)
+            rgba(var(--rgb-65-105-225), 0.22),
+            rgba(var(--rgb-0-128-0), 0.15)
           );
-        border: 1px solid rgba(65, 105, 225, 0.4);
-        color: #cdd6ff;
-        box-shadow: 0 8px 20px -10px rgba(65, 105, 225, 0.5);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.4);
+        color: var(--c-cdd6ff);
+        box-shadow: 0 8px 20px -10px rgba(var(--rgb-65-105-225), 0.5);
         transition:
           transform 0.4s var(--ease),
           box-shadow 0.4s var(--ease);
       }
       .codebase-card:hover .cb-icon {
         transform: scale(1.06) rotate(-3deg);
-        box-shadow: 0 12px 28px -10px rgba(65, 105, 225, 0.7);
+        box-shadow: 0 12px 28px -10px rgba(var(--rgb-65-105-225), 0.7);
       }
       .cb-icon svg {
         width: 21px;
@@ -2779,20 +2777,20 @@
         background:
           radial-gradient(
             circle at 30% 25%,
-            rgba(0, 200, 80, 0.3),
+            rgba(var(--rgb-0-200-80), 0.3),
             transparent 70%
           ),
           linear-gradient(
             135deg,
-            rgba(0, 128, 0, 0.22),
-            rgba(65, 105, 225, 0.15)
+            rgba(var(--rgb-0-128-0), 0.22),
+            rgba(var(--rgb-65-105-225), 0.15)
           );
-        border-color: rgba(0, 200, 80, 0.45);
-        color: #c8f0d3;
-        box-shadow: 0 8px 20px -10px rgba(0, 200, 80, 0.5);
+        border-color: rgba(var(--rgb-0-200-80), 0.45);
+        color: var(--c-c8f0d3);
+        box-shadow: 0 8px 20px -10px rgba(var(--rgb-0-200-80), 0.5);
       }
       .codebase-card.alt:hover .cb-icon {
-        box-shadow: 0 12px 28px -10px rgba(0, 200, 80, 0.7);
+        box-shadow: 0 12px 28px -10px rgba(var(--rgb-0-200-80), 0.7);
       }
       .cb-title-block {
         flex: 1 1 auto;
@@ -2818,7 +2816,7 @@
         margin-right: 6px;
       }
       .codebase-card.alt .cb-title .cb-name {
-        color: #4dd17a;
+        color: var(--c-4dd17a);
       }
       .cb-sub {
         font-family: var(--mono);
@@ -2853,27 +2851,27 @@
           color 0.25s var(--ease);
       }
       .cb-chip.type-backend {
-        color: #b9c4ff;
+        color: var(--c-b9c4ff);
         background: transparent;
-        border: 1px solid rgba(65, 105, 225, 0.35);
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.35);
       }
       .cb-chip.type-service {
-        color: #a7b2d9;
+        color: var(--c-a7b2d9);
         background: transparent;
-        border: 1px solid rgba(110, 144, 255, 0.3);
+        border: 1px solid rgba(var(--rgb-110-144-255), 0.3);
       }
       .cb-chip.type-frontend {
-        color: #b3e6c0;
+        color: var(--c-b3e6c0);
         background: transparent;
-        border: 1px solid rgba(0, 200, 80, 0.35);
+        border: 1px solid rgba(var(--rgb-0-200-80), 0.35);
       }
       .cb-chip.role-owner {
         color: #fff;
         font-weight: 600;
         background: linear-gradient(
           135deg,
-          rgba(65, 105, 225, 0.22),
-          rgba(0, 128, 0, 0.18)
+          rgba(var(--rgb-65-105-225), 0.22),
+          rgba(var(--rgb-0-128-0), 0.18)
         );
         border: 1px solid rgba(255, 255, 255, 0.16);
       }
@@ -2883,17 +2881,17 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
       .cb-chip.status-live {
-        color: #c8e8d2;
+        color: var(--c-c8e8d2);
         background: transparent;
-        border: 1px solid rgba(0, 200, 80, 0.32);
+        border: 1px solid rgba(var(--rgb-0-200-80), 0.32);
       }
       .cb-chip.status-live::before {
         content: "";
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background: #21c55d;
-        box-shadow: 0 0 8px #21c55d;
+        background: var(--c-21c55d);
+        box-shadow: 0 0 8px var(--c-21c55d);
         animation: pulseDot 1.6s ease-in-out infinite;
       }
       .cb-desc {
@@ -2940,24 +2938,24 @@
         background: linear-gradient(90deg, transparent, var(--green), transparent);
       }
       .codebase-card:hover .cb-stat {
-        border-color: rgba(65, 105, 225, 0.35);
+        border-color: rgba(var(--rgb-65-105-225), 0.35);
       }
       .codebase-card.alt:hover .cb-stat {
-        border-color: rgba(0, 200, 80, 0.35);
+        border-color: rgba(var(--rgb-0-200-80), 0.35);
       }
       .cb-stat-num {
         font-family: var(--display);
         font-weight: 700;
         font-size: 17px;
         line-height: 1.1;
-        background: linear-gradient(120deg, #fff, #b9c4ff 55%, var(--blue));
+        background: linear-gradient(120deg, #fff, var(--c-b9c4ff) 55%, var(--blue));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         letter-spacing: -0.01em;
       }
       .codebase-card.alt .cb-stat-num {
-        background: linear-gradient(120deg, #fff, #c8f0d3 55%, var(--green));
+        background: linear-gradient(120deg, #fff, var(--c-c8f0d3) 55%, var(--green));
         -webkit-background-clip: text;
         background-clip: text;
       }
@@ -2982,7 +2980,7 @@
         padding: 3px 10px;
         border-radius: 999px;
         background: transparent;
-        color: #a7b2d9;
+        color: var(--c-a7b2d9);
         border: 1px solid rgba(255, 255, 255, 0.08);
         font-family: var(--mono);
         font-size: 10px;
@@ -2994,18 +2992,18 @@
           transform 0.25s var(--ease);
       }
       .cb-tech span:hover {
-        background: rgba(65, 105, 225, 0.12);
+        background: rgba(var(--rgb-65-105-225), 0.12);
         color: #fff;
-        border-color: rgba(65, 105, 225, 0.45);
+        border-color: rgba(var(--rgb-65-105-225), 0.45);
         transform: translateY(-1px);
       }
       .codebase-card.alt .cb-tech span {
-        color: #a3c8af;
+        color: var(--c-a3c8af);
       }
       .codebase-card.alt .cb-tech span:hover {
-        background: rgba(0, 200, 80, 0.12);
+        background: rgba(var(--rgb-0-200-80), 0.12);
         color: #fff;
-        border-color: rgba(0, 200, 80, 0.45);
+        border-color: rgba(var(--rgb-0-200-80), 0.45);
       }
       @media (max-width: 640px) {
         .codebase-grid {
@@ -3061,8 +3059,8 @@
       }
       .cert:hover {
         transform: translateY(-3px);
-        border-color: rgba(0, 128, 0, 0.45);
-        box-shadow: 0 20px 40px -20px rgba(0, 128, 0, 0.4);
+        border-color: rgba(var(--rgb-0-128-0), 0.45);
+        box-shadow: 0 20px 40px -20px rgba(var(--rgb-0-128-0), 0.4);
       }
       .cert .badge {
         flex: 0 0 auto;
@@ -3073,11 +3071,11 @@
         place-items: center;
         background: linear-gradient(
           135deg,
-          rgba(0, 128, 0, 0.22),
-          rgba(65, 105, 225, 0.15)
+          rgba(var(--rgb-0-128-0), 0.22),
+          rgba(var(--rgb-65-105-225), 0.15)
         );
-        border: 1px solid rgba(0, 128, 0, 0.4);
-        color: #c8f0d3;
+        border: 1px solid rgba(var(--rgb-0-128-0), 0.4);
+        color: var(--c-c8f0d3);
       }
       .cert .badge svg {
         width: 22px;
@@ -3100,15 +3098,15 @@
         background:
           radial-gradient(
             60% 80% at 0% 0%,
-            rgba(65, 105, 225, 0.22),
+            rgba(var(--rgb-65-105-225), 0.22),
             transparent 60%
           ),
           radial-gradient(
             60% 80% at 100% 100%,
-            rgba(0, 128, 0, 0.18),
+            rgba(var(--rgb-0-128-0), 0.18),
             transparent 60%
           ),
-          linear-gradient(180deg, #0a0f1d, #06080f);
+          linear-gradient(180deg, var(--c-0a0f1d), var(--c-06080f));
         border: 1px solid var(--line-strong);
       }
       .contact-wrap::before {
@@ -3188,14 +3186,14 @@
         width: 7px;
         height: 7px;
         border-radius: 50%;
-        background: #21c55d;
-        box-shadow: 0 0 10px #21c55d;
+        background: var(--c-21c55d);
+        box-shadow: 0 0 10px var(--c-21c55d);
         animation: pulseDot 1.6s ease-in-out infinite;
       }
       .cm-item:first-child {
-        color: #d6f1de;
-        border-color: rgba(0, 200, 80, 0.4);
-        background: rgba(0, 128, 0, 0.08);
+        color: var(--c-d6f1de);
+        border-color: rgba(var(--rgb-0-200-80), 0.4);
+        background: rgba(var(--rgb-0-128-0), 0.08);
       }
       .contact-list {
         display: flex;
@@ -3218,9 +3216,9 @@
           background 0.25s var(--ease);
       }
       .contact-item:hover {
-        border-color: rgba(65, 105, 225, 0.5);
+        border-color: rgba(var(--rgb-65-105-225), 0.5);
         transform: translateX(4px);
-        background: rgba(65, 105, 225, 0.08);
+        background: rgba(var(--rgb-65-105-225), 0.08);
       }
       .contact-item .ic {
         width: 40px;
@@ -3230,11 +3228,11 @@
         place-items: center;
         background: linear-gradient(
           135deg,
-          rgba(65, 105, 225, 0.22),
-          rgba(0, 128, 0, 0.15)
+          rgba(var(--rgb-65-105-225), 0.22),
+          rgba(var(--rgb-0-128-0), 0.15)
         );
-        border: 1px solid rgba(65, 105, 225, 0.35);
-        color: #cdd6ff;
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.35);
+        color: var(--c-cdd6ff);
         flex: 0 0 auto;
       }
       .contact-item .ic svg {
@@ -3291,19 +3289,6 @@
       }
       .foot a:hover {
         color: var(--blue);
-      }
-      .foot-aka {
-        color: var(--text-mute);
-        font-size: 11px;
-        letter-spacing: 0.08em;
-        margin-left: 4px;
-      }
-      @media (max-width: 640px) {
-        .foot-aka {
-          display: block;
-          margin-left: 0;
-          margin-top: 4px;
-        }
       }
 
       /* ---------- Reveal animations ---------- */
@@ -3443,7 +3428,7 @@
         background: radial-gradient(
           420px 280px at var(--mx, 50%) var(--my, 50%),
           rgba(255, 255, 255, 0.14),
-          rgba(110, 144, 255, 0.05) 35%,
+          rgba(var(--rgb-110-144-255), 0.05) 35%,
           transparent 65%
         );
         opacity: 0;
@@ -3457,7 +3442,7 @@
         background: radial-gradient(
           420px 280px at var(--mx, 50%) var(--my, 50%),
           rgba(255, 255, 255, 0.12),
-          rgba(77, 209, 122, 0.05) 35%,
+          rgba(var(--rgb-77-209-122), 0.05) 35%,
           transparent 65%
         );
       }
@@ -3538,7 +3523,7 @@
         font-family: var(--serif);
         font-style: italic;
         font-weight: 400;
-        background: linear-gradient(100deg, var(--blue), #6ee7a8);
+        background: linear-gradient(100deg, var(--blue), var(--c-6ee7a8));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -3576,7 +3561,7 @@
         background: linear-gradient(90deg, var(--blue), transparent);
       }
       .stack-card.g::before {
-        background: linear-gradient(90deg, #22a55a, transparent);
+        background: linear-gradient(90deg, var(--c-22a55a), transparent);
       }
       .stack-card:hover {
         border-color: var(--line-strong);
@@ -3596,14 +3581,14 @@
         border-radius: 9px;
         display: grid;
         place-items: center;
-        border: 1px solid rgba(65, 105, 225, 0.3);
-        background: rgba(65, 105, 225, 0.12);
-        color: #93aaff;
+        border: 1px solid rgba(var(--rgb-65-105-225), 0.3);
+        background: rgba(var(--rgb-65-105-225), 0.12);
+        color: var(--c-93aaff);
       }
       .stack-card.g .sc-icon {
-        border-color: rgba(0, 200, 80, 0.3);
-        background: rgba(0, 160, 70, 0.12);
-        color: #7fe0a5;
+        border-color: rgba(var(--rgb-0-200-80), 0.3);
+        background: rgba(var(--rgb-0-160-70), 0.12);
+        color: var(--c-7fe0a5);
       }
       .sc-icon svg {
         width: 15px;
@@ -3642,21 +3627,21 @@
       }
       .sc-pills span:hover {
         color: var(--text);
-        border-color: rgba(65, 105, 225, 0.5);
-        background: rgba(65, 105, 225, 0.12);
+        border-color: rgba(var(--rgb-65-105-225), 0.5);
+        background: rgba(var(--rgb-65-105-225), 0.12);
       }
       .stack-card.g .sc-pills span:hover {
-        border-color: rgba(0, 200, 80, 0.5);
-        background: rgba(0, 160, 70, 0.12);
+        border-color: rgba(var(--rgb-0-200-80), 0.5);
+        background: rgba(var(--rgb-0-160-70), 0.12);
       }
       .sc-pills span.key {
         color: var(--text);
-        border-color: rgba(65, 105, 225, 0.42);
-        background: rgba(65, 105, 225, 0.14);
+        border-color: rgba(var(--rgb-65-105-225), 0.42);
+        background: rgba(var(--rgb-65-105-225), 0.14);
       }
       .stack-card.g .sc-pills span.key {
-        border-color: rgba(0, 200, 80, 0.42);
-        background: rgba(0, 160, 70, 0.14);
+        border-color: rgba(var(--rgb-0-200-80), 0.42);
+        background: rgba(var(--rgb-0-160-70), 0.14);
       }
       @media (max-width: 620px) {
         .stack {
@@ -3677,7 +3662,7 @@
         height: 40px;
         border-radius: 50%;
         border: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(9, 13, 22, 0.95);
+        background: rgba(var(--rgb-9-13-22), 0.95);
         backdrop-filter: blur(14px) saturate(140%);
         -webkit-backdrop-filter: blur(14px) saturate(140%);
         color: var(--text);
@@ -3691,17 +3676,17 @@
           box-shadow 0.25s var(--ease);
       }
       .sound-toggle:hover {
-        border-color: rgba(65, 105, 225, 0.55);
-        background: rgba(65, 105, 225, 0.12);
+        border-color: rgba(var(--rgb-65-105-225), 0.55);
+        background: rgba(var(--rgb-65-105-225), 0.12);
         box-shadow: 0 12px 30px -10px var(--blue-glow);
       }
       .sound-toggle.on {
-        border-color: rgba(0, 200, 80, 0.55);
-        color: #c8f0d3;
-        background: rgba(0, 128, 0, 0.12);
+        border-color: rgba(var(--rgb-0-200-80), 0.55);
+        color: var(--c-c8f0d3);
+        background: rgba(var(--rgb-0-128-0), 0.12);
       }
       .sound-toggle.on:hover {
-        box-shadow: 0 12px 30px -10px rgba(0, 200, 80, 0.6);
+        box-shadow: 0 12px 30px -10px rgba(var(--rgb-0-200-80), 0.6);
       }
       .sound-toggle svg {
         width: 18px;
@@ -3742,19 +3727,21 @@
         font-size: 12px;
         letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: #e6f7eb;
+        color: var(--c-e6f7eb);
         text-decoration: none;
         /* Near-opaque so it reads as floating chrome, not a collision with
            whatever section happens to be scrolled underneath it. */
-        background: rgba(9, 13, 22, 0.97);
+        background: rgba(var(--rgb-9-13-22), 0.97);
         backdrop-filter: blur(18px) saturate(160%);
         -webkit-backdrop-filter: blur(18px) saturate(160%);
-        border: 1px solid rgba(0, 200, 80, 0.5);
+        border: 1px solid rgba(var(--rgb-0-200-80), 0.5);
         box-shadow:
           0 18px 44px -14px rgba(0, 0, 0, 0.85),
-          0 10px 30px -16px rgba(0, 200, 80, 0.5),
+          0 10px 30px -16px rgba(var(--rgb-0-200-80), 0.5),
           inset 0 1px 0 rgba(255, 255, 255, 0.14);
         opacity: 0;
+        /* invisible must also mean untappable, or it eats taps on the text below */
+        pointer-events: none;
         transform: translateY(8px) scale(0.96);
         transition:
           opacity 0.5s var(--ease),
@@ -3764,12 +3751,13 @@
       }
       .hire-pill.show {
         opacity: 1;
+        pointer-events: auto;
         transform: translateY(0) scale(1);
       }
       .hire-pill:hover {
-        border-color: rgba(0, 200, 80, 0.85);
+        border-color: rgba(var(--rgb-0-200-80), 0.85);
         box-shadow:
-          0 20px 46px -16px rgba(0, 200, 80, 0.7),
+          0 20px 46px -16px rgba(var(--rgb-0-200-80), 0.7),
           inset 0 0 0 1px rgba(255, 255, 255, 0.08);
         transform: translateY(-2px) scale(1);
       }
@@ -3778,15 +3766,15 @@
         width: 9px;
         height: 9px;
         border-radius: 50%;
-        background: #21c55d;
-        box-shadow: 0 0 12px #21c55d;
+        background: var(--c-21c55d);
+        box-shadow: 0 0 12px var(--c-21c55d);
       }
       .hire-pill .hp-dot::before {
         content: "";
         position: absolute;
         inset: -4px;
         border-radius: 50%;
-        border: 1.5px solid rgba(33, 197, 93, 0.55);
+        border: 1.5px solid rgba(var(--rgb-33-197-93), 0.55);
         animation: ringPulse 1.8s ease-out infinite;
       }
       @keyframes ringPulse {
@@ -3823,9 +3811,9 @@
         width: 48px;
         height: 48px;
         border-radius: 50%;
-        background: linear-gradient(135deg, var(--blue), #5a7dff);
+        background: linear-gradient(135deg, var(--blue), var(--c-5a7dff));
         border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white;
+        color: var(--on-accent);
         cursor: pointer;
         display: grid;
         place-items: center;
@@ -3869,11 +3857,11 @@
         transform: translateX(-50%) translateY(20px);
         padding: 12px 22px;
         border-radius: 999px;
-        background: rgba(8, 11, 20, 0.95);
+        background: rgba(var(--rgb-8-11-20), 0.95);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(0, 200, 80, 0.5);
-        color: #d6f1de;
+        border: 1px solid rgba(var(--rgb-0-200-80), 0.5);
+        color: var(--c-d6f1de);
         font-family: var(--mono);
         font-size: 12px;
         letter-spacing: 0.1em;
@@ -4014,11 +4002,9 @@
         }
       }
 
-      /* Tablet small / mobile landscape */
-      @media (max-width: 768px) {
-        :root {
-          --nav-h: 64px;
-        }
+      /* Collapse the nav into the menu button before eight links, the
+         brand and the theme toggle stop fitting on one row. */
+      @media (max-width: 1150px) {
         .nav ul {
           display: none;
         }
@@ -4032,7 +4018,7 @@
           left: 12px;
           right: 12px;
           flex-direction: column;
-          background: rgba(8, 11, 20, 0.97);
+          background: rgba(var(--rgb-8-11-20), 0.97);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           padding: 12px;
@@ -4051,6 +4037,23 @@
             opacity: 1;
             transform: translateY(0);
           }
+        }
+      }
+
+      /* Tablet / small laptop: a compact panel under the menu button rather
+         than a full-width sheet. */
+      @media (min-width: 769px) and (max-width: 1150px) {
+        .nav.open ul {
+          left: auto;
+          right: 20px;
+          width: 280px;
+        }
+      }
+
+      /* Tablet small / mobile landscape */
+      @media (max-width: 768px) {
+        :root {
+          --nav-h: 64px;
         }
         .container {
           padding: 0 20px;
@@ -4098,12 +4101,6 @@
           padding-bottom: 36px;
         }
         .hero h1 {
-          margin-bottom: 18px;
-        }
-        .hero-name-slug {
-          font-size: 11px;
-          letter-spacing: 0.032em;
-          line-height: 1.55;
           margin-bottom: 18px;
         }
         .typer-wrap {
@@ -4312,7 +4309,224 @@
           transition-duration: 0.001ms !important;
         }
       }
-    </style>
+    
+      /* ---------- Themes ----------
+         Every colour above reads from these variables. Blue is the default;
+         <html data-theme="mono"> switches the whole page to black & white. */
+      :root {
+        --on-accent: #fff;
+        --c-008000: #008000;
+        --c-050609: #050609;
+        --c-05070d: #05070d;
+        --c-06080f: #06080f;
+        --c-060912: #060912;
+        --c-080b14: #080b14;
+        --c-0a0d16: #0a0d16;
+        --c-0a0e1a: #0a0e1a;
+        --c-0a0f1d: #0a0f1d;
+        --c-0f1422: #0f1422;
+        --c-0f1428: #0f1428;
+        --c-21c55d: #21c55d;
+        --c-22a55a: #22a55a;
+        --c-4169e1: #4169e1;
+        --c-4dd17a: #4dd17a;
+        --c-5a7dff: #5a7dff;
+        --c-6a9dff: #6a9dff;
+        --c-6e90ff: #6e90ff;
+        --c-6ee7a8: #6ee7a8;
+        --c-7a8298: #7a8298;
+        --c-7fe0a5: #7fe0a5;
+        --c-93aaff: #93aaff;
+        --c-a3c8af: #a3c8af;
+        --c-a7b2d9: #a7b2d9;
+        --c-aab2c8: #aab2c8;
+        --c-b3e6c0: #b3e6c0;
+        --c-b9c4ff: #b9c4ff;
+        --c-c8e8d2: #c8e8d2;
+        --c-c8f0d3: #c8f0d3;
+        --c-cdd6ff: #cdd6ff;
+        --c-cfd6f5: #cfd6f5;
+        --c-d4a73c: #d4a73c;
+        --c-d6f1de: #d6f1de;
+        --c-e6f7eb: #e6f7eb;
+        --c-e9edf7: #e9edf7;
+        --rgb-0-128-0: 0,128,0;
+        --rgb-0-160-70: 0,160,70;
+        --rgb-0-200-80: 0,200,80;
+        --rgb-10-14-26: 10,14,26;
+        --rgb-110-144-255: 110,144,255;
+        --rgb-33-197-93: 33,197,93;
+        --rgb-6-8-15: 6,8,15;
+        --rgb-65-105-225: 65,105,225;
+        --rgb-77-209-122: 77,209,122;
+        --rgb-8-11-20: 8,11,20;
+        --rgb-9-13-22: 9,13,22;
+      }
+      :root[data-theme="mono"] {
+        --on-accent: #000;
+        --c-008000: #9a9a9a;
+        --c-050609: #070707;
+        --c-05070d: #090909;
+        --c-06080f: #0a0a0a;
+        --c-060912: #0c0c0c;
+        --c-080b14: #0e0e0e;
+        --c-0a0d16: #101010;
+        --c-0a0e1a: #121212;
+        --c-0a0f1d: #141414;
+        --c-0f1422: #181818;
+        --c-0f1428: #1c1c1c;
+        --c-21c55d: #ffffff;
+        --c-22a55a: #a8a8a8;
+        --c-4169e1: #ffffff;
+        --c-4dd17a: #d9d9d9;
+        --c-5a7dff: #e5e5e5;
+        --c-6a9dff: #cfcfcf;
+        --c-6e90ff: #d9d9d9;
+        --c-6ee7a8: #e0e0e0;
+        --c-7a8298: #898989;
+        --c-7fe0a5: #e0e0e0;
+        --c-93aaff: #d9d9d9;
+        --c-a3c8af: #b6b6b6;
+        --c-a7b2d9: #c0c0c0;
+        --c-aab2c8: #b9b9b9;
+        --c-b3e6c0: #cccccc;
+        --c-b9c4ff: #dcdcdc;
+        --c-c8e8d2: #d8d8d8;
+        --c-c8f0d3: #dcdcdc;
+        --c-cdd6ff: #e6e6e6;
+        --c-cfd6f5: #e2e2e2;
+        --c-d4a73c: #ffffff;
+        --c-d6f1de: #e4e4e4;
+        --c-e6f7eb: #eeeeee;
+        --c-e9edf7: #f0f0f0;
+        --rgb-0-128-0: 190,190,190;
+        --rgb-0-160-70: 200,200,200;
+        --rgb-0-200-80: 220,220,220;
+        --rgb-10-14-26: 18,18,18;
+        --rgb-110-144-255: 255,255,255;
+        --rgb-33-197-93: 220,220,220;
+        --rgb-6-8-15: 10,10,10;
+        --rgb-65-105-225: 255,255,255;
+        --rgb-77-209-122: 220,220,220;
+        --rgb-8-11-20: 14,14,14;
+        --rgb-9-13-22: 16,16,16;
+      }
+      /* White glows read far brighter than the blue/green ones did; keep
+         them a faint haze so body text stays high-contrast. */
+      :root[data-theme="mono"] .orb {
+        opacity: 0.14;
+      }
+      :root[data-theme="mono"] .bg {
+        background:
+          radial-gradient(
+            60rem 40rem at 12% -10%,
+            rgba(255, 255, 255, 0.07),
+            transparent 60%
+          ),
+          radial-gradient(
+            48rem 36rem at 92% 6%,
+            rgba(255, 255, 255, 0.05),
+            transparent 60%
+          ),
+          radial-gradient(
+            70rem 50rem at 50% 110%,
+            rgba(255, 255, 255, 0.05),
+            transparent 60%
+          ),
+          linear-gradient(180deg, #070707 0%, #0e0e0e 45%, #0a0a0a 100%);
+      }
+      :root[data-theme="mono"] .portrait .photo {
+        filter: grayscale(1) contrast(1.08) brightness(0.98);
+      }
+
+      /* The hero and recruiter badges wrap onto two lines in narrow columns
+         (small phones, and the two-column hero around 1024px). Align the dash
+         and dot to the first line at every width so they never float in the
+         middle of the text. Line box = 1.6em, so its centre sits at 0.8em. */
+      .eyebrow,
+      .snapshot-tag {
+        align-items: flex-start;
+        line-height: 1.6;
+      }
+      .eyebrow::before {
+        flex: none;
+        margin-top: calc(0.8em - 0.75px);
+      }
+      .eyebrow .dot-live {
+        flex: none;
+        margin-top: calc(0.8em - 4px);
+      }
+      .snapshot-tag::before {
+        flex: none;
+        margin-top: calc(0.8em - 3.5px);
+      }
+      @media (max-width: 420px) {
+        .eyebrow,
+        .snapshot-tag {
+          border-radius: 14px;
+        }
+        .eyebrow::before {
+          display: none;
+        }
+      }
+
+      /* ---------- Theme toggle (nav) ---------- */
+      .nav ul {
+        margin-left: auto;
+      }
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-left: 8px;
+      }
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 36px;
+        padding: 0 12px 0 8px;
+        border-radius: 999px;
+        border: 1px solid var(--line-strong);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-soft);
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition:
+          color 0.25s var(--ease),
+          border-color 0.25s var(--ease),
+          background 0.25s var(--ease);
+      }
+      .theme-toggle:hover {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .theme-toggle .swatch {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: linear-gradient(135deg, #4169e1 0 50%, #008000 50% 100%);
+        transition: background 0.3s var(--ease);
+      }
+      :root:not([data-theme="mono"]) .theme-toggle .swatch {
+        background: linear-gradient(135deg, #fff 0 50%, #000 50% 100%);
+      }
+      @media (max-width: 900px) {
+        .theme-toggle .label {
+          display: none;
+        }
+        .theme-toggle {
+          padding: 0;
+          width: 40px;
+          height: 40px;
+          justify-content: center;
+        }
+      }
+</style>
   </head>
   <body>
     <a href="#top" class="skip-link">Skip to main content</a>
@@ -4333,15 +4547,26 @@
           <span>Akash Reddy</span>
         </a>
         <ul id="navList">
+          <li><a href="#experience" class="link">Experience</a></li>
           <li><a href="#stack" class="link">Stack</a></li>
           <li><a href="#capabilities" class="link">What I build</a></li>
           <li><a href="#ai" class="link">How I work</a></li>
           <li><a href="#about" class="link">About</a></li>
-          <li><a href="#experience" class="link">Experience</a></li>
           <li><a href="#skills" class="link">Skills</a></li>
           <li><a href="#faq" class="link">FAQ</a></li>
           <li><a href="#contact" class="link">Contact</a></li>
         </ul>
+        <div class="nav-actions">
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Switch to blue theme"
+          title="Switch theme"
+        >
+          <span class="swatch" aria-hidden="true"></span>
+          <span class="label">Blue</span>
+        </button>
         <button
           class="menu-btn"
           id="menuBtn"
@@ -4351,6 +4576,7 @@
         >
           <span></span>
         </button>
+        </div>
       </div>
     </nav>
 
@@ -4386,10 +4612,6 @@
             <h1 class="load l2">
               Vanga Akash <span class="accent">Reddy</span>
             </h1>
-            <p class="hero-name-slug load l3">
-              Official portfolio · <strong>Akash Reddy Vanga</strong> (<strong>Akash Reddy</strong>,
-              <strong>Akash</strong>) · same engineer as <strong>Vanga Akash Reddy</strong>
-            </p>
             <div class="typer-wrap load l4">
               <span class="typer" id="typer"></span>
               <span class="caret" aria-hidden="true"></span>
@@ -4472,7 +4694,7 @@
                   class="photo"
                   id="heroPhoto"
                   src="assets/profile.png"
-                  alt="Akash Reddy Vanga — Akash Reddy — Akash — official portfolio · Backend Developer & Software Engineer · Hyderabad · Vanga Akash Reddy"
+                  alt="Portrait of Akash Reddy Vanga, backend engineer in Hyderabad"
                   width="800"
                   height="1000"
                   loading="eager"
@@ -4486,6 +4708,227 @@
         </div>
       </div>
     </header>
+
+    <!-- Recruiter Snapshot -->
+    <section id="snapshot" class="snapshot">
+      <div class="container">
+        <div class="snapshot-wrap reveal">
+          <div class="snapshot-head">
+            <div>
+              <span class="snapshot-tag">For recruiters &middot; 30&#8209;second read</span>
+              <h2>Why hire <em>Akash Reddy Vanga</em>.</h2>
+            </div>
+            <p style="margin: 0; color: var(--text-soft); max-width: 36ch; font-size: 14.5px;">
+              The six things that should close a hiring decision.
+            </p>
+          </div>
+          <div class="snapshot-grid">
+            <div class="snap-card reveal delay-1">
+              <div class="snap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              </div>
+              <p class="snap-headline"><strong>Promoted in 2 yrs</strong></p>
+              <p class="snap-sub">Intern → Backend Developer → Software Engineer at JaaGa.AI. Track record of growth, not just tenure.</p>
+            </div>
+
+            <div class="snap-card alt reveal delay-2">
+              <div class="snap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <p class="snap-headline"><strong>Full-stack scope</strong></p>
+              <p class="snap-sub">Backend-led, but ships the React/TypeScript front ends too — plus Docker, Nginx and the deploy scripts. Not a single-service engineer.</p>
+            </div>
+
+            <div class="snap-card reveal delay-3">
+              <div class="snap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <p class="snap-headline">Handles <strong>real money</strong></p>
+              <p class="snap-sub">Payment gateway and UPI integrations built for correctness: idempotent retries, signed-webhook verification, daily reconciliation.</p>
+            </div>
+
+            <div class="snap-card alt reveal delay-4">
+              <div class="snap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+              </div>
+              <p class="snap-headline"><strong>On-call ready</strong></p>
+              <p class="snap-sub">First-line on-call. Runbooks for 3 services. Blameless post-mortems with closed-loop follow-ups.</p>
+            </div>
+
+            <div class="snap-card reveal delay-5">
+              <div class="snap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 18a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2A4 4 0 0 0 6 20h11z"></path>
+                </svg>
+              </div>
+              <p class="snap-headline">Owns the <strong>whole path</strong></p>
+              <p class="snap-sub">API contract → data model → deployment → monitoring → on-call. Comfortable running the AWS and Cloudflare infra behind his own services.</p>
+            </div>
+
+            <div class="snap-card alt reveal delay-1">
+              <div class="snap-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 4 14 11 14 10 22 20 9 13 9 13 2"></polygon>
+                </svg>
+              </div>
+              <p class="snap-headline">Ships <strong>whole products</strong></p>
+              <p class="snap-sub">Takes a vague business problem to a spec, a schema, a UI and a rollout — not just assigned tickets. Uses AI for the boring parts, owns the judgement calls.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <div class="section-num">Experience</div>
+            <h2>From internship to <em>software engineer</em>.</h2>
+          </div>
+          <p class="section-sub">
+            2.5+ years of hands-on backend development, progressive
+            responsibility, and production-grade system delivery.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item reveal delay-1">
+            <div class="tl-card">
+              <div class="meta">
+                <span class="pill">Apr 2026 — Present</span>
+                <span>Full-time · Promoted</span>
+              </div>
+              <h3>Software Engineer</h3>
+              <div class="org">JaaGa.AI · Hyderabad, India</div>
+              <ul>
+                <li>
+                  <strong>Own</strong> backend services end-to-end &mdash; from
+                  API design and data modeling through deployment, monitoring
+                  and on-call.
+                </li>
+                <li>
+                  <strong>Design and ship internal business platforms</strong>
+                  &mdash; configurable pipeline and workflow tooling, scheduling
+                  and reminders, role-based access and reporting &mdash; taking
+                  each from spec through the data model to the React /
+                  TypeScript UI.
+                </li>
+                <li>
+                  <strong>Built a multi-channel marketing and messaging
+                  platform</strong> on <strong>Cloudflare Workers, D1 and
+                  R2</strong>, integrating several third-party marketing and
+                  messaging APIs behind a single interface &mdash; replacing a
+                  paid SaaS subscription.
+                </li>
+                <li>
+                  <strong>Architected</strong> a payment retry and
+                  reconciliation layer &mdash; idempotency keys, exponential
+                  backoff, signed-webhook verification, dead-letter handling and
+                  a daily settlement reconciliation job &mdash; plus a UPI
+                  collection rail with an operator confirmation step.
+                </li>
+                <li>
+                  <strong>Write and maintain</strong> runbooks for production
+                  services; first-line on-call and participate in blameless
+                  post-mortems with clear follow-ups.
+                </li>
+                <li>
+                  Partner with finance, ops, product and legal &mdash; translate
+                  ambiguous business asks into precise specs the team ships
+                  against.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item green reveal delay-2">
+            <div class="tl-card green">
+              <div class="meta">
+                <span class="pill">Apr 2024 — Apr 2026 · 2 yrs</span>
+                <span>Full-time</span>
+              </div>
+              <h3>Backend Developer</h3>
+              <div class="org">JaaGa.AI · Hyderabad, India</div>
+              <ul>
+                <li>
+                  <strong>Designed and shipped</strong> revenue-critical
+                  services on AWS + MongoDB + Node.js, backed by SQS queue
+                  workers for anything slow, retryable or bursty.
+                </li>
+                <li>
+                  <strong>Integrated a payment gateway end-to-end</strong>
+                  &mdash; checkout, webhook signature verification, idempotent
+                  retries with exponential backoff and settlement
+                  reconciliation, so a duplicate callback or a dropped response
+                  can never double-charge or lose a payment.
+                </li>
+                <li>
+                  <strong>Built a notification platform</strong> &mdash; a
+                  single consumer fanning one event out to push (FCM),
+                  messaging, email and internal channels, with template
+                  fallbacks and queue-backed retries; later extended with
+                  audience segmentation and A/B variant testing.
+                </li>
+                <li>
+                  <strong>Automated document processing</strong> with an
+                  S3 &rarr; OCR &rarr; LLM extraction &rarr; MongoDB pipeline
+                  and templated generation, replacing a manual
+                  read-and-retype step with a validated, reviewable one.
+                </li>
+                <li>
+                  Profiled and tuned hot paths in MongoDB (indexes, aggregations)
+                  and Node.js (event-loop pressure) to remove latency
+                  bottlenecks under real traffic.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tl-item reveal delay-3">
+            <div class="tl-card">
+              <div class="meta">
+                <span class="pill">Oct 2023 — Mar 2024 · 6 mos</span>
+                <span>Internship</span>
+              </div>
+              <h3>Backend Developer Intern</h3>
+              <div class="org">JaaGa.AI · Hyderabad, India</div>
+              <ul>
+                <li>
+                  Shipped REST endpoints in Node.js + Express against MongoDB,
+                  contributing to features used in production within the first
+                  3 months.
+                </li>
+                <li>
+                  Wrote schemas, queries and validation for new modules; learned
+                  the discipline of code review, deployment and debugging real
+                  incidents.
+                </li>
+                <li>
+                  Converted to full-time on the strength of ownership shown on
+                  the document-processing and billing work.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Core stack -->
     <section id="stack" class="stack">
@@ -5007,90 +5450,6 @@
       </div>
     </section>
 
-    <!-- Recruiter Snapshot -->
-    <section id="snapshot" class="snapshot">
-      <div class="container">
-        <div class="snapshot-wrap reveal">
-          <div class="snapshot-head">
-            <div>
-              <span class="snapshot-tag">For recruiters &middot; 30-second read</span>
-              <h2>Why hire <em>Akash Reddy Vanga</em>.</h2>
-            </div>
-            <p style="margin: 0; color: var(--text-soft); max-width: 36ch; font-size: 14.5px;">
-              The six things that should close a hiring decision.
-            </p>
-          </div>
-          <div class="snapshot-grid">
-            <div class="snap-card reveal delay-1">
-              <div class="snap-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="8" r="7"></circle>
-                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
-              </div>
-              <p class="snap-headline"><strong>Promoted in 2 yrs</strong></p>
-              <p class="snap-sub">Intern → Backend Developer → Software Engineer at JaaGa.AI. Track record of growth, not just tenure.</p>
-            </div>
-
-            <div class="snap-card alt reveal delay-2">
-              <div class="snap-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="14" width="7" height="7"></rect>
-                  <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-              </div>
-              <p class="snap-headline"><strong>Full-stack scope</strong></p>
-              <p class="snap-sub">Backend-led, but ships the React/TypeScript front ends too — plus Docker, Nginx and the deploy scripts. Not a single-service engineer.</p>
-            </div>
-
-            <div class="snap-card reveal delay-3">
-              <div class="snap-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="12" y1="1" x2="12" y2="23"></line>
-                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                </svg>
-              </div>
-              <p class="snap-headline">Handles <strong>real money</strong></p>
-              <p class="snap-sub">Payment gateway and UPI integrations built for correctness: idempotent retries, signed-webhook verification, daily reconciliation.</p>
-            </div>
-
-            <div class="snap-card alt reveal delay-4">
-              <div class="snap-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                  <polyline points="9 12 11 14 15 10"></polyline>
-                </svg>
-              </div>
-              <p class="snap-headline"><strong>On-call ready</strong></p>
-              <p class="snap-sub">First-line on-call. Runbooks for 3 services. Blameless post-mortems with closed-loop follow-ups.</p>
-            </div>
-
-            <div class="snap-card reveal delay-5">
-              <div class="snap-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 18a4 4 0 0 0 0-8 6 6 0 0 0-11.5 2A4 4 0 0 0 6 20h11z"></path>
-                </svg>
-              </div>
-              <p class="snap-headline">Owns the <strong>whole path</strong></p>
-              <p class="snap-sub">API contract → data model → deployment → monitoring → on-call. Comfortable running the AWS and Cloudflare infra behind his own services.</p>
-            </div>
-
-            <div class="snap-card alt reveal delay-1">
-              <div class="snap-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="13 2 4 14 11 14 10 22 20 9 13 9 13 2"></polygon>
-                </svg>
-              </div>
-              <p class="snap-headline">Ships <strong>whole products</strong></p>
-              <p class="snap-sub">Takes a vague business problem to a spec, a schema, a UI and a rollout — not just assigned tickets. Uses AI for the boring parts, owns the judgement calls.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- About -->
     <section id="about">
       <div class="container">
@@ -5167,143 +5526,6 @@
             <div class="stat">
               <div class="num">2</div>
               <div class="label">Promotions in 2 years</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience">
-      <div class="container">
-        <div class="section-head reveal">
-          <div>
-            <div class="section-num">Experience</div>
-            <h2>From internship to <em>software engineer</em>.</h2>
-          </div>
-          <p class="section-sub">
-            2.5+ years of hands-on backend development, progressive
-            responsibility, and production-grade system delivery.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="tl-item reveal delay-1">
-            <div class="tl-card">
-              <div class="meta">
-                <span class="pill">Apr 2026 — Present</span>
-                <span>Full-time · Promoted</span>
-              </div>
-              <h3>Software Engineer</h3>
-              <div class="org">JaaGa.AI · Hyderabad, India</div>
-              <ul>
-                <li>
-                  <strong>Own</strong> backend services end-to-end &mdash; from
-                  API design and data modeling through deployment, monitoring
-                  and on-call.
-                </li>
-                <li>
-                  <strong>Design and ship internal business platforms</strong>
-                  &mdash; configurable pipeline and workflow tooling, scheduling
-                  and reminders, role-based access and reporting &mdash; taking
-                  each from spec through the data model to the React /
-                  TypeScript UI.
-                </li>
-                <li>
-                  <strong>Built a multi-channel marketing and messaging
-                  platform</strong> on <strong>Cloudflare Workers, D1 and
-                  R2</strong>, integrating several third-party marketing and
-                  messaging APIs behind a single interface &mdash; replacing a
-                  paid SaaS subscription.
-                </li>
-                <li>
-                  <strong>Architected</strong> a payment retry and
-                  reconciliation layer &mdash; idempotency keys, exponential
-                  backoff, signed-webhook verification, dead-letter handling and
-                  a daily settlement reconciliation job &mdash; plus a UPI
-                  collection rail with an operator confirmation step.
-                </li>
-                <li>
-                  <strong>Write and maintain</strong> runbooks for production
-                  services; first-line on-call and participate in blameless
-                  post-mortems with clear follow-ups.
-                </li>
-                <li>
-                  Partner with finance, ops, product and legal &mdash; translate
-                  ambiguous business asks into precise specs the team ships
-                  against.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="tl-item green reveal delay-2">
-            <div class="tl-card green">
-              <div class="meta">
-                <span class="pill">Apr 2024 — Apr 2026 · 2 yrs</span>
-                <span>Full-time</span>
-              </div>
-              <h3>Backend Developer</h3>
-              <div class="org">JaaGa.AI · Hyderabad, India</div>
-              <ul>
-                <li>
-                  <strong>Designed and shipped</strong> revenue-critical
-                  services on AWS + MongoDB + Node.js, backed by SQS queue
-                  workers for anything slow, retryable or bursty.
-                </li>
-                <li>
-                  <strong>Integrated a payment gateway end-to-end</strong>
-                  &mdash; checkout, webhook signature verification, idempotent
-                  retries with exponential backoff and settlement
-                  reconciliation, so a duplicate callback or a dropped response
-                  can never double-charge or lose a payment.
-                </li>
-                <li>
-                  <strong>Built a notification platform</strong> &mdash; a
-                  single consumer fanning one event out to push (FCM),
-                  messaging, email and internal channels, with template
-                  fallbacks and queue-backed retries; later extended with
-                  audience segmentation and A/B variant testing.
-                </li>
-                <li>
-                  <strong>Automated document processing</strong> with an
-                  S3 &rarr; OCR &rarr; LLM extraction &rarr; MongoDB pipeline
-                  and templated generation, replacing a manual
-                  read-and-retype step with a validated, reviewable one.
-                </li>
-                <li>
-                  Profiled and tuned hot paths in MongoDB (indexes, aggregations)
-                  and Node.js (event-loop pressure) to remove latency
-                  bottlenecks under real traffic.
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="tl-item reveal delay-3">
-            <div class="tl-card">
-              <div class="meta">
-                <span class="pill">Oct 2023 — Mar 2024 · 6 mos</span>
-                <span>Internship</span>
-              </div>
-              <h3>Backend Developer Intern</h3>
-              <div class="org">JaaGa.AI · Hyderabad, India</div>
-              <ul>
-                <li>
-                  Shipped REST endpoints in Node.js + Express against MongoDB,
-                  contributing to features used in production within the first
-                  3 months.
-                </li>
-                <li>
-                  Wrote schemas, queries and validation for new modules; learned
-                  the discipline of code review, deployment and debugging real
-                  incidents.
-                </li>
-                <li>
-                  Converted to full-time on the strength of ownership shown on
-                  the document-processing and billing work.
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -5814,7 +6036,7 @@
                 </span>
                 <span>
                   <span class="ttl">Email</span>
-                  <span class="val">vangaakashreddy@gmail.com</span>
+                  <span class="val">vangaakashreddy<wbr>@gmail.com</span>
                 </span>
                 <span class="arrow" aria-hidden="true">
                   <svg
@@ -5880,7 +6102,7 @@
                 </span>
                 <span>
                   <span class="ttl">GitHub</span>
-                  <span class="val">github.com/akash-reddy-46</span>
+                  <span class="val">github.com/<wbr>akash-reddy-46</span>
                 </span>
                 <span class="arrow" aria-hidden="true">
                   <svg
@@ -5970,9 +6192,6 @@
         <div>
           &copy; <span id="yr"></span>
           <strong>Akash Reddy Vanga</strong>
-          <span class="foot-aka"
-            >&middot; Vanga Akash Reddy &middot; Akash Reddy</span
-          >
         </div>
         <div>
           Backend Developer &middot; Hyderabad, India &middot; Built with HTML,
@@ -6049,6 +6268,31 @@
     <script>
       // ---------- Year ----------
       document.getElementById("yr").textContent = new Date().getFullYear();
+
+      // ---------- Theme toggle: blue <-> black & white ----------
+      (function () {
+        const btn = document.getElementById("themeToggle");
+        if (!btn) return;
+        const root = document.documentElement;
+        const meta = document.querySelector('meta[name="theme-color"]');
+        const render = () => {
+          const mono = root.getAttribute("data-theme") === "mono";
+          const next = mono ? "Blue" : "Black & white";
+          btn.querySelector(".label").textContent = mono ? "Blue" : "B&W";
+          btn.setAttribute("aria-label", "Switch to " + next.toLowerCase() + " theme");
+          if (meta) meta.setAttribute("content", mono ? "#0a0a0a" : "#06080f");
+        };
+        btn.addEventListener("click", () => {
+          const mono = root.getAttribute("data-theme") !== "mono";
+          if (mono) root.setAttribute("data-theme", "mono");
+          else root.removeAttribute("data-theme");
+          try {
+            localStorage.setItem("akr_theme", mono ? "mono" : "blue");
+          } catch (e) {}
+          render();
+        });
+        render();
+      })();
 
       // ---------- Hero photo: graceful load + error fallback ----------
       (function () {
@@ -6295,8 +6539,20 @@
       const backToTop = document.getElementById("backToTop");
       const hirePill = document.getElementById("hirePill");
 
+      // Below ~1580px the floating pill + back-to-top no longer fit in the side
+      // gutter and would sit on top of the text being read, so there they only
+      // appear while scrolling up.
+      const narrowMq = window.matchMedia("(max-width: 1579px)");
+      let lastY = window.scrollY;
+      let scrollingUp = false;
+
       const onScroll = () => {
         const y = window.scrollY;
+        if (Math.abs(y - lastY) > 6) {
+          scrollingUp = y < lastY;
+          lastY = y;
+        }
+        const chromeOk = !narrowMq.matches || scrollingUp;
         nav.classList.toggle("scrolled", y > 12);
 
         // Scroll progress
@@ -6306,14 +6562,14 @@
         scrollProgress.style.width = scrolled + "%";
 
         // Back-to-top visibility
-        backToTop.classList.toggle("show", y > 600);
+        backToTop.classList.toggle("show", y > 600 && chromeOk);
 
         // Hire pill — appears after first scroll, hides near contact (avoid overlap)
         if (hirePill) {
           const contact = document.getElementById("contact");
           const nearContact =
             contact && y + window.innerHeight > contact.offsetTop + 120;
-          hirePill.classList.toggle("show", y > 200 && !nearContact);
+          hirePill.classList.toggle("show", y > 200 && !nearContact && chromeOk);
         }
       };
       onScroll();
